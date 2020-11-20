@@ -2,13 +2,9 @@ function randomPost(data){
   const a = [];
   let r, x;
   const d = data.feed.entry;
-	function c(z){
-	  a.push(d[z]);
-	}
   while(a.length < 5){
     r = Math.floor(Math.random()*d.length);
-    if(a.length == 0) a.push(d[r]);
-    else c(r);
+    a.push(d[r]);
   }
   let l = '';
   a.forEach((v)=>{
