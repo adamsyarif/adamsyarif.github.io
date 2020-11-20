@@ -2,16 +2,17 @@ function randomPost(data){
   const a = [];
   let r, x;
   const d = data.feed.entry;
+	function c(z){
+		x = false;
+		a.forEach((v)=>{
+			if(v.id.$t == d[z].id.$t) x = true;
+		});
+		if(!x) a.push(d[z]);
+	}
   while(a.length < 5){
     r = Math.floor(Math.random()*d.length);
     if(a.length == 0) a.push(d[r]);
-    else {
-      x = false;
-      a.forEach((v)=>{
-        if(v.id.$t == d[r].id.$t) x = true;
-      });
-      if(!x) a.push(d[r]);
-    }
+    else c(r);
   }
   let l = '';
   a.forEach((v)=>{
