@@ -1,3 +1,5 @@
+// https://belajar-html-css-javascript.blogspot.com/feeds/posts/default/-/HTML?q=3&alt=json&max-results=1000
+
 function _showPost(j){
   _relatedPost(j);
   _newPost(j);
@@ -66,4 +68,8 @@ function _postList(p){
           '</table>';
   });
   return l;
+}
+
+function _searchQuery(){
+	$('#demox').html(window.location.href);
 }
