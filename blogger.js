@@ -50,7 +50,7 @@ function newPost(j){
 function postList(p){
   let l = '';
   if(p.length > 0){
-    d.forEach((v)=>{
+    p.forEach((v)=>{
       l += '<table style="width:100%">'+
               '<tr>'+
                 '<td>'+
