@@ -25,9 +25,9 @@ function randomPost(data){
             '<td style="width:100%">'+
               '<b class="w3-large w3-text-dark-gray">'+ v.title.$t +'</b>'+
               '<div class="w3-small" style="text-align:justify">'+ (v.summary.$t.slice(0, 100) +'..') +'</div>'+
-              '<div class="w3-right-align">'+
+              '<p class="w3-right-align">'+
                 '<a class="w3-button w3-border w3-small w3-round-large" href="'+ v.link[2].href +'">Baca selengkapnya</a>'+
-              '</div>'+
+              '</p>'+
             '</td>'+
           '</tr>'+
         '</table>';
