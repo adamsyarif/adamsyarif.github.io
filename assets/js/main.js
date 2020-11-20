@@ -2,18 +2,7 @@ function randomPost(data){
   const a = [];
   let r, x, i;
   const d = data.feed.entry;
-  while(a.length < 5){
-    r = Math.floor(Math.random()*d.length);
-    if(a.length == 0) a.push(d[r]);
-    else {
-      x = false;
-      for(i = 0; i < a.length; i++){
-        if(a[i].id.$t == d[r].id.$t) x = true;
-      }
-      if(!x) a.push(d[r]);
-    }
-  }
-  const l = '';
+  const l = 'aa';
   a.forEach((v)=>{
     l += '<li>'+
             '<table class="w3-table">'+
