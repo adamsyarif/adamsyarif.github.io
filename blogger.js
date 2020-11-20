@@ -3,11 +3,7 @@ function randomPost(data){
   let r, x;
   const d = data.feed.entry;
 	function c(z){
-		x = false;
-		a.forEach((v)=>{
-			if(v.id.$t == d[z].id.$t) x = true;
-		});
-		if(!x) a.push(d[z]);
+	  a.push(d[z]);
 	}
   while(a.length < 5){
     r = Math.floor(Math.random()*d.length);
