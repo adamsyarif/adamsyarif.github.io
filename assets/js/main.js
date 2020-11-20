@@ -2,11 +2,11 @@ function randomPost(data){
   const a = [];
   let r, x, i;
   const d = data.feed.entry;
-  const l = 'aa';
   while(a.length < 5){
     r = Math.floor(Math.random()*d.length);
     a.push(d[r]);
   }
+  let l = '';
   a.forEach((v)=>{
     l += '<li>'+
             '<table class="w3-table">'+
