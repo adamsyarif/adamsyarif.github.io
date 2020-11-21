@@ -1,9 +1,6 @@
 // https://belajar-html-css-javascript.blogspot.com/feeds/posts/default/-/HTML?q=3&alt=json&max-results=1000
+// https://belajar-html-css-javascript.blogspot.com/feeds/posts/default?alt=json-in-script&start-index=1&max-results=1000&callback=xxx
 
-function _showPost(j){
-  _relatedPost(j);
-  _newPost(j);
-}
 
 function _relatedPost(j){
   const p = [];
@@ -24,7 +21,7 @@ function _relatedPost(j){
       }
     }
   }
-  $('#related-post').html(_postList(p));
+  _postList(p);
 }
 
 function _newPost(j){
@@ -44,7 +41,7 @@ function _newPost(j){
       }
     }
   }
-  $('#new-post').html(_postList(p));
+  _postList(p);
 }
 
 function _postList(p){
@@ -67,5 +64,5 @@ function _postList(p){
             '</tr>'+
           '</table>';
   });
-  return l;
+  $('#post-list').html(l);
 }
