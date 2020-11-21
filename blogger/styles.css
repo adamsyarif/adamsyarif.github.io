@@ -28,10 +28,6 @@ label {cursor: pointer}
   overflow-x: hidden;
   overflow-y: auto;
 }
-#loader {
-  display: inline;
-  z-index: 4;
-}
 #toast {
   display: none;
   position: fixed;
