@@ -79,6 +79,7 @@ function _searchResult(q, c){
       }
     }
     $('#search-result').html(_postList(p));
+    $('.searchbar').hide();
     _loader(false);
   });
 }
