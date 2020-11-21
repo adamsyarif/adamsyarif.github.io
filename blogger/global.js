@@ -59,7 +59,7 @@ function _postList(p){
             '</tr>'+
           '</table>';
   });
-  $('#post-list').html(l);
+  return l;
 }
 
 function _sidebarMenu(e, i){
