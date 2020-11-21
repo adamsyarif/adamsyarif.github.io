@@ -66,3 +66,8 @@ function _postList(p){
   });
   $('#post-list').html(l);
 }
+
+function sidebarMenu(e, i){
+	$('.menu-content').eq(i).slideToggle();
+	$(e).find('i').toggleClass('fa-caret-down fa-caret-up');
+}
