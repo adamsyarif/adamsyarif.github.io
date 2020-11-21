@@ -3,6 +3,7 @@ const _feedUrl = _blogUrl +'/feeds/posts/default';
 const _REQ = [];
 
 $(document).ready(()=>{
+  $('.what-time-is').text(_whatTimeIs());
   $('form').submit((e)=>{
     e.preventDefault();
     return false;
@@ -113,4 +114,9 @@ function _toast(m){
 function _sidebarMenu(e, i){
   $('.menu-content').eq(i).slideToggle();
   $(e).find('i').toggleClass('fa-caret-down fa-caret-up');
+}
+
+function _whatTimeIs(){
+  let h = new Date().getHours();
+  return (h > 2 && h < 11)? 'pagi' : (h > 10 && h < 15)? 'siang' : (h > 14 && h < 18)? 'sore' : 'malam';
 }
