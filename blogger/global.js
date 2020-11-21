@@ -5,10 +5,14 @@ const _blogUrl = 'https://belajar-html-css-javascript.blogspot.com';
 const _REQ = [];
 
 $(document).ready(()=>{
+  $('form').submit((e)=>{
+    e.preventDefault();
+    return false;
+  }).trigger('reset');
   $('input[name=search]').change(function(){
     const c = $('.search-content');
     c.hide();
-    c.eq($(this).val()).show();
+    c.eq(+$(this).val()).show();
   });
 });
 
@@ -45,6 +49,17 @@ function _toast(m){
     TOAST = null;
     t.hide();
   }, 3000);
+}
+
+function _category(c){
+  let l = '';
+  if(c && c.length > 0){
+    c.forEach((v)=>{
+      l += '<option value="'+ v.term +'">'+ v.term +'</option>';
+    });
+  }
+  else l = '<option value="none">- Pilih -</option>';
+  $('#category-list').html(l);
 }
 
 function _postList(p){
