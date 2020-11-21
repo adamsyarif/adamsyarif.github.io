@@ -28,8 +28,8 @@ function _newPost(j){
   const p = [];
   const e = j.feed.entry;
   const x = (e.length >= 5)? 5 : e.length;
-  while(p.length < x){
-    e.forEach(v => p.push(v));
+  for(let i = 0; i < x; i++){
+    p.push(e[i]);
   }
   _postList(p);
 }
