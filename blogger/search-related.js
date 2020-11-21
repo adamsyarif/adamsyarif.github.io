@@ -1,7 +1,8 @@
 (()=>{
 	let c = $('#post-label').val().split(',').filter(v => v.trim() != '');
 	let r = Math.floor(Math.random() * c.length);
-  _req(_blogUrl +'/feeds/posts/default/-/'+ c[r] +'&alt=json&max-results=1000', (j)=>{
+	console.log(c);
+  _req(_blogUrl +'/feeds/posts/default/-/HTML?alt=json&max-results=1000', (j)=>{
 		_loader(true);
 		const p = [];
 		const e = j.feed.entry;
