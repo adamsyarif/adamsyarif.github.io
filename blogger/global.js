@@ -67,7 +67,7 @@ function _search(){
     break;
     default: return _toast('Pilih opsi');
   }
-  window.location.assign(u);
+  window.location.assign(encodeURI(u));
 }
 
 function _postList(p){
