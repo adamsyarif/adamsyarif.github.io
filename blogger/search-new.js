@@ -1,5 +1,5 @@
 (()=>{
-  _req(_blogUrl +'/feeds/posts/default?alt=json&max-results=5', (j)=>{
+  _req(_feedUrl +'?alt=json&max-results=5', (j)=>{
     _loader(true);
     _category(j.feed.category);
     const p = [];
