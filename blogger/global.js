@@ -4,6 +4,14 @@
 const _blogUrl = 'https://belajar-html-css-javascript.blogspot.com';
 const _REQ = [];
 
+$(document).ready(()=>{
+  $('input[name=search]').change(function(){
+    const c = $('.search-content');
+    c.hide();
+    c.eq($(this).val()).show();
+  });
+});
+
 function _req(u, c){
   $.ajax({
     method: 'GET',
