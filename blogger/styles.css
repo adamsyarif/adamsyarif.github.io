@@ -64,6 +64,7 @@ label {cursor: pointer}
 .wrapper {
   max-width: 570px;
   margin: auto;
+  text-align: justify;
 }
 .pointer {cursor: pointer}
 .thumbnail {
