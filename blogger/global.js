@@ -1,4 +1,5 @@
 const _blogUrl = 'https://belajar-html-css-javascript.blogspot.com';
+const _feedUrl = _blogUrl +'/feeds/posts/default';
 const _REQ = [];
 
 $(document).ready(()=>{
@@ -52,36 +53,21 @@ function _validate(e, p){
 }
 
 function _search(){
-  let q, c;
+  let q, c, u = _blogUrl +'/search';
   switch(+$('input[name=search]:checked').val()){
     case 1:
-      q = $('#search-query').val();
-      if(q.trim() == '') return _toast('Kata kunci tidak boleh kosong');
+      q = $('#search-query').val().trim();
+      if(q == '') return _toast('Kata kunci tidak boleh kosong');
+      u += '?q='+ q;
     break;
     case 2:
       c = $('#category-list').val();
       if(c == 'none') return _toast('Maaf, kategori belum tersedia');
+      u += '/label/'+ c;
     break;
     default: return _toast('Pilih opsi');
   }
-  _searchResult(q, c);
-}
-
-function _searchResult(q, c){
-  _req(_blogUrl +'/feeds/posts/default'+ (c ? ('/-/'+ c +'?') : '?') + (q ? ('q='+ q +'&') : '') +'alt=json&max-results=1000', (j)=>{
-    _loader(true);
-    const p = [];
-    if(j.feed.entry){
-      const e = j.feed.entry;
-      const x = (e.length >= 7)? 7 : e.length;
-      for(let i = 0; i < x; i++){
-        p.push(e[i]);
-      }
-    }
-    $('#search-result').html(_postList(p));
-    $('.searchbar').hide();
-    _loader(false);
-  });
+  window.location.assign(u);
 }
 
 function _postList(p){
@@ -97,7 +83,7 @@ function _postList(p){
                 '</td>'+
                 '<td>'+
                   '<b class="w3-large w3-text-dark-gray">'+ v.title.$t +'</b>'+
-                  '<div class="w3-small w3-justify">'+ (v.summary.$t.slice(0, 100) +'..') +'</div>'+
+                  '<div class="w3-small w3-justify">'+ v.summary.$t.slice(0, 100) +'..</div>'+
                   '<p class="w3-right-align">'+
                     '<a class="w3-button w3-border w3-small w3-round-large" href="'+ v.link[2].href +'">Baca selengkapnya</a>'+
                   '</p>'+
