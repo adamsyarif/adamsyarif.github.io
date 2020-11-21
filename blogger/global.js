@@ -15,8 +15,21 @@ function _loader(s){
 
 function _search(){
   _loader(true);
+	_toast('haloooo');
   setTimeout(()=>{
     _loader(false);
+  }, 3000);
+}
+
+let _TOAST;
+function _toast(m){
+  if(_TOAST) clearTimeout(_TOAST);
+  $('#toast-msg').text(m);
+  const t = $('#toast');
+  t.show();
+  _TOAST = setTimeout(()=>{
+    TOAST = null;
+    t.hide();
   }, 3000);
 }
 
