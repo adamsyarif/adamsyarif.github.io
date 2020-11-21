@@ -1,6 +1,3 @@
-// https://belajar-html-css-javascript.blogspot.com/feeds/posts/default/-/HTML?q=3&alt=json&max-results=1000
-// https://belajar-html-css-javascript.blogspot.com/feeds/posts/default?alt=json-in-script&start-index=1&max-results=1000&callback=xxx
-
 const _blogUrl = 'https://belajar-html-css-javascript.blogspot.com';
 const _REQ = [];
 
@@ -12,7 +9,7 @@ $(document).ready(()=>{
   $('input[name=search]').change(function(){
     const c = $('.search-content');
     c.hide();
-    c.eq(+$(this).val()).show();
+    c.eq(+$(this).val()-1).show();
   });
 });
 
@@ -39,18 +36,6 @@ function _loader(s){
   }
 }
 
-let _TOAST;
-function _toast(m){
-  if(_TOAST) clearTimeout(_TOAST);
-  $('#toast-msg').text(m);
-  const t = $('#toast');
-  t.show();
-  _TOAST = setTimeout(()=>{
-    TOAST = null;
-    t.hide();
-  }, 3000);
-}
-
 function _category(c){
   let l = '';
   if(c && c.length > 0){
@@ -60,6 +45,42 @@ function _category(c){
   }
   else l = '<option value="none">- Pilih -</option>';
   $('#category-list').html(l);
+}
+
+function _validate(e, p){
+  e.value = e.value.replace(p, '');
+}
+
+function _search(){
+  let q, c;
+  switch(+$('input[name=search]:checked').val()){
+    case 1:
+      q = $('#search-query').val();
+      if(q.trim() == '') return _toast('Kata kunci tidak boleh kosong');
+    break;
+    case 2:
+      c = $('#category-list').val();
+      if(c == 'none') return _toast('Maaf, kategori belum tersedia');
+    break;
+    default: return _toast('Pilih opsi');
+  }
+  _searchResult(q, c);
+}
+
+function _searchResult(q, c){
+  _req(_blogUrl +'/feeds/posts/default'+ (c ? ('/-/'+ c +'?') : '?') + (q ? ('q='+ q +'&') : '') +'alt=json&max-results=1000', (j)=>{
+    _loader(true);
+    const p = [];
+    if(j.feed.entry){
+      const e = j.feed.entry;
+      const x = (e.length >= 7)? 7 : e.length;
+      for(let i = 0; i < x; i++){
+        p.push(e[i]);
+      }
+    }
+    $('#search-result').html(_postList(p));
+    _loader(false);
+  });
 }
 
 function _postList(p){
@@ -88,6 +109,18 @@ function _postList(p){
               '<p class="w3-text-gray">Artikel tidak ditemukan.</p>'+
             '</div>';
   return l;
+}
+
+let _TOAST;
+function _toast(m){
+  if(_TOAST) clearTimeout(_TOAST);
+  $('#toast-msg').text(m);
+  const t = $('#toast');
+  t.show();
+  _TOAST = setTimeout(()=>{
+    TOAST = null;
+    t.hide();
+  }, 3000);
 }
 
 function _sidebarMenu(e, i){
