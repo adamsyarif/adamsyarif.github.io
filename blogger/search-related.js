@@ -17,7 +17,7 @@
         if(!f) p.push(e[r]);
       }
     }
-    _postList(p);
+    $('#sidebar-post').html(_postList(p));
     _loader(false);
   });
 })();
