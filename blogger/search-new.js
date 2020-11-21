@@ -1,6 +1,5 @@
 (()=>{
   _req(_feedUrl +'?alt=json&max-results=5', (j)=>{
-    _loader(true);
     _category(j.feed.category);
     const p = [];
     if(j.feed.entry){
@@ -11,6 +10,5 @@
       }
     }
     $('#sidebar-post').html(_postList(p));
-    _loader(false);
   });
 })();
