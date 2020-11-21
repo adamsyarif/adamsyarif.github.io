@@ -5,8 +5,8 @@
     _loader(true);
     _category(j.feed.category);
     const p = [];
-    const e = j.feed.entry;
     if(j.feed.entry){
+      const e = j.feed.entry;
       const x = (e.length >= 5)? 5 : e.length;
       let f;
       while(p.length < x){
