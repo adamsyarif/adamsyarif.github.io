@@ -2,7 +2,6 @@
   let c = $('#post-label').val().split(',').filter(v => v.trim() != '');
   let r = Math.floor(Math.random() * c.length);
   _req(_feedUrl +'/-/'+ c[r] +'?alt=json&max-results=1000', (j)=>{
-    _loader(true);
     _category(j.feed.category);
     const p = [];
     if(j.feed.entry){
@@ -21,6 +20,5 @@
       }
     }
     $('#sidebar-post').html(_postList(p));
-    _loader(false);
   });
 })();
