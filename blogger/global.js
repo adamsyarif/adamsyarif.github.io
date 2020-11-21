@@ -1,3 +1,6 @@
+// https://belajar-html-css-javascript.blogspot.com/feeds/posts/default/-/HTML?q=3&alt=json&max-results=1000
+// https://belajar-html-css-javascript.blogspot.com/feeds/posts/default?alt=json-in-script&start-index=1&max-results=1000&callback=xxx
+
 const _blogUrl = 'https://belajar-html-css-javascript.blogspot.com';
 const _REQ = [];
 
@@ -49,7 +52,7 @@ function _postList(p){
                 '</td>'+
                 '<td>'+
                   '<b class="w3-large w3-text-dark-gray">'+ v.title.$t +'</b>'+
-                  '<div class="w3-small" style="text-align:justify">'+ (v.summary.$t.slice(0, 100) +'..') +'</div>'+
+                  '<div class="w3-small w3-justify">'+ (v.summary.$t.slice(0, 100) +'..') +'</div>'+
                   '<p class="w3-right-align">'+
                     '<a class="w3-button w3-border w3-small w3-round-large" href="'+ v.link[2].href +'">Baca selengkapnya</a>'+
                   '</p>'+
@@ -58,7 +61,9 @@ function _postList(p){
             '</table>';
     });
   }
-  else l = '<span class="w3-small w3-text-gray">Artikel tidak ditemukan.</span>';
+  else l = '<div class="w3-panel w3-pale-yellow w3-leftbar w3-border-khaki">'+
+              '<p class="w3-text-gray">Artikel tidak ditemukan.</p>'+
+            '</div>';
   return l;
 }
 
