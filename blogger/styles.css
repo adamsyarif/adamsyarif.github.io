@@ -1,0 +1,73 @@
+/* ========== element */
+body {background-color:#333}
+html, body, img {
+  width: 100%;
+  height: 100%;
+}
+img {object-fit: cover}
+a {text-decoration: none}
+table {border-collapse: collapse}
+td {vertical-align: top}
+label {cursor: pointer}
+
+/* ========== id */
+#body {position: fixed}
+#body, #inner-wrapper {
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+#body, #skeleton, #outer-wrapper, #inner-wrapper {
+  width: 100%;
+  height: 100%;
+}
+#outer-wrapper {position: relative}
+#inner-wrapper {
+  position: absolute;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+#loader {
+  display: inline;
+  z-index: 4;
+}
+#toast {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 60px;
+  width: 100%;
+  z-index: 5;
+  padding: 0 10px;
+}
+#toast-msg {
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  margin: auto;
+  max-width: 400px;
+  text-align: center;
+  padding: 8px 16px;
+}
+
+/* ========== class */
+.menu {
+  display: none;
+  z-index: 3!important;
+  width: 300px!important;
+}
+.menu-content {
+  display: none;
+  background-color: #e5e5e5;
+}
+.wrapper {
+  max-width: 570px;
+  margin: auto;
+}
+.pointer {cursor: pointer}
+.thumbnail {
+  width: 75px;
+  height: 75px;
+}
+.sosmed-icon {padding: 0 5px}
