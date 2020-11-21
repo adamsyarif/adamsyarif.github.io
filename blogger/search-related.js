@@ -3,6 +3,7 @@
   let r = Math.floor(Math.random() * c.length);
   _req(_blogUrl +'/feeds/posts/default/-/'+ c[r] +'?alt=json&max-results=1000', (j)=>{
     _loader(true);
+    _category(j.feed.category);
     const p = [];
     const e = j.feed.entry;
     if(j.feed.entry){
