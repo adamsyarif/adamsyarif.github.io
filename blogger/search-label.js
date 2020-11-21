@@ -2,7 +2,6 @@
   const p = new URL(window.location.href).pathname;
   const c = p.slice((p.lastIndexOf('/')+1), p.length);
   _req(_feedUrl +'/-/'+ c +'?alt=json&max-results=1000', (j)=>{
-    _loader(true);
     const p = [];
     if(j.feed.entry){
       const e = j.feed.entry;
@@ -12,6 +11,5 @@
       }
     }
     $('#search-result').html(_postList(p));
-    _loader(false);
   });
 })();
