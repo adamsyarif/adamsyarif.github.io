@@ -3,17 +3,28 @@ const _feedUrl = _blogUrl +'/feeds/posts/default';
 const _REQ = [];
 
 hljs.initHighlightingOnLoad();
-$(document).ready(()=>{
-  $('.what-time-is').text(_whatTimeIs());
-  $('form').submit((e)=>{
+$(document).on({
+  ready: function(){
+    $('.what-time-is').text(_whatTimeIs());
+    $('form').submit((e)=>{
+      e.preventDefault();
+      return false;
+    }).trigger('reset');
+    $('input[name=search]').change(function(){
+      const c = $('.search-content');
+      c.hide();
+      c.eq(+$(this).val()-1).show();
+    });
+  },
+  contextmenu: function(e){
     e.preventDefault();
     return false;
-  }).trigger('reset');
-  $('input[name=search]').change(function(){
-    const c = $('.search-content');
-    c.hide();
-    c.eq(+$(this).val()-1).show();
-  });
+  },
+  copy: function(e){
+    e.clipboardData.setData('text/plain', '');
+    e.preventDefault();
+    return false;
+  }
 });
 
 function _req(u, c){
