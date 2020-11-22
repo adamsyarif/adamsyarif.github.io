@@ -15,16 +15,10 @@ $(document).ready(()=>{
     c.eq(+$(this).val()-1).show();
   });
 });
-$(document).on({
-  contextmenu: function(e){
-    e.preventDefault();
-    return false;
-  },
-  copy: function(e){
-    e.clipboardData.setData('text/plain', '');
-    e.preventDefault();
-    return false;
-  }
+$(document).on('contextmenu copy cut', function(e){
+  e.clipboardData.setData('text/plain', '');
+  e.preventDefault();
+  return false;
 });
 
 function _req(u, c){
