@@ -13,6 +13,7 @@ $(document).ready(()=>{
     c.hide();
     c.eq(+$(this).val()-1).show();
   });
+  hljs.initHighlightingOnLoad();
 });
 
 function _req(u, c){
