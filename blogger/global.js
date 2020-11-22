@@ -3,6 +3,7 @@ const _feedUrl = _blogUrl +'/feeds/posts/default';
 const _REQ = [];
 
 hljs.initHighlightingOnLoad();
+
 $(document).ready(()=>{
   $('.what-time-is').text(_whatTimeIs());
   $('form').submit((e)=>{
@@ -15,6 +16,7 @@ $(document).ready(()=>{
     c.eq(+$(this).val()-1).show();
   });
 });
+
 $(document).on('contextmenu copy cut', function(e){
   e.clipboardData.setData('text/plain', '');
   e.preventDefault();
