@@ -2,6 +2,7 @@ const _blogUrl = 'https://belajar-html-css-javascript.blogspot.com';
 const _feedUrl = _blogUrl +'/feeds/posts/default';
 const _REQ = [];
 
+hljs.initHighlightingOnLoad();
 $(document).ready(()=>{
   $('.what-time-is').text(_whatTimeIs());
   $('form').submit((e)=>{
@@ -13,7 +14,6 @@ $(document).ready(()=>{
     c.hide();
     c.eq(+$(this).val()-1).show();
   });
-  hljs.initHighlightingOnLoad();
 });
 
 function _req(u, c){
