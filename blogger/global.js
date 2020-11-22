@@ -18,7 +18,6 @@ $(document).ready(()=>{
 });
 
 $(document).on('contextmenu copy cut', function(e){
-  e.clipboardData.setData('text/plain', '');
   e.preventDefault();
   return false;
 });
