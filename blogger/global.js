@@ -17,7 +17,7 @@ $(document).ready(()=>{
   });
 });
 
-$('body').on('contextmenu copy cut', function(e){
+$('#post-body').on('contextmenu copy cut', function(e){
   e.preventDefault();
   return false;
 });
