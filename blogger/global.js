@@ -146,7 +146,7 @@ const _result = {
   },
   load: function(){
     const d = this.data;
-    const p = [...d].splice((this.page-1)*7), 7);
+    const p = d.splice((this.page-1)*7), 7);
     $('#search-result').html((p.length > 0)? _postList(p) : _notFound(true));
     $('.current-page').text(this.page);
     $('.total-page').text(this.pages());
@@ -217,7 +217,7 @@ function _sidebarMenu(e, i){
 }
 
 function _whatTimeIs(){
-  let h = new Date().getHours();
+  const h = new Date().getHours();
   return (h > 2 && h < 11)? 'pagi' : (h > 10 && h < 15)? 'siang' : (h > 14 && h < 18)? 'sore' : 'malam';
 }
 
