@@ -100,8 +100,12 @@ function _postList(p){
             '</table>';
     });
   }
-  else l = '<div class="w3-panel w3-pale-yellow w3-leftbar w3-border-khaki">'+
-              '<p class="w3-text-gray">Artikel tidak ditemukan.</p>'+
+  else l = '<p class="w3-center">'+
+              '<b class="w3-large w3-text-dark-gray">Ups! artikel tidak ditemukan..</b>'+
+              '<div><img src="https://adamsyarif.github.io/blogger/search_result.png"/></div>'+
+            '</p>'+
+            '<div class="w3-panel w3-pale-yellow w3-leftbar w3-border-khaki w3-text-dark-gray">'+
+              '<p>Sepertinya artikel yang kamu cari belum ada, coba periksa kembali pencarianmu atau buka daftar menu untuk mencari Artikel yang menarik untuk kamu baca..</p>'+
             '</div>';
   return l;
 }
