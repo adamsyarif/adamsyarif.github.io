@@ -79,17 +79,14 @@ function _search(){
 }
 
 function _postList(p){
-  console.log(p);
   let l = '';
   if(p.length > 0){
-    let i;
     p.forEach((v)=>{
-      i = (v.media$thumbnail.url)? v.media$thumbnail.url : 'https://adamsyarif.github.io/blogger/default.jpg';
       l += '<table style="width:100%">'+
               '<tr>'+
                 '<td>'+
                   '<div class="thumbnail w3-card-2 w3-margin-right">'+
-                    '<img src="'+ i +'"/>'+
+                    '<img src="'+ v.media$thumbnail.url +'"/>'+
                   '</div>'+
                 '</td>'+
                 '<td>'+
