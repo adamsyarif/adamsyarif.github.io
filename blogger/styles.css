@@ -66,4 +66,9 @@ label {cursor: pointer}
   width: 75px;
   height: 75px;
 }
+.line {
+  width: 80%;
+  height: 1px;
+  background-color: #9e9e9e;
+}
 .sosmed-icon {padding: 0 5px}
