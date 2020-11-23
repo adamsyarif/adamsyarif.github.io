@@ -145,8 +145,7 @@ const _result = {
     }
   },
   load: function(){
-    const d = this.data;
-    const p = d.splice((this.page-1)*7), 7);
+    const p = [...this.data];
     $('#search-result').html((p.length > 0)? _postList(p) : _notFound(true));
     $('.current-page').text(this.page);
     $('.total-page').text(this.pages());
