@@ -136,3 +136,10 @@ function _whatTimeIs(){
   let h = new Date().getHours();
   return (h > 2 && h < 11)? 'pagi' : (h > 10 && h < 15)? 'siang' : (h > 14 && h < 18)? 'sore' : 'malam';
 }
+
+function _copy(){
+  const t = document.getElementById('blog-url');
+  t.setSelectionRange(0, 99999);
+  t.select();
+  document.execCommand("copy");
+}
