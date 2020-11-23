@@ -109,7 +109,7 @@ function _search(n){
   }
 }
 
-function _sidebarPost(d)=>{
+function _sidebarPost(d){
   let c = '';
   d.feed.category.forEach((v)=>{
     c += '<option value="'+ v.term +'">'+ v.term +'</option>';
