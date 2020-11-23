@@ -106,8 +106,7 @@ function _postList(p){
 
 function _notFound(n){
   n = n ? ['artikel', 'search_result'] : ['halaman', '404_not_found'];
-  return '<p><b class="w3-text-orange w3-large">Hasil pencarian</b></p>'+
-          '<p class="w3-center">'+
+  return '<p class="w3-center">'+
             '<b class="w3-large w3-text-dark-gray">Ups! '+ n[0] +' tidak ditemukan..</b>'+
             '<div><img src="https://adamsyarif.github.io/blogger/'+ n[1] +'.png"/></div>'+
           '</p>'+
