@@ -127,14 +127,16 @@ function _sidebarPost(d){
 
 function _searchResult(d, n){
   const p = [];
+  let r = 0;
   if(d.feed.entry){
     const e = d.feed.entry;
     const x = (e.length >= 7)? 7 : e.length;
     for(let i = 0; i < x; i++){
       p.push(e[i]);
     }
+    r = e.length;
   }
-  $('#search-description').text('Ditemukan '+ p.length +' hasil untuk '+ n);
+  $('#search-description').text('Ditemukan '+ r +' hasil untuk '+ n);
   $('#search-result').html((p.length > 0)? _postList(p) : _notFound(true));
 }
 
