@@ -126,7 +126,6 @@ function _sidebarPost(d){
 }
 
 const _result = {
-  data: [],
   page: 1,
   pages: function(){
     const p = Math.ceil(this.data.length/7);
@@ -145,10 +144,8 @@ const _result = {
     }
   },
   load: function(){
-    const d = [1,2,3];
-    const p = [...d].splice((this.page-1)*7), 7);
-    return;
-    $('#search-result').html((d.length > 0)? _postList(d) : _notFound(true));
+    const p = this.data.map(d => d).splice((this.page-1)*7), 7);
+    $('#search-result').html((p.length > 0)? _postList(p) : _notFound(true));
     $('.current-page').text(this.page);
     $('.total-page').text(this.pages());
   }
