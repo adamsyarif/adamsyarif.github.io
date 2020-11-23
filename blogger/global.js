@@ -142,4 +142,5 @@ function _copy(){
   t.setSelectionRange(0, 99999);
   t.select();
   document.execCommand("copy");
+  _toast('Teks telah disalin');
 }
