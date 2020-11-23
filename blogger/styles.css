@@ -67,7 +67,6 @@ label {cursor: pointer}
   height: 75px;
 }
 .line {
-  width: 65%;
   height: 1px;
   background-color: #f1f1f1;
 }
