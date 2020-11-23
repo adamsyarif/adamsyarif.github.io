@@ -82,7 +82,8 @@ function _postList(p){
   let l = '';
   if(p.length > 0){
     p.forEach((v)=>{
-      l += '<table style="width:100%">'+
+      l += '<p><b class="w3-text-orange w3-large">Hasil pencarian</b></p>'+
+            '<table style="width:100%">'+
               '<tr>'+
                 '<td>'+
                   '<div class="thumbnail w3-card-2 w3-margin-right">'+
