@@ -5,7 +5,7 @@ hljs.initHighlightingOnLoad();
 
 $(document).ready(()=>{
   $('.what-time-is').text(_whatTimeIs());
-  $('form').trigger('reset');
+  $('form').submit(_preventDefault).trigger('reset');
   $('input[name=option]').change(function(){
     const c = $('.search-content');
     c.hide();
@@ -13,10 +13,12 @@ $(document).ready(()=>{
   });
 });
 
-$('#post-body').on('contextmenu copy cut', (e)=>{
+$('#post-body').on('contextmenu copy cut', _preventDefault);
+
+function _preventDefault(e){
   e.preventDefault();
   return false;
-});
+}
 
 function _loader(s){
   const loader = $('#loader');
@@ -95,14 +97,17 @@ function _search(n){
               let q = $('#search-query').val().trim();
               if(!q) return _toast('Kata kunci tidak boleh kosong');
               u += '?q='+ q;
+              location.assign(encodeURI(u));
             })();
           break;
           case 2:
-            u += '/label/'+ $('#category-list').val();
+            (()=>{
+              u += '/label/'+ $('#category-list').val();
+              location.assign(encodeURI(u));
+            })();
           break;
-          default: return _toast('Pilih opsi');
+          default: _toast('Pilih opsi');
         }
-        location.assign(encodeURI(u));
       })();
   }
 }
