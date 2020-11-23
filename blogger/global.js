@@ -148,9 +148,7 @@ const _result = {
     $('#search-result').html((p.length > 0)? _postList(p) : _notFound(true));
     $('#current-page').text(this.page);
     $('#total-page').text(this.pages());
-    $('#inner-wrapper').animate({
-      scrollTop: $('#top-search').offset().top
-    }, 800);
+    $('#inner-wrapper').animate({scrollTop: 0}, 800);
   }
 };
 
