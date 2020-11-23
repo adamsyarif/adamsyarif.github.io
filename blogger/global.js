@@ -5,7 +5,10 @@ hljs.initHighlightingOnLoad();
 
 $(document).ready(()=>{
   $('.what-time-is').text(_whatTimeIs());
-  $('form').submit(_preventDefault).trigger('reset');
+  $('form').submit((e)=>{
+    e.preventDefault();
+    return false;
+  }).trigger('reset');
   $('input[name=option]').change(function(){
     const c = $('.search-content');
     c.hide();
@@ -13,12 +16,10 @@ $(document).ready(()=>{
   });
 });
 
-$('#post-body').on('contextmenu copy cut', _preventDefault);
-
-function _preventDefault(e){
+$('#post-body').on('contextmenu copy cut', (e)=>{
   e.preventDefault();
   return false;
-}
+});
 
 function _loader(s){
   const loader = $('#loader');
