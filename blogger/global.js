@@ -79,7 +79,7 @@ function _search(){
 }
 
 function _postList(p){
-  console.log(v);
+  console.log(p);
   let l = '';
   if(p.length > 0){
     let i;
