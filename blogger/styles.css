@@ -33,7 +33,7 @@ label {cursor: pointer}
   position: fixed;
   left: 0;
   right: 0;
-  bottom: 120px;
+  bottom: 100px;
   width: 100%;
   z-index: 5;
   padding: 0 10px;
