@@ -126,6 +126,7 @@ function _sidebarPost(d){
 }
 
 const _result = {
+  data: [],
   page: 1,
   pages: function(){
     const p = Math.ceil(this.data.length/7);
