@@ -126,7 +126,12 @@ function _sidebarPost(d){
 }
 
 const _result = {
+  data: [],
   page: 1,
+  pages: function(){
+    const p = Math.ceil(this.data.length/7);
+    return (p > 0)? p : 1;
+  },
   previous: function(){
     if(this.page > 1){
       this.page -= 1;
@@ -134,8 +139,7 @@ const _result = {
     }
   },
   next: function(){
-    const p = Math.ceil(this.data.length/7);
-    if(this.page < p){
+    if(this.page < this.pages()){
       this.page += 1;
       this.load();
     }
