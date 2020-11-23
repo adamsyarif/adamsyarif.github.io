@@ -138,9 +138,9 @@ function _whatTimeIs(){
 }
 
 function _copy(){
-  const t = document.getElementById('blog-url');
-  t.setSelectionRange(0, 99999);
+  const t = document.getElementById('post-url');
+  t.setSelectionRange(0, 1000);
   t.select();
-  document.execCommand("copy");
+  document.execCommand('copy');
   _toast('Teks telah disalin');
 }
