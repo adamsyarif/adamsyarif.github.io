@@ -100,14 +100,20 @@ function _postList(p){
             '</table>';
     });
   }
-  else l = '<p class="w3-center">'+
-              '<b class="w3-large w3-text-dark-gray">Ups! artikel tidak ditemukan..</b>'+
-              '<div><img src="https://adamsyarif.github.io/blogger/search_result.png"/></div>'+
-            '</p>'+
-            '<div class="w3-panel w3-pale-yellow w3-leftbar w3-border-khaki w3-text-dark-gray">'+
-              '<p>Sepertinya artikel yang kamu cari belum ada, coba periksa kembali pencarianmu atau buka daftar menu untuk mencari Artikel yang menarik untuk kamu baca..</p>'+
-            '</div>';
+  else l = _notFound(true);
   return l;
+}
+
+function _notFound(n){
+  n = n ? ['artikel', 'search_result'] : ['halaman', '404_not_found'];
+  return '<p><b class="w3-text-orange w3-large">Hasil pencarian</b></p>'+
+          '<p class="w3-center">'+
+            '<b class="w3-large w3-text-dark-gray">Ups! '+ n[0] +' tidak ditemukan..</b>'+
+            '<div><img src="https://adamsyarif.github.io/blogger/'+ n[1] +'.png"/></div>'+
+          '</p>'+
+          '<div class="w3-panel w3-pale-yellow w3-leftbar w3-border-khaki w3-text-dark-gray">'+
+            '<p>Sepertinya '+ n[0] +' yang kamu cari belum ada, coba periksa kembali pencarianmu atau buka daftar menu untuk mencari Artikel yang menarik untuk kamu baca..</p>'+
+          '</div>';
 }
 
 let _TOAST;
