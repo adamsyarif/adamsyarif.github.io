@@ -144,8 +144,9 @@ const _result = {
     }
   },
   load: function(){
-    const p = this.data.map(d => d).splice((this.page-1)*7), 7);
-    $('#search-result').html((p.length > 0)? _postList(p) : _notFound(true));
+    const p = this.page;
+		const d = this.data.map(d => d).splice((p-1)*7), 7);
+    $('#search-result').html((d.length > 0)? _postList(d) : _notFound(true));
     $('.current-page').text(this.page);
     $('.total-page').text(this.pages());
   }
