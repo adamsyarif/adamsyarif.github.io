@@ -75,14 +75,18 @@ function _search(n){
     case 3:
       (()=>{
         const q = new URL(location.href).searchParams.get('q');
-        _req(_feedUrl +'?q='+ q +'&alt=json&max-results=1000', _searchResult);
+        _req(_feedUrl +'?q='+ q +'&alt=json&max-results=1000', (d)=>{
+          _searchResult(d, 'kata kunci "'+ q +'"');
+        });
       })();
     break;
     case 4:
       (()=>{
         const p = new URL(location.href).pathname;
         const c = p.slice((p.lastIndexOf('/')+1), p.length);
-        _req(_feedUrl +'/-/'+ c +'?alt=json&max-results=1000', _searchResult);
+        _req(_feedUrl +'/-/'+ c +'?alt=json&max-results=1000', (d)=>{
+          _searchResult(d, 'kategori "'+ c +'"');
+        });
       })();
     break;
     case 5:
@@ -121,7 +125,7 @@ function _sidebarPost(d){
   $('#sidebar-post').html(_postList(_randomize(d.feed.entry)));
 }
 
-function _searchResult(d){
+function _searchResult(d, n){
   const p = [];
   if(d.feed.entry){
     const e = d.feed.entry;
@@ -130,6 +134,7 @@ function _searchResult(d){
       p.push(e[i]);
     }
   }
+  $('#search-description').text('Ditemukan '+ p.length +' hasil untuk '+ n);
   $('#search-result').html((p.length > 0)? _postList(p) : _notFound(true));
 }
 
