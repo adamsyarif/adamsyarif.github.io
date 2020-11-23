@@ -125,19 +125,31 @@ function _sidebarPost(d){
   $('#sidebar-post').html(_postList(_randomize(d.feed.entry)));
 }
 
-function _searchResult(d, n){
-  const p = [];
-  let r = 0;
-  if(d.feed.entry){
-    const e = d.feed.entry;
-    const x = (e.length >= 7)? 7 : e.length;
-    for(let i = 0; i < x; i++){
-      p.push(e[i]);
+const _result = {
+  page: 1,
+  previous: function(){
+    if(this.page > 1){
+      this.page -= 1;
+      this.load();
     }
-    r = e.length;
+  },
+  next: function(){
+    const p = Math.ceil(this.data.length/7);
+    if(this.page < p){
+      this.page += 1;
+      this.load();
+    }
+  },
+  load: function(){
+    const p = this.data.splice(((this.page-1)*7), 7);
+    $('#search-result').html((p.length > 0)? _postList(p) : _notFound(true));
   }
-  $('#search-description').text('Ditemukan '+ r +' hasil untuk '+ n);
-  $('#search-result').html((p.length > 0)? _postList(p) : _notFound(true));
+};
+
+function _searchResult(d, n){
+  _result.data = d.feed.entry ? d.feed.entry : [];
+  $('#search-description').text('Ditemukan '+ _result.data.length +' hasil untuk '+ n);
+  _result.load();
 }
 
 function _randomize(e){
