@@ -145,11 +145,13 @@ const _result = {
     }
   },
   load: function(){
+    _loader(true);
     const p = [...this.data].splice((this.page-1)*7, 7);
     $('#search-result').html((p.length > 0)? _postList(p) : _notFound(true));
     $('#current-page').text(this.page);
     $('#total-page').text(this.pages());
     $('#inner-wrapper').animate({scrollTop: 0}, 800);
+    setTimeout(_loader, 800);
   }
 };
 
