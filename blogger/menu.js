@@ -1,82 +1,135 @@
 const _menu = {
   html: [
     {
-      name: 'Belajar HTML 1',
+      name: 'Apa itu HTML ?',
       link: '#'
     },
     {
-      name: 'Belajar HTML 2',
+      name: 'HTML atributes',
       link: '#'
     },
     {
-      name: 'Belajar HTML 3',
+      name: 'HTML layouts',
       link: '#'
     },
     {
-      name: 'Belajar HTML 4',
+      name: 'HTML head dan body',
       link: '#'
     },
     {
-      name: 'Belajar HTML 5',
+      name: 'HTML display',
       link: '#'
     }
   ],
   css: [
     {
-      name: 'Belajar CSS 1',
+      name: 'Apa itu CSS ?',
       link: '#'
     },
     {
-      name: 'Belajar CSS 2',
+      name: 'CSS selectors',
       link: '#'
     },
     {
-      name: 'Belajar CSS 3',
+      name: 'CSS units',
       link: '#'
     },
     {
-      name: 'Belajar CSS 4',
+      name: 'CSS colors',
       link: '#'
     },
     {
-      name: 'Belajar CSS 5',
+      name: 'CSS text',
+      link: '#'
+    },
+    {
+      name: 'CSS margin dan padding',
+      link: '#'
+    },
+    {
+      name: 'CSS display',
+      link: '#'
+    },
+    {
+      name: 'CSS position',
+      link: '#'
+    },
+    {
+      name: 'CSS table',
+      link: '#'
+    },
+    {
+      name: 'CSS effect',
+      link: '#'
+    },
+    {
+      name: 'CSS animation',
       link: '#'
     }
   ],
   javascript: [
     {
-      name: 'Belajar JavaScript 1',
+      name: 'Apa itu JavaScript ?',
       link: '#'
     },
     {
-      name: 'Belajar JavaScript 2',
+      name: 'JavaScript variables',
       link: '#'
     },
     {
-      name: 'Belajar JavaScript 3',
+      name: 'JavaScript data type',
       link: '#'
     },
     {
-      name: 'Belajar JavaScript 4',
+      name: 'JavaScript operators',
       link: '#'
     },
     {
-      name: 'Belajar JavaScript 5',
+      name: 'JavaScript function',
+      link: '#'
+    },
+    {
+      name: 'JavaScript event listener',
+      link: '#'
+    },
+    {
+      name: 'JavaScript comparisons',
+      link: '#'
+    },
+    {
+      name: 'JavaScript conditions',
+      link: '#'
+    },
+    {
+      name: 'JavaScript loop',
+      link: '#'
+    },
+    {
+      name: 'JavaScript RegExp',
+      link: '#'
+    },
+    {
+      name: 'JavaScript errors',
+      link: '#'
+    },
+    {
+      name: 'JavaScript math',
+      link: '#'
+    },
+    {
+      name: 'JavaScript dates',
       link: '#'
     }
   ]
 };
 
 (()=>{
-  const m = $('.menu-content');
-  const b = v => '<a href="'+ v.link +'" class="w3-bar-item w3-button">'+ v.name +'</a>';
-  let l = '';
-  _menu.html.forEach(v => l += b(v));
-  m.eq(0).html(l);
-  l = '';
-  _menu.css.forEach(v => l += b(v));
-  m.eq(1).html(l);
-  l = '';
-  _menu.javascript.forEach(v => l += b(v));
-  m.eq(2).html(l);
+  let l;
+  Object.keys(_menu).forEach((n, i)=>{
+    l = '';
+    _menu[n].forEach((m)=>{
+      l += '<a href="'+ m.link +'" class="w3-bar-item w3-button">'+ m.name +'</a>';
+    });
+    $('.menu-content').eq(i).html(l);
+  });
 })();
