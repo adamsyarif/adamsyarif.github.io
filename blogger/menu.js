@@ -168,7 +168,7 @@ const _menu = {
 };
 
 (()=>{
-  let l, s, next, x = $('#post-id').val();
+  let l, s, next, x = +$('#post-id').val();
   Object.keys(_menu).forEach((n, i)=>{
     l = '';
     _menu[n].forEach((m, ii, a)=>{
