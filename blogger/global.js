@@ -213,9 +213,9 @@ function _notFound(n){
           '</div>';
 }
 
-function _sidebarMenu(e, i){
+function _sidebarMenu(i){
+  $('.sidebar-btn').eq(i).find('i').toggleClass('fa-caret-down fa-caret-up');
   $('.menu-content').eq(i).slideToggle();
-  $(e).find('i').toggleClass('fa-caret-down fa-caret-up');
 }
 
 function _whatTimeIs(){
