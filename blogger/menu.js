@@ -2,135 +2,135 @@ const _menu = {
   html: [
     {
       name: 'Apa itu HTML ?',
-      link: '#'
+      link: '/2020/11/apa-itu-html.html'
     },
     {
       name: 'HTML Attributes',
-      link: '#'
+      link: '/2020/11/html-attributes.html'
     },
     {
       name: 'HTML Head and Body',
-      link: '#'
+      link: '/2020/11/html-head-and-body.html'
     },
     {
       name: 'HTML Layout',
-      link: '#'
+      link: '/2020/11/html-layout.html'
     },
     {
       name: 'HTML Display',
-      link: '#'
+      link: '/2020/11/html-display.html'
     }
   ],
   css: [
     {
       name: 'Apa itu CSS ?',
-      link: '#'
+      link: '/2020/11/apa-itu-css_25.html'
     },
     {
       name: 'CSS Selectors',
-      link: '#'
+      link: '/2020/11/css-selectors.html'
     },
     {
       name: 'CSS Units',
-      link: '#'
+      link: '/2020/11/css-units.html'
     },
     {
       name: 'CSS Layout',
-      link: '#'
+      link: '/2020/11/css-layout.html'
     },
     {
       name: 'CSS Display',
-      link: '#'
+      link: '/2020/11/css-display.html'
     },
     {
       name: 'CSS Position',
-      link: '#'
+      link: '/2020/11/css-position.html'
     },
     {
       name: 'CSS Width and Height',
-      link: '#'
+      link: '/2020/11/css-width-and-height.html'
     },
     {
       name: 'CSS Text',
-      link: '#'
+      link: '/2020/11/css-text.html'
     },
     {
       name: 'CSS Colors',
-      link: '#'
+      link: '/2020/11/css-colors.html'
     },
     {
       name: 'CSS Effect',
-      link: '#'
+      link: '/2020/11/css-effect.html'
     },
     {
       name: 'CSS Animation',
-      link: '#'
+      link: '/2020/11/css-animation.html'
     }
   ],
   javascript: [
     {
       name: 'Apa itu JavaScript ?',
-      link: '#'
+      link: '/2020/11/apa-itu-javascript.html'
     },
     {
       name: 'JavaScript Variables',
-      link: '#'
+      link: '/2020/11/javascript-variables.html'
     },
     {
       name: 'JavaScript Data types',
-      link: '#'
+      link: '/2020/11/javascript-data-types.html'
     },
     {
       name: 'JavaScript Operators',
-      link: '#'
+      link: '/2020/11/javascript-operators.html'
     },
     {
       name: 'JavaScript Comparison and Conditions',
-      link: '#'
+      link: '/2020/11/javascript-comparison-and-conditions.html'
     },
     {
       name: 'JavaScript Function',
-      link: '#'
+      link: '/2020/11/javascript-function.html'
     },
     {
       name: 'JavaScript Async and Await',
-      link: '#'
+      link: '/2020/11/javascript-async-and-await.html'
     },
     {
       name: 'JavaScript Promises',
-      link: '#'
+      link: '/2020/11/javascript-promises.html'
     },
     {
       name: 'JavaScript this Keyword',
-      link: '#'
+      link: '/2020/11/javascript-this-keyword.html'
     },
     {
       name: 'JavaScript Class',
-      link: '#'
+      link: '/2020/11/javascript-class.html'
     },
     {
       name: 'JavaScript Loop',
-      link: '#'
+      link: '/2020/11/javascript-loop.html'
     },
     {
       name: 'JavaScript Math',
-      link: '#'
+      link: '/2020/11/javascript-math.html'
     },
     {
       name: 'JavaScript Date',
-      link: '#'
+      link: '/2020/11/javascript-date.html'
     },
     {
       name: 'JavaScript Event listener',
-      link: '#'
+      link: '/2020/11/javascript-event-listener.html'
     },
     {
       name: 'JavaScript RegExp',
-      link: '#'
+      link: '/2020/11/javascript-regexp.html'
     },
     {
       name: 'JavaScript Errors',
-      link: '#'
+      link: '/2020/11/javascript-errors.html'
     }
   ]
 };
