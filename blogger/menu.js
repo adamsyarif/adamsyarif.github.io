@@ -147,5 +147,6 @@ const _menu = {
 })();
 
 function _selectedMenu(n, i){
-  $('.menu-'+ n).eq(i).addClass('w3-green');
+  $('.menu-'+ Object.keys(_menu)[n]).eq(i).addClass('w3-green');
+  _sidebarMenu(n);
 }
