@@ -46,6 +46,11 @@ label {cursor: pointer}
   text-align: center;
   padding: 8px 16px;
 }
+#bookmark-icon {
+  position: absolute;
+  right: 10px;
+  top: -10px;
+}
 
 /* ========== class */
 .menu {
@@ -58,6 +63,7 @@ label {cursor: pointer}
   background-color: #e5e5e5;
 }
 .wrapper {
+  position: relative;
   max-width: 570px;
   margin: auto;
 }
