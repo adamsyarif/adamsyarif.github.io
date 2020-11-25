@@ -169,13 +169,11 @@ const _menu = {
 
 (()=>{
   let l, s, next, x = $('#post-id').val();
-  console.log(x);
   Object.keys(_menu).forEach((n, i)=>{
     l = '';
     _menu[n].forEach((m, ii, a)=>{
       s = '';
       if(m.id == x){
-        console.log(123);
         next = a[ii+1];
         if(next) $('#next-post').show().find('a').attr('href', next.link).find('span').text(next.name);
         s = 'w3-green';
