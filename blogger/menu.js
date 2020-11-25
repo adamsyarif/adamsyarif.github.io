@@ -5,19 +5,19 @@ const _menu = {
       link: '#'
     },
     {
-      name: 'HTML atributes',
+      name: 'HTML Attributes',
       link: '#'
     },
     {
-      name: 'HTML layouts',
+      name: 'HTML Head and Body',
       link: '#'
     },
     {
-      name: 'HTML head dan body',
+      name: 'HTML Layout',
       link: '#'
     },
     {
-      name: 'HTML display',
+      name: 'HTML Display',
       link: '#'
     }
   ],
@@ -27,43 +27,43 @@ const _menu = {
       link: '#'
     },
     {
-      name: 'CSS selectors',
+      name: 'CSS Selectors',
       link: '#'
     },
     {
-      name: 'CSS units',
+      name: 'CSS Units',
       link: '#'
     },
     {
-      name: 'CSS colors',
+      name: 'CSS Layout',
       link: '#'
     },
     {
-      name: 'CSS text',
+      name: 'CSS Display',
       link: '#'
     },
     {
-      name: 'CSS margin dan padding',
+      name: 'CSS Position',
       link: '#'
     },
     {
-      name: 'CSS display',
+      name: 'CSS Width and Height',
       link: '#'
     },
     {
-      name: 'CSS position',
+      name: 'CSS Text',
       link: '#'
     },
     {
-      name: 'CSS table',
+      name: 'CSS Colors',
       link: '#'
     },
     {
-      name: 'CSS effect',
+      name: 'CSS Effect',
       link: '#'
     },
     {
-      name: 'CSS animation',
+      name: 'CSS Animation',
       link: '#'
     }
   ],
@@ -73,35 +73,55 @@ const _menu = {
       link: '#'
     },
     {
-      name: 'JavaScript variables',
+      name: 'JavaScript Variables',
       link: '#'
     },
     {
-      name: 'JavaScript data type',
+      name: 'JavaScript Data types',
       link: '#'
     },
     {
-      name: 'JavaScript operators',
+      name: 'JavaScript Operators',
       link: '#'
     },
     {
-      name: 'JavaScript function',
+      name: 'JavaScript Comparison and Conditions',
       link: '#'
     },
     {
-      name: 'JavaScript event listener',
+      name: 'JavaScript Function',
       link: '#'
     },
     {
-      name: 'JavaScript comparisons',
+      name: 'JavaScript Async and Await',
       link: '#'
     },
     {
-      name: 'JavaScript conditions',
+      name: 'JavaScript Promises',
       link: '#'
     },
     {
-      name: 'JavaScript loop',
+      name: 'JavaScript this Keyword',
+      link: '#'
+    },
+    {
+      name: 'JavaScript Class',
+      link: '#'
+    },
+    {
+      name: 'JavaScript Loop',
+      link: '#'
+    },
+    {
+      name: 'JavaScript Math',
+      link: '#'
+    },
+    {
+      name: 'JavaScript Date',
+      link: '#'
+    },
+    {
+      name: 'JavaScript Event listener',
       link: '#'
     },
     {
@@ -109,15 +129,7 @@ const _menu = {
       link: '#'
     },
     {
-      name: 'JavaScript errors',
-      link: '#'
-    },
-    {
-      name: 'JavaScript math',
-      link: '#'
-    },
-    {
-      name: 'JavaScript dates',
+      name: 'JavaScript Errors',
       link: '#'
     }
   ]
