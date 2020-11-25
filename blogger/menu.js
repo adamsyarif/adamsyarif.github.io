@@ -140,8 +140,12 @@ const _menu = {
   Object.keys(_menu).forEach((n, i)=>{
     l = '';
     _menu[n].forEach((m)=>{
-      l += '<a href="'+ m.link +'" class="w3-bar-item w3-button">'+ m.name +'</a>';
+      l += '<a href="'+ m.link +'" class="menu-'+ n +' w3-bar-item w3-button">'+ m.name +'</a>';
     });
     $('.menu-content').eq(i).html(l);
   });
 })();
+
+function _selectedMenu(n, i){
+  $('.menu-'+ n).eq(i).addClass('w3-green');
+}
