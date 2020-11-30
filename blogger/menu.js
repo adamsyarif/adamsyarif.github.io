@@ -58,11 +58,6 @@ const _menu = {
       link: '/2020/11/css-position.html'
     },
     {
-      id: 328380100033177187,
-      name: 'CSS Width and Height',
-      link: '/2020/11/css-width-and-height.html'
-    },
-    {
       id: 1374602737535412614,
       name: 'CSS Text',
       link: '/2020/11/css-text.html'
