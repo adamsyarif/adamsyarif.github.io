@@ -5,30 +5,19 @@ hljs.initHighlightingOnLoad();
 
 $(document).ready(()=>{
   $('.what-time-is').text(_whatTimeIs());
+  $('.year').text(new Date().getFullYear());
   $('form').submit(_preventDefault).trigger('reset');
   $('input[name=option]').change(function(){
     const c = $('.search-content');
     c.hide();
     c.eq(+$(this).val()-1).show();
   });
+  $('#post-body').on('contextmenu copy cut', _preventDefault);
 });
-
-$('#post-body').on('contextmenu copy cut', _preventDefault);
 
 function _preventDefault(e){
   e.preventDefault();
   return false;
-}
-
-function _loader(s){
-  const loader = $('#loader');
-  if(s){
-    if(_REQ.length == 0) loader.show();
-    _REQ.push(1);
-  } else {
-    if(_REQ.length > 0) _REQ.pop();
-    if(_REQ.length == 0) loader.hide();
-  }
 }
 
 let _TOAST;
@@ -54,6 +43,17 @@ function _req(u, c){
     _toast('Error, please check console for details');
     console.log(e);
   });
+}
+
+function _loader(s){
+  const loader = $('#loader');
+  if(s){
+    if(_REQ.length == 0) loader.show();
+    _REQ.push(1);
+  } else {
+    if(_REQ.length > 0) _REQ.pop();
+    if(_REQ.length == 0) loader.hide();
+  }
 }
 
 function _validate(e, p){
