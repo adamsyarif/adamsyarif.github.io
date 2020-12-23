@@ -187,10 +187,8 @@ const _result = {
 
 function _notFound(w){
   w = w ? ['artikel', 'search_result'] : ['halaman', '404_not_found'];
-  return '<div class="w3-center w3-section">'+
-            '<b class="w3-large w3-text-dark-gray">Ups! '+ w[0] +' tidak ditemukan..</b>'+
-            '<div><img src="https://adamsyarif.github.io/blogger/'+ w[1] +'.png"/></div>'+
-          '</div>'+
+  return '<p class="w3-center"><b class="w3-large w3-text-dark-gray">Ups! '+ w[0] +' tidak ditemukan..</b></p>'+
+          '<div><img src="https://adamsyarif.github.io/blogger/'+ w[1] +'.png"/></div>'+
           '<div class="w3-panel w3-pale-yellow w3-leftbar w3-border-khaki w3-text-dark-gray">'+
             '<p>Sepertinya '+ w[0] +' yang kamu cari belum ada, coba periksa kembali pencarianmu atau buka daftar menu untuk mencari Artikel yang menarik untuk kamu baca.</p>'+
           '</div>';
