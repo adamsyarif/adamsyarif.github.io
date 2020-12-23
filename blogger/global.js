@@ -122,7 +122,7 @@ function _sidebarPost(d){
     c += '<option value="'+ v.term +'">'+ v.term +'</option>';
   });
   $('#category-list').html(c);
-	let e = d.feed.entry.sort(()=> Math.random() - 0.5).splice(0,5);
+  let e = d.feed.entry.sort(()=> Math.random() - 0.5).splice(0,5);
   $('#sidebar-post').html(_postList(e));
 }
 
