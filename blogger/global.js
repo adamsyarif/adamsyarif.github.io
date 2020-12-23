@@ -194,9 +194,9 @@ function _notFound(w){
           '</div>';
 }
 
-function _sidebarMenu(i){
-  $('.sidebar-btn').eq(i).find('i').toggleClass('fa-caret-down fa-caret-up');
-  $('.menu-content').eq(i).slideToggle();
+function _sidebarMenu(n){
+  $('.sidebar-btn').eq(n).find('i').toggleClass('fa-caret-down fa-caret-up');
+  $('.menu-content').eq(n).slideToggle();
 }
 
 function _whatTimeIs(){
