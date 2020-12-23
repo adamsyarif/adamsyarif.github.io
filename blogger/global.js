@@ -190,7 +190,7 @@ function _notFound(w){
   return '<p class="w3-center"><b class="w3-large w3-text-dark-gray">Ups! '+ w[0] +' tidak ditemukan..</b></p>'+
           '<div><img src="https://adamsyarif.github.io/blogger/'+ w[1] +'.png"/></div>'+
           '<div class="w3-panel w3-pale-yellow w3-leftbar w3-border-khaki w3-text-dark-gray">'+
-            '<p>Sepertinya '+ w[0] +' yang kamu cari belum ada, coba periksa kembali pencarianmu atau buka daftar menu untuk mencari Artikel yang menarik untuk kamu baca.</p>'+
+            '<p>Sepertinya '+ w[0] +' yang kamu cari belum ada, coba periksa kembali pencarianmu atau buka daftar menu untuk mencari artikel yang menarik untuk kamu baca.</p>'+
           '</div>';
 }
 
