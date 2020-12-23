@@ -122,7 +122,37 @@ function _sidebarPost(d){
     c += '<option value="'+ v.term +'">'+ v.term +'</option>';
   });
   $('#category-list').html(c);
-  $('#sidebar-post').html(_postList(_randomize(d.feed.entry)));
+	let e = d.feed.entry.sort(()=> Math.random() - 0.5).splice(0,5);
+  $('#sidebar-post').html(_postList(e));
+}
+
+function _postList(e){
+  let l = '';
+  e.forEach((v)=>{
+    l += '<table style="width:100%">'+
+            '<tr>'+
+              '<td>'+
+                '<div class="thumbnail w3-card-2 w3-margin-right">'+
+                  '<img src="'+ v.media$thumbnail.url +'"/>'+
+                '</div>'+
+              '</td>'+
+              '<td>'+
+                '<b class="w3-large w3-text-dark-gray">'+ v.title.$t +'</b>'+
+                '<div class="w3-small w3-justify">'+ v.summary.$t.slice(0, 100) +'..</div>'+
+                '<p class="w3-right-align">'+
+                  '<a class="w3-button w3-border w3-small w3-round-large" href="'+ v.link[2].href +'">Baca selengkapnya</a>'+
+                '</p>'+
+              '</td>'+
+            '</tr>'+
+          '</table>';
+  });
+  return l;
+}
+
+function _searchResult(d, n){
+  _result.data = d.feed.entry ? d.feed.entry : [];
+  $('#search-description').text('Ditemukan '+ _result.data.length +' hasil untuk '+ n);
+  _result.load();
 }
 
 const _result = {
@@ -146,70 +176,23 @@ const _result = {
   },
   load: function(){
     _loader(true);
-    const p = [...this.data].splice((this.page-1)*7, 7);
-    $('#search-result').html((p.length > 0)? _postList(p) : _notFound(true));
+    const e = [...this.data].splice((this.page-1)*7, 7);
+    $('#search-result').html((e.length > 0)? _postList(e) : _notFound(true));
     $('#current-page').text(this.page);
     $('#total-page').text(this.pages());
     $('#inner-wrapper').animate({scrollTop: 0}, 800);
-    setTimeout(_loader, 800);
+    setTimeout(_loader, 900);
   }
 };
 
-function _searchResult(d, n){
-  _result.data = d.feed.entry ? d.feed.entry : [];
-  $('#search-description').text('Ditemukan '+ _result.data.length +' hasil untuk '+ n);
-  _result.load();
-}
-
-function _randomize(e){
-  const p = [];
-  const x = (e.length >= 5)? 5 : e.length;
-  let r, f;
-  while(p.length < x){
-    r = Math.floor(Math.random() * e.length);
-    if(p.length == 0) p.push(e[r]);
-    else {
-      f = false;
-      p.forEach((v)=>{
-        if(v.id.$t == e[r].id.$t) f = true;
-      });
-      if(!f) p.push(e[r]);
-    }
-  }
-  return p;
-}
-
-function _postList(p){
-  let l = '';
-  p.forEach((v)=>{
-    l += '<table style="width:100%">'+
-            '<tr>'+
-              '<td>'+
-                '<div class="thumbnail w3-card-2 w3-margin-right">'+
-                  '<img src="'+ v.media$thumbnail.url +'"/>'+
-                '</div>'+
-              '</td>'+
-              '<td>'+
-                '<b class="w3-large w3-text-dark-gray">'+ v.title.$t +'</b>'+
-                '<div class="w3-small w3-justify">'+ v.summary.$t.slice(0, 100) +'..</div>'+
-                '<p class="w3-right-align">'+
-                  '<a class="w3-button w3-border w3-small w3-round-large" href="'+ v.link[2].href +'">Baca selengkapnya</a>'+
-                '</p>'+
-              '</td>'+
-            '</tr>'+
-          '</table>';
-  });
-  return l;
-}
-
-function _notFound(n){
-  n = n ? ['artikel', 'search_result'] : ['halaman', '404_not_found'];
-  return '<p class="w3-center">'+
-            '<b class="w3-large w3-text-dark-gray">Ups! '+ n[0] +' tidak ditemukan..</b>'+
-            '<div><img src="https://adamsyarif.github.io/blogger/'+ n[1] +'.png"/></div>'+
-          '</p>'+
+function _notFound(w){
+  w = w ? ['artikel', 'search_result'] : ['halaman', '404_not_found'];
+  return '<div class="w3-center w3-section">'+
+            '<b class="w3-large w3-text-dark-gray">Ups! '+ w[0] +' tidak ditemukan..</b>'+
+            '<div><img src="https://adamsyarif.github.io/blogger/'+ w[1] +'.png"/></div>'+
+          '</div>'+
           '<div class="w3-panel w3-pale-yellow w3-leftbar w3-border-khaki w3-text-dark-gray">'+
-            '<p>Sepertinya '+ n[0] +' yang kamu cari belum ada, coba periksa kembali pencarianmu atau buka daftar menu untuk mencari Artikel yang menarik untuk kamu baca..</p>'+
+            '<p>Sepertinya '+ w[0] +' yang kamu cari belum ada, coba periksa kembali pencarianmu atau buka daftar menu untuk mencari Artikel yang menarik untuk kamu baca.</p>'+
           '</div>';
 }
 
