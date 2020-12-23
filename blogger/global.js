@@ -97,18 +97,18 @@ function _search(n){
         let u = _blogUrl +'/search';
         switch(+$('input[name=option]:checked').val()){
           case 1:
-            (()=>{
+            {
               let q = $('#search-query').val().trim();
               if(!q) return _toast('Kata kunci tidak boleh kosong');
               u += '?q='+ q;
               location.assign(encodeURI(u));
-            })();
+            }
           break;
           case 2:
-            (()=>{
+            {
               u += '/label/'+ $('#category-list').val();
               location.assign(encodeURI(u));
-            })();
+            }
           break;
           default: _toast('Pilih opsi');
         }
