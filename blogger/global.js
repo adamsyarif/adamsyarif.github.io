@@ -66,34 +66,34 @@ function _search(n){
       _req(_feedUrl +'?alt=json&max-results=10', _sidebarPost);
     break;
     case 2:
-      (()=>{
+      {
         const c = $('#post-label').val().split(',').filter(v => v.trim() != '');
         const r = Math.floor(Math.random() * c.length);
         _req(_feedUrl +'/-/'+ c[r] +'?alt=json&max-results=1000', _sidebarPost);
-      })();
+      }
     break;
     case 3:
-      (()=>{
+      {
         const q = new URL(location.href).searchParams.get('q');
         _req(_feedUrl +'?q='+ q +'&alt=json&max-results=1000', (d)=>{
           _searchResult(d, 'kata kunci "'+ q +'"');
         });
-      })();
+      }
     break;
     case 4:
-      (()=>{
+      {
         const p = new URL(location.href).pathname;
         const c = p.slice((p.lastIndexOf('/')+1), p.length);
         _req(_feedUrl +'/-/'+ c +'?alt=json&max-results=1000', (d)=>{
           _searchResult(d, 'kategori "'+ c +'"');
         });
-      })();
+      }
     break;
     case 5:
       $('#search-result').html(_notFound(false));
     break;
     default:
-      (()=>{
+      {
         let u = _blogUrl +'/search';
         switch(+$('input[name=option]:checked').val()){
           case 1:
@@ -112,7 +112,7 @@ function _search(n){
           break;
           default: _toast('Pilih opsi');
         }
-      })();
+      }
   }
 }
 
