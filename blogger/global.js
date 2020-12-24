@@ -221,7 +221,7 @@ function _copy(){
 function _rewrite(){
   _n++;
   if(_n >= 4) _n = 0;
-  showTitle(_n);
+  _showTitle(_n);
 }
 
 function _showTitle(x){
