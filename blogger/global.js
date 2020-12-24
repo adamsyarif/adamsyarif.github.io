@@ -20,7 +20,7 @@ $(document).ready(()=>{
     c.eq(+$(this).val()-1).show();
   });
   $('#post-body').on('contextmenu copy cut', _preventDefault);
-  showTitle(_n);
+  _showTitle(_n);
 });
 
 function _preventDefault(e){
@@ -218,23 +218,23 @@ function _copy(){
   _toast('Teks telah disalin');
 }
 
-function rewriteTitle(){
+function _rewrite(){
   _n++;
   if(_n >= 4) _n = 0;
   showTitle(_n);
 }
 
-function showTitle(x){
+function _showTitle(x){
   const a = _titles[x].split('');
   let n = 0;
   let w = '';
   const i = setInterval(()=>{
     w += a[n];
-    document.getElementById('titles').textContent = w +'_';
+    $('#titles').text(w +'_');
     n++;
     if(n >= a.length){
       clearInterval(i);
-      setTimeout(rewriteTitle, 2000);
+      setTimeout(_rewrite, 2000);
     }
   }, 100);
 }
