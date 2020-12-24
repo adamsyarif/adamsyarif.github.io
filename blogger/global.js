@@ -1,5 +1,12 @@
 const _blogUrl = 'https://belajar-html-css-javascript.blogspot.com';
 const _feedUrl = _blogUrl +'/feeds/posts/default';
+const _titles = [
+  'Web Belajar Pemrograman',
+  'Belajar HTML',
+  'Belajar CSS',
+  'Belajar JavaScript'
+];
+let _n = 0;
 
 hljs.initHighlightingOnLoad();
 
@@ -13,6 +20,7 @@ $(document).ready(()=>{
     c.eq(+$(this).val()-1).show();
   });
   $('#post-body').on('contextmenu copy cut', _preventDefault);
+  showTitle(_n);
 });
 
 function _preventDefault(e){
@@ -208,4 +216,25 @@ function _copy(){
   document.getElementById('post-url').select();
   document.execCommand('copy');
   _toast('Teks telah disalin');
+}
+
+function rewriteTitle(){
+  _n++;
+  if(_n >= 4) _n = 0;
+  showTitle(_n);
+}
+
+function showTitle(x){
+  const a = _titles[x].split('');
+  let n = 0;
+  let w = '';
+  const i = setInterval(()=>{
+    w += a[n];
+    document.getElementById('titles').textContent = w +'_';
+    n++;
+    if(n >= a.length){
+      clearInterval(i);
+      setTimeout(rewriteTitle, 2000);
+    }
+  }, 100);
 }
