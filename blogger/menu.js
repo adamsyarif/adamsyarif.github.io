@@ -101,7 +101,7 @@ const _menu = {
     },
     {
       id: 5612245712293651737,
-      name: 'JavaScript Conditional Statement',
+      name: 'JavaScript Conditional statement',
       link: '/2020/11/javascript-comparison-and-conditions.html'
     },
     {
