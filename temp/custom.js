@@ -8,7 +8,7 @@ const _titles = [
 ];
 let _n = 0;
 
-hljs.initHighlightingOnLoad();
+//hljs.initHighlightingOnLoad();
 
 $(document).ready(()=>{
   $('.what-time-is').text(_whatTimeIs());
