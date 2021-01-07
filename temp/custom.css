@@ -23,7 +23,7 @@ label {cursor: pointer}
 }
 #x-content {position: relative}
 #x-container {
-	position: absolute;
+  position: absolute;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -36,7 +36,7 @@ label {cursor: pointer}
   background-color: #e5e5e5;
 }
 .x-content {
-  max-width: 570px;
+  min-width: 300px;
   margin: auto;
   text-align: justify;
 }
