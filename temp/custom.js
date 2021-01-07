@@ -1,4 +1,4 @@
-const _blogUrl = 'https://belajar-html-css-javascript.blogspot.com';
+const _blogUrl = 'https://belajar-html-css-javascript-2.blogspot.com';
 const _feedUrl = _blogUrl +'/feeds/posts/default';
 const _titles = [
   'Web Belajar Pemrograman',
