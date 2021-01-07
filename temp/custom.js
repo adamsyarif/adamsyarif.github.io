@@ -41,7 +41,7 @@ function _toast(m){
   }, 3000);
 }
 
-const _REQ = [];
+let _REQ = [];
 function _req(u, c){
   $.ajax({
     method: 'GET',
