@@ -1,0 +1,42 @@
+/* ========== element */
+html, body, img {
+  width: 100%;
+  height: 100%;
+}
+img {object-fit: cover}
+a {text-decoration: none}
+table {border-collapse: collapse}
+td {vertical-align: top}
+label {cursor: pointer}
+
+/* ========== id */
+#x-body {position: fixed}
+#x-body, #x-container {
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+#x-body, #x-skeleton, #x-content, #x-container {
+  width: 100%;
+  height: 100%;
+}
+#x-content {position: relative}
+#x-container {
+	position: absolute;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+#x-footer {background-color: #333}
+
+/* ========== class */
+.x-sidebar {min-width: 300px}
+.sidebar-menu {
+  display: none;
+  background-color: #e5e5e5;
+}
+.x-content {
+  max-width: 570px;
+  margin: auto;
+  text-align: justify;
+}
