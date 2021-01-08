@@ -158,7 +158,6 @@ const _menu = {
 };
 
 (()=>{
-  console.log(123);
   let l, s, next, x = $('#post-id').val();
   Object.keys(_menu).forEach((n, i)=>{
     l = '';
@@ -173,6 +172,5 @@ const _menu = {
       l += '<a href="'+ m.link +'" class="'+ s +' w3-bar-item w3-button">'+ m.title +'</a>';
     });
     $('.menubar-content').eq(i).html(l);
-    console.log(456);
   });
 })();
