@@ -10,6 +10,8 @@ const _titles = [
 const _REQ = [];
 let _TOAST, _n = 0;
 
+hljs.initHighlightingOnLoad();
+
 (()=>{
   $('.what-time-is').text(()=>{
     const h = new Date().getHours();
