@@ -53,8 +53,8 @@ label {cursor: pointer}
 #bookmark-icon {}
 
 /* ========== class */
-.header-btn {vertical-align: middle};
-.side-bar {
+.header-btn {vertical-align: middle}
+.sidebar {
   display: none!important;
   z-index: 3!important;
   width: 300px!important;
