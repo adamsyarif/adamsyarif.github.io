@@ -26,7 +26,7 @@ let _TOAST, _n = 0;
   _showTitle(_n);
   setInterval(()=>{
     $('.text-pointer').toggleClass('w3-text-white w3-text-gray');
-  }, 900);
+  }, 500);
 })();
 
 function _preventDefault(e){
