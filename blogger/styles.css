@@ -56,8 +56,8 @@ label {cursor: pointer}
 .header-btn {vertical-align: middle};
 .sidebar {
   display: none;
-  z-index: 3;
-  width: 300px;
+  z-index: 3!important;
+  width: 300px!important;
 }
 .sticky {
   position: -webkit-sticky;
