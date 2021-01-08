@@ -10,9 +10,7 @@ const _titles = [
 const _REQ = [];
 let _TOAST, _n = 0;
 
-//hljs.initHighlightingOnLoad();
-
-$(document).ready(()=>{
+(()=>{
   $('.what-time-is').text(()=>{
     const h = new Date().getHours();
     return (h >= 3 && h <= 10)? 'pagi' : (h >= 11 && h <= 14)? 'siang' : (h >= 15 && h <= 17)? 'sore' : 'malam';
@@ -26,7 +24,7 @@ $(document).ready(()=>{
   });
   $('#post-body').on('contextmenu copy cut', _preventDefault);
   _showTitle(_n);
-});
+})();
 
 function _preventDefault(e){
   e.preventDefault();
