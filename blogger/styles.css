@@ -36,7 +36,6 @@ label {cursor: pointer}
   z-index: 4;
 }
 #toast {
-  display: none;
   position: fixed;
   left: 0;
   right: 0;
@@ -45,21 +44,20 @@ label {cursor: pointer}
   z-index: 5;
   padding: 0 10px;
 }
+#toast, #next-post {display: none}
 #toast-msg {
   background-color: rgba(0,0,0,0.5);
   margin: auto;
   max-width: 400px;
 }
+#bookmark-icon {}
 
 /* ========== class */
+.header-btn {vertical-align: middle};
 .sidebar {
   display: none;
   z-index: 3;
   width: 300px;
-}
-.menubar-content {
-  display: none;
-  background-color: #e5e5e5;
 }
 .sticky {
   position: -webkit-sticky;
@@ -67,14 +65,17 @@ label {cursor: pointer}
   z-index: 1;
   top: 0;
 }
-.header-btn {vertical-align: middle};
+.pointer {cursor: pointer}
+.menubar-content {
+  display: none;
+  background-color: #e5e5e5;
+}
 .wrapper {
   max-width: 570px;
   margin: auto;
 }
-.pointer {cursor: pointer}
 .thumbnail {
   width: 75px;
   height: 75px;
 }
-.sosmed-icon {padding: 0 5px}
+.socmed-icon {padding: 0 5px}
