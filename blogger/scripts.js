@@ -25,7 +25,7 @@ let _TOAST, _n = 0;
   $('#post-body').on('contextmenu copy cut', _preventDefault);
   _showTitle(_n);
   setInterval(()=>{
-    $('.text.pointer').toggleClass('w3-text-white w3-text-gray');
+    $('.text-pointer').toggleClass('w3-text-white w3-text-gray');
   }, 900);
 })();
 
