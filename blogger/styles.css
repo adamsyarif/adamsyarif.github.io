@@ -50,14 +50,18 @@ label {cursor: pointer}
   margin: auto;
   max-width: 400px;
 }
-#bookmark-icon {}
+#bookmark-icon {
+  position: absolute;
+  top: -5px;
+  right: 10px;
+}
 
 /* ========== class */
-.header-btn {vertical-align: middle}
+.header-btn {vertical-align: middle};
 .sidebar {
-  display: none;
-  z-index: 3;
-  width: 300px;
+  display: none!important;
+  z-index: 3!important;
+  width: 300px!important;
 }
 .sticky {
   position: -webkit-sticky;
