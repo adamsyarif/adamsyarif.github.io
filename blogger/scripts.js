@@ -1,9 +1,11 @@
 const _repoUrl = 'https://adamsyarif.github.io/blogger';
 const _blogUrl = 'https://belajar-html-css-javascript-2.blogspot.com';
 const _feedUrl = _blogUrl +'/feeds/posts/default';
-const _texts = [
+const _titles = [
   'Web Belajar Pemrograman',
-  'Belajar HTML, CSS, dan JavaScript bahasa Indonesia'
+  'Belajar HTML',
+  'Belajar CSS',
+  'Belajar JavaScript'
 ];
 const _REQ = [];
 let _TOAST, _n = 0;
@@ -12,18 +14,18 @@ let _TOAST, _n = 0;
 
 $(document).ready(()=>{
   $('.what-time-is').text(()=>{
-		const h = new Date().getHours();
-		return (h >= 3 && h <= 10)? 'pagi' : (h >= 11 && h <= 14)? 'siang' : (h >= 15 && h <= 17)? 'sore' : 'malam';
-	});
-  $('.x-year').text(new Date().getFullYear());
-  $('form').submit(_preventDefault).trigger('reset');
-  $('input[name=option]').change(function(){
-    const o = $('.search-option');
-    o.hide();
-    o.eq(+$(this).val()-1).show();
+    const h = new Date().getHours();
+    return (h >= 3 && h <= 10)? 'pagi' : (h >= 11 && h <= 14)? 'siang' : (h >= 15 && h <= 17)? 'sore' : 'malam';
   });
-  $('#content-body').on('contextmenu copy cut', _preventDefault);
-  _showText(_n);
+  $('.year').text(new Date().getFullYear());
+  $('form').submit(_preventDefault).trigger('reset');
+  $('input[name=searchbar-option]').change(function(){
+    const c = $('.searchbar-content');
+    c.hide();
+    c.eq(+$(this).val()-1).show();
+  });
+  $('#post-body').on('contextmenu copy cut', _preventDefault);
+  _showTitle(_n);
 });
 
 function _preventDefault(e){
@@ -72,12 +74,12 @@ function _validate(e, p){
 function _search(n){
   switch(n){
     case 1:
-			$('#sidebar-name').text('Terbaru');
+      $('#sidebar-name').text('Terbaru');
       _req(_feedUrl +'?alt=json&max-results=10', _sidebarPost);
     break;
     case 2:
       {
-				$('#sidebar-name').text('Terkait');
+        $('#sidebar-name').text('Terkait');
         const c = $('#post-label').val().split(',').filter(v => v.trim() != '');
         const r = Math.floor(Math.random() * c.length);
         _req(_feedUrl +'/-/'+ c[r] +'?alt=json&max-results=1000', _sidebarPost);
@@ -106,10 +108,10 @@ function _search(n){
     default:
       {
         let u = _blogUrl +'/search';
-        switch(+$('input[name=option]:checked').val()){
+        switch(+$('input[name=searchbar-option]:checked').val()){
           case 1:
             {
-              const q = $('#search-query').val().trim();
+              const q = $('#searchbar-query').val().trim();
               if(!q) return _toast('Kata kunci tidak boleh kosong');
               u += '?q='+ q;
               location.assign(encodeURI(u));
@@ -117,7 +119,7 @@ function _search(n){
           break;
           case 2:
             {
-              u += '/label/'+ $('#category-list').val();
+              u += '/label/'+ $('#searchbar-category').val();
               location.assign(encodeURI(u));
             }
           break;
@@ -132,7 +134,7 @@ function _sidebarPost(d){
   d.feed.category.forEach((v)=>{
     c += '<option value="'+ v.term +'">'+ v.term +'</option>';
   });
-  $('#category-list').html(c);
+  $('#searchbar-category').html(c);
   const e = d.feed.entry.sort(()=>(Math.random()-0.5)).splice(0,5);
   $('#sidebar-post').html(_postList(e));
 }
@@ -140,10 +142,10 @@ function _sidebarPost(d){
 function _postList(e){
   let l = '';
   e.forEach((v)=>{
-    l += '<table class="post-list">'+
+    l += '<table style="width:100%">'+
             '<tr>'+
               '<td>'+
-                '<div class="x-thumbnail w3-card-2 w3-margin-right w3-margin-bottom">'+
+                '<div class="thumbnail w3-card-2 w3-margin-right">'+
                   '<img src="'+ v.media$thumbnail.url +'"/>'+
                 '</div>'+
               '</td>'+
@@ -163,7 +165,7 @@ function _postList(e){
 const _result = {
   data: [],
   page: 1,
-	showing: 7,
+  showing: 7,
   pages: function(){
     const p = Math.ceil(this.data.length/this.showing);
     return (p > 0)? p : 1;
@@ -200,10 +202,10 @@ function _searchResult(d, n){
 
 function _notFound(n){
   const c = [{
-		name: 'halaman', img: '404_not_found'
-	},{
-		name: 'artikel', img: 'search_result'
-	}];
+    name: 'halaman', img: '404_not_found'
+  },{
+    name: 'artikel', img: 'search_result'
+  }];
   return '<p class="w3-center"><b class="w3-large w3-text-dark-gray">Ups! '+ c[n].name +' tidak ditemukan..</b></p>'+
           '<div><img src="'+ _repoUrl +'/'+ c[n].img +'.png"/></div>'+
           '<div class="w3-panel w3-pale-yellow w3-leftbar w3-border-khaki w3-text-dark-gray">'+
@@ -211,9 +213,9 @@ function _notFound(n){
           '</div>';
 }
 
-function _sidebarMenu(n){
-  $('.sidebar-btn').eq(n).find('i').toggleClass('fa-caret-down fa-caret-up');
-  $('.menu-content').eq(n).slideToggle();
+function _menubar(n){
+  $('.menubar-btn').eq(n).find('i').toggleClass('fa-caret-down fa-caret-up');
+  $('.menubar-content').eq(n).slideToggle();
 }
 
 function _copy(){
@@ -222,8 +224,8 @@ function _copy(){
   _toast('Teks telah disalin');
 }
 
-function _showText(x){
-  const a = _texts[x].split('');
+function _showTitle(x){
+  const a = _titles[x].split('');
   let n = 0;
   let w = '';
   const i = setInterval(()=>{
@@ -233,10 +235,10 @@ function _showText(x){
     if(n >= a.length){
       clearInterval(i);
       setTimeout(()=>{
-				_n++;
-				if(_n >= 4) _n = 0;
-				_showText(_n);
-			}, 2000);
+        _n++;
+        if(_n >= _titles.length) _n = 0;
+        _showTitle(_n);
+      }, 2000);
     }
   }, 100);
 }
