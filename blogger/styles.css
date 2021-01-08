@@ -54,7 +54,7 @@ label {cursor: pointer}
 
 /* ========== class */
 .header-btn {vertical-align: middle};
-.sidebar {
+.side-bar {
   display: none!important;
   z-index: 3!important;
   width: 300px!important;
