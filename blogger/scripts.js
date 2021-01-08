@@ -231,7 +231,7 @@ function _showTitle(x){
   let w = '';
   const i = setInterval(()=>{
     w += a[n];
-    $('.titles').text(w +'_');
+    $('.titles').text(w);
     n++;
     if(n >= a.length){
       clearInterval(i);
