@@ -1,181 +1,176 @@
 const _menu = {
   html: [
     {
-      id: 274665074751237773,
-      name: 'Apa itu HTML ?',
-      link: '/2020/12/apa-itu-html.html'
+      id: 0,
+      title: 'HTML 1',
+      link: '/2021/01/html-1.html'
     },
     {
-      id: 7888608571628476824,
-      name: 'HTML Attributes',
-      link: '/2020/11/html-attributes.html'
+      id: 0,
+      title: 'HTML 2',
+      link: '/2021/01/html-2.html'
     },
     {
-      id: 4333501711927359046,
-      name: 'HTML Head and Body',
-      link: '/2020/11/html-head-and-body.html'
+      id: 0,
+      title: 'HTML 3',
+      link: '/2021/01/html-3.html'
     },
     {
-      id: 659855880949546929,
-      name: 'HTML Layout',
-      link: '/2020/11/html-layout.html'
+      id: 0,
+      title: 'HTML 4',
+      link: '/2021/01/html-4.html'
     },
     {
-      id: 2643188050306825353,
-      name: 'HTML Display',
-      link: '/2020/11/html-display.html'
+      id: 0,
+      title: 'HTML 5',
+      link: '/2021/01/html-5.html'
+    },
+    {
+      id: 0,
+      title: 'HTML 6',
+      link: '/2021/01/html-6.html'
+    },
+    {
+      id: 0,
+      title: 'HTML 7',
+      link: '/2021/01/html-7.html'
+    },
+    {
+      id: 0,
+      title: 'HTML 8',
+      link: '/2021/01/html-8.html'
+    },
+    {
+      id: 0,
+      title: 'HTML 9',
+      link: '/2021/01/html-9.html'
+    },
+    {
+      id: 0,
+      title: 'HTML 10',
+      link: '/2021/01/html-10.html'
     }
   ],
   css: [
     {
-      id: 5214269512763918289,
-      name: 'Apa itu CSS ?',
-      link: '/2020/12/apa-itu-css.html'
+      id: 0,
+      title: 'CSS 1',
+      link: '/2021/01/css-1.html'
     },
     {
-      id: 1491101387658211260,
-      name: 'CSS Selectors',
-      link: '/2020/11/css-selectors.html'
+      id: 0,
+      title: 'CSS 2',
+      link: '/2021/01/css-2.html'
     },
     {
-      id: 8646267057938881343,
-      name: 'CSS Units',
-      link: '/2020/11/css-units.html'
+      id: 0,
+      title: 'CSS 3',
+      link: '/2021/01/css-3.html'
     },
     {
-      id: 3882183698891192549,
-      name: 'CSS Layout',
-      link: '/2020/11/css-layout.html'
+      id: 0,
+      title: 'CSS 4',
+      link: '/2021/01/css-4.html'
     },
     {
-      id: 892818747925627275,
-      name: 'CSS Display',
-      link: '/2020/11/css-display.html'
+      id: 0,
+      title: 'CSS 5',
+      link: '/2021/01/css-5.html'
     },
     {
-      id: 6298600439964084840,
-      name: 'CSS Position',
-      link: '/2020/11/css-position.html'
+      id: 0,
+      title: 'CSS 6',
+      link: '/2021/01/css-6.html'
     },
     {
-      id: 1374602737535412614,
-      name: 'CSS Text',
-      link: '/2020/11/css-text.html'
+      id: 0,
+      title: 'CSS 7',
+      link: '/2021/01/css-7.html'
     },
     {
-      id: 1008812938349504284,
-      name: 'CSS Colors',
-      link: '/2020/11/css-colors.html'
+      id: 0,
+      title: 'CSS 8',
+      link: '/2021/01/css-8.html'
     },
     {
-      id: 6181110356406152695,
-      name: 'CSS Effect',
-      link: '/2020/11/css-effect.html'
+      id: 0,
+      title: 'CSS 9',
+      link: '/2021/01/css-9.html'
     },
     {
-      id: 8945022256510799130,
-      name: 'CSS Animation',
-      link: '/2020/11/css-animation.html'
+      id: 0,
+      title: 'CSS 10',
+      link: '/2021/01/css-10.html'
     }
   ],
   javascript: [
     {
-      id: 4122006010810538874,
-      name: 'Apa itu JavaScript ?',
-      link: '/2020/12/apa-itu-javascript.html'
+      id: 0,
+      title: 'JavaScript 1',
+      link: '/2021/01/javascript-1.html'
     },
     {
-      id: 5654482686799684914,
-      name: 'JavaScript Variables',
-      link: '/2020/11/javascript-variables.html'
+      id: 0,
+      title: 'JavaScript 2',
+      link: '/2021/01/javascript-2.html'
     },
     {
-      id: 4090851026629334638,
-      name: 'JavaScript Data types',
-      link: '/2020/11/javascript-data-types.html'
+      id: 0,
+      title: 'JavaScript 3',
+      link: '/2021/01/javascript-3.html'
     },
     {
-      id: 3104696424489244361,
-      name: 'JavaScript Operators',
-      link: '/2020/11/javascript-operators.html'
+      id: 0,
+      title: 'JavaScript 4',
+      link: '/2021/01/javascript-4.html'
     },
     {
-      id: 5612245712293651737,
-      name: 'JavaScript Conditional statement',
-      link: '/2020/11/javascript-comparison-and-conditions.html'
+      id: 0,
+      title: 'JavaScript 5',
+      link: '/2021/01/javascript-5.html'
     },
     {
-      id: 5474250890539883776,
-      name: 'JavaScript Function',
-      link: '/2020/11/javascript-function.html'
+      id: 0,
+      title: 'JavaScript 6',
+      link: '/2021/01/javascript-6.html'
     },
     {
-      id: 1989043964910531869,
-      name: 'JavaScript Async and Await',
-      link: '/2020/11/javascript-async-and-await.html'
+      id: 0,
+      title: 'JavaScript 7',
+      link: '/2021/01/javascript-7.html'
     },
     {
-      id: 5726443359569853224,
-      name: 'JavaScript Promises',
-      link: '/2020/11/javascript-promises.html'
+      id: 0,
+      title: 'JavaScript 8',
+      link: '/2021/01/javascript-8.html'
     },
     {
-      id: 8718410627563179637,
-      name: 'JavaScript this Keyword',
-      link: '/2020/11/javascript-this-keyword.html'
+      id: 0,
+      title: 'JavaScript 9',
+      link: '/2021/01/javascript-9.html'
     },
     {
-      id: 530437586833937029,
-      name: 'JavaScript Class',
-      link: '/2020/11/javascript-class.html'
-    },
-    {
-      id: 2265176596142947677,
-      name: 'JavaScript Loop',
-      link: '/2020/11/javascript-loop.html'
-    },
-    {
-      id: 8724253155128548012,
-      name: 'JavaScript Math',
-      link: '/2020/11/javascript-math.html'
-    },
-    {
-      id: 7783484893767550398,
-      name: 'JavaScript Date',
-      link: '/2020/11/javascript-date.html'
-    },
-    {
-      id: 4023070051762934749,
-      name: 'JavaScript Event listener',
-      link: '/2020/11/javascript-event-listener.html'
-    },
-    {
-      id: 6037888841435560037,
-      name: 'JavaScript RegExp',
-      link: '/2020/11/javascript-regexp.html'
-    },
-    {
-      id: 1206236644980774137,
-      name: 'JavaScript Errors',
-      link: '/2020/11/javascript-errors.html'
+      id: 0,
+      title: 'JavaScript 10',
+      link: '/2021/01/javascript-10.html'
     }
   ]
 };
 
 (()=>{
-  let l, s, next, x = +$('#post-id').val();
+  let l, s, next, x = $('#post-id').val();
   Object.keys(_menu).forEach((n, i)=>{
     l = '';
     _menu[n].forEach((m, ii, a)=>{
       s = '';
       if(m.id == x){
         next = a[ii+1];
-        if(next) $('#next-post').show().find('a').attr('href', next.link).find('span').text(next.name);
+        if(next) $('#next-post').show().find('a').attr('href', next.link).find('span').text(next.title);
         s = 'w3-green';
         _sidebarMenu(i);
       }
-      l += '<a href="'+ m.link +'" class="'+ s +' w3-bar-item w3-button">'+ m.name +'</a>';
+      l += '<a href="'+ m.link +'" class="'+ s +' w3-bar-item w3-button">'+ m.title +'</a>';
     });
-    $('.menu-content').eq(i).html(l);
+    $('.menubar-content').eq(i).html(l);
   });
 })();
