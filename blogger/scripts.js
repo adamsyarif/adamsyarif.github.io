@@ -1,26 +1,29 @@
-const _blogUrl = 'https://belajar-html-css-javascript.blogspot.com';
+const _repoUrl = 'https://adamsyarif.github.io/blogger';
+const _blogUrl = 'https://belajar-html-css-javascript-2.blogspot.com';
 const _feedUrl = _blogUrl +'/feeds/posts/default';
-const _titles = [
+const _texts = [
   'Web Belajar Pemrograman',
-  'Belajar HTML',
-  'Belajar CSS',
-  'Belajar JavaScript'
+  'Belajar HTML, CSS, dan JavaScript bahasa Indonesia'
 ];
-let _n = 0;
+const _REQ = [];
+let _TOAST, _n = 0;
 
-hljs.initHighlightingOnLoad();
+//hljs.initHighlightingOnLoad();
 
 $(document).ready(()=>{
-  $('.what-time-is').text(_whatTimeIs());
-  $('.year').text(new Date().getFullYear());
+  $('.what-time-is').text(()=>{
+		const h = new Date().getHours();
+		return (h >= 3 && h <= 10)? 'pagi' : (h >= 11 && h <= 14)? 'siang' : (h >= 15 && h <= 17)? 'sore' : 'malam';
+	});
+  $('.x-year').text(new Date().getFullYear());
   $('form').submit(_preventDefault).trigger('reset');
   $('input[name=option]').change(function(){
-    const c = $('.search-content');
-    c.hide();
-    c.eq(+$(this).val()-1).show();
+    const o = $('.search-option');
+    o.hide();
+    o.eq(+$(this).val()-1).show();
   });
-  $('#post-body').on('contextmenu copy cut', _preventDefault);
-  _showTitle(_n);
+  $('#content-body').on('contextmenu copy cut', _preventDefault);
+  _showText(_n);
 });
 
 function _preventDefault(e){
@@ -28,19 +31,6 @@ function _preventDefault(e){
   return false;
 }
 
-let _TOAST;
-function _toast(m){
-  if(_TOAST) clearTimeout(_TOAST);
-  $('#toast-msg').text(m);
-  const t = $('#toast');
-  t.show();
-  _TOAST = setTimeout(()=>{
-    TOAST = null;
-    t.hide();
-  }, 3000);
-}
-
-const _REQ = [];
 function _req(u, c){
   $.ajax({
     method: 'GET',
@@ -54,14 +44,25 @@ function _req(u, c){
 }
 
 function _loader(s){
-  const loader = $('#loader');
+  const l = $('#loader');
   if(s){
-    if(_REQ.length == 0) loader.show();
+    if(_REQ.length == 0) l.show();
     _REQ.push(1);
   } else {
     if(_REQ.length > 0) _REQ.pop();
-    if(_REQ.length == 0) loader.hide();
+    if(_REQ.length == 0) l.hide();
   }
+}
+
+function _toast(m){
+  if(_TOAST) clearTimeout(_TOAST);
+  $('#toast-msg').text(m);
+  const t = $('#toast');
+  t.show();
+  _TOAST = setTimeout(()=>{
+    TOAST = null;
+    t.hide();
+  }, 3000);
 }
 
 function _validate(e, p){
@@ -71,10 +72,12 @@ function _validate(e, p){
 function _search(n){
   switch(n){
     case 1:
+			$('#sidebar-name').text('Terbaru');
       _req(_feedUrl +'?alt=json&max-results=10', _sidebarPost);
     break;
     case 2:
       {
+				$('#sidebar-name').text('Terkait');
         const c = $('#post-label').val().split(',').filter(v => v.trim() != '');
         const r = Math.floor(Math.random() * c.length);
         _req(_feedUrl +'/-/'+ c[r] +'?alt=json&max-results=1000', _sidebarPost);
@@ -98,7 +101,7 @@ function _search(n){
       }
     break;
     case 5:
-      $('#search-result').html(_notFound(false));
+      $('#search-result').html(_notFound(0));
     break;
     default:
       {
@@ -106,7 +109,7 @@ function _search(n){
         switch(+$('input[name=option]:checked').val()){
           case 1:
             {
-              let q = $('#search-query').val().trim();
+              const q = $('#search-query').val().trim();
               if(!q) return _toast('Kata kunci tidak boleh kosong');
               u += '?q='+ q;
               location.assign(encodeURI(u));
@@ -130,17 +133,17 @@ function _sidebarPost(d){
     c += '<option value="'+ v.term +'">'+ v.term +'</option>';
   });
   $('#category-list').html(c);
-  let e = d.feed.entry.sort(()=> Math.random() - 0.5).splice(0,5);
+  const e = d.feed.entry.sort(()=>(Math.random()-0.5)).splice(0,5);
   $('#sidebar-post').html(_postList(e));
 }
 
 function _postList(e){
   let l = '';
   e.forEach((v)=>{
-    l += '<table style="width:100%">'+
+    l += '<table class="post-list">'+
             '<tr>'+
               '<td>'+
-                '<div class="thumbnail w3-card-2 w3-margin-right">'+
+                '<div class="x-thumbnail w3-card-2 w3-margin-right w3-margin-bottom">'+
                   '<img src="'+ v.media$thumbnail.url +'"/>'+
                 '</div>'+
               '</td>'+
@@ -157,17 +160,12 @@ function _postList(e){
   return l;
 }
 
-function _searchResult(d, n){
-  _result.data = d.feed.entry ? d.feed.entry : [];
-  $('#search-description').text('Ditemukan '+ _result.data.length +' hasil untuk '+ n);
-  _result.load();
-}
-
 const _result = {
   data: [],
   page: 1,
+	showing: 7,
   pages: function(){
-    const p = Math.ceil(this.data.length/7);
+    const p = Math.ceil(this.data.length/this.showing);
     return (p > 0)? p : 1;
   },
   previous: function(){
@@ -184,8 +182,8 @@ const _result = {
   },
   load: function(){
     _loader(true);
-    const e = [...this.data].splice((this.page-1)*7, 7);
-    $('#search-result').html((e.length > 0)? _postList(e) : _notFound(true));
+    const e = [...this.data].splice((this.page-1) * this.showing, this.showing);
+    $('#search-result').html((e.length > 0)? _postList(e) : _notFound(1));
     $('#current-page').text(this.page);
     $('#total-page').text(this.pages());
     $('#inner-wrapper').animate({scrollTop: 0}, 800);
@@ -193,12 +191,23 @@ const _result = {
   }
 };
 
-function _notFound(w){
-  w = w ? ['artikel', 'search_result'] : ['halaman', '404_not_found'];
-  return '<p class="w3-center"><b class="w3-large w3-text-dark-gray">Ups! '+ w[0] +' tidak ditemukan..</b></p>'+
-          '<div><img src="https://adamsyarif.github.io/blogger/'+ w[1] +'.png"/></div>'+
+function _searchResult(d, n){
+  _result.data = d.feed.entry ? d.feed.entry : [];
+  $('#search-total').text(_result.data.length);
+  $('#search-name').text('untuk '+ n);
+  _result.load();
+}
+
+function _notFound(n){
+  const c = [{
+		name: 'halaman', img: '404_not_found'
+	},{
+		name: 'artikel', img: 'search_result'
+	}];
+  return '<p class="w3-center"><b class="w3-large w3-text-dark-gray">Ups! '+ c[n].name +' tidak ditemukan..</b></p>'+
+          '<div><img src="'+ _repoUrl +'/'+ c[n].img +'.png"/></div>'+
           '<div class="w3-panel w3-pale-yellow w3-leftbar w3-border-khaki w3-text-dark-gray">'+
-            '<p>Sepertinya '+ w[0] +' yang kamu cari belum ada, coba periksa kembali pencarianmu atau buka daftar menu untuk mencari artikel yang menarik untuk kamu baca.</p>'+
+            '<p>Sepertinya '+ c[n].name +' yang kamu cari belum ada, coba periksa kembali pencarianmu atau buka daftar menu untuk mencari artikel yang menarik untuk kamu baca.</p>'+
           '</div>';
 }
 
@@ -207,25 +216,14 @@ function _sidebarMenu(n){
   $('.menu-content').eq(n).slideToggle();
 }
 
-function _whatTimeIs(){
-  const h = new Date().getHours();
-  return (h > 2 && h < 11)? 'pagi' : (h > 10 && h < 15)? 'siang' : (h > 14 && h < 18)? 'sore' : 'malam';
-}
-
 function _copy(){
   document.getElementById('post-url').select();
   document.execCommand('copy');
   _toast('Teks telah disalin');
 }
 
-function _rewrite(){
-  _n++;
-  if(_n >= 4) _n = 0;
-  _showTitle(_n);
-}
-
-function _showTitle(x){
-  const a = _titles[x].split('');
+function _showText(x){
+  const a = _texts[x].split('');
   let n = 0;
   let w = '';
   const i = setInterval(()=>{
@@ -234,7 +232,11 @@ function _showTitle(x){
     n++;
     if(n >= a.length){
       clearInterval(i);
-      setTimeout(_rewrite, 2000);
+      setTimeout(()=>{
+				_n++;
+				if(_n >= 4) _n = 0;
+				_showText(_n);
+			}, 2000);
     }
   }, 100);
 }
