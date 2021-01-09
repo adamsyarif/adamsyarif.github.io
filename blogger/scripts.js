@@ -13,9 +13,9 @@ let _TOAST, _n = 0;
 hljs.initHighlightingOnLoad();
 
 (()=>{
-  const s1 = $('#search-type').val();
+  const s1 = +$('#search-type').val();
   if(s1) _search(s1);
-  const s2 = $('#section-type').val();
+  const s2 = +$('#section-type').val();
   if(s2) _search(s2);
   $('.what-time-is').text(()=>{
     const h = new Date().getHours();
