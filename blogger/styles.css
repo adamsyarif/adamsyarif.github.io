@@ -32,6 +32,7 @@ label {cursor: pointer}
   overflow-y: auto;
 }
 #loader {
+  display: inline;
   z-index: 4;
 }
 #toast {
@@ -76,7 +77,7 @@ label {cursor: pointer}
 .wrapper {
   position: relative;
   max-width: 570px;
-  margin: auto;
+  margin: 10px auto 10px auto;
 }
 .thumbnail {
   width: 75px;
