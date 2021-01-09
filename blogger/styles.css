@@ -32,7 +32,6 @@ label {cursor: pointer}
   overflow-y: auto;
 }
 #loader {
-  display: inline;
   z-index: 4;
 }
 #toast {
