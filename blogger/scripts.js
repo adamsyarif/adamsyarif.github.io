@@ -13,6 +13,10 @@ let _TOAST, _n = 0;
 hljs.initHighlightingOnLoad();
 
 (()=>{
+  const s1 = $('#search-type').val();
+  if(s1) _search(s1);
+  const s2 = $('#section-type').val();
+  if(s2) _search(s2);
   $('.what-time-is').text(()=>{
     const h = new Date().getHours();
     return (h >= 3 && h <= 10)? 'pagi' : (h >= 11 && h <= 14)? 'siang' : (h >= 15 && h <= 17)? 'sore' : 'malam';
@@ -77,15 +81,15 @@ function _validate(e, p){
 function _search(n){
   switch(n){
     case 1:
-      $('#sidebar-name').text('Terbaru');
-      _req(_feedUrl +'?alt=json&max-results=10', _sidebarPost);
+      $('#section-name').text('Terbaru');
+      _req(_feedUrl +'?alt=json&max-results=10', _sectionPost);
     break;
     case 2:
       {
-        $('#sidebar-name').text('Terkait');
+        $('#section-name').text('Terkait');
         const c = $('#post-label').val().split(',').filter(v => v.trim() != '');
         const r = Math.floor(Math.random() * c.length);
-        _req(_feedUrl +'/-/'+ c[r] +'?alt=json&max-results=1000', _sidebarPost);
+        _req(_feedUrl +'/-/'+ c[r] +'?alt=json&max-results=1000', _sectionPost);
       }
     break;
     case 3:
@@ -132,14 +136,14 @@ function _search(n){
   }
 }
 
-function _sidebarPost(d){
+function _sectionPost(d){
   let c = '';
   d.feed.category.forEach((v)=>{
     c += '<option value="'+ v.term +'">'+ v.term +'</option>';
   });
   $('#searchbar-category').html(c);
   const e = d.feed.entry.sort(()=>(Math.random()-0.5)).splice(0,5);
-  $('#sidebar-post').html(_postList(e));
+  $('#section-post').html(_postList(e));
 }
 
 function _postList(e){
