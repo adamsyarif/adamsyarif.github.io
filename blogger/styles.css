@@ -14,52 +14,54 @@ td {vertical-align: top}
 label {cursor: pointer}
 
 /* ========== id */
-#body {position: fixed}
-#body, #inner-wrapper {
+#body, #toast, #loader {position: fixed}
+#body, #inner-wrapper, #loader {
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
 }
-#body, #skeleton, #outer-wrapper, #inner-wrapper {
+#body, #skeleton, #outer-wrapper, #inner-wrapper, #loader {
   width: 100%;
   height: 100%;
 }
 #outer-wrapper {position: relative}
+#inner-wrapper, #bookmark-icon, #cover-load {position: absolute}
 #inner-wrapper {
-  position: absolute;
   overflow-x: hidden;
   overflow-y: auto;
 }
-#loader {
-  display: inline;
-  z-index: 4;
+#bookmark-icon {
+  top: -5px;
+  right: 16px;
 }
-#toast {
-  position: fixed;
+#loader {z-index: 4}
+#loader, #toast {display: none}
+#loader, #toast-msg {background-color: rgba(0,0,0,0.5)}
+#toast, #cover-load {
   left: 0;
   right: 0;
-  bottom: 60px;
   width: 100%;
+}
+#toast {
+  bottom: 80px;
   z-index: 5;
   padding: 0 10px;
 }
-#toast, #next-post {display: none}
 #toast-msg {
-  background-color: rgba(0,0,0,0.5);
   margin: auto;
   max-width: 400px;
 }
-#bookmark-icon {
-  position: absolute;
-  top: -5px;
-  right: 16px;
+#cover-load {
+  bottom: 25%;
+  text-align: center;
+  color: #fff;
 }
 
 /* ========== class */
 .header-btn {vertical-align: middle}
+.sidebar, .menubar-content {display: none}
 .sidebar {
-  display: none;
   z-index: 3;
   width: 300px;
 }
@@ -70,14 +72,11 @@ label {cursor: pointer}
   top: 0;
 }
 .pointer {cursor: pointer}
-.menubar-content {
-  display: none;
-  background-color: #e5e5e5;
-}
+.menubar-content {background-color: #e5e5e5}
 .wrapper {
   position: relative;
   max-width: 570px;
-  margin: 10px auto 10px auto;
+  margin: 10px auto;
 }
 .thumbnail {
   width: 75px;
