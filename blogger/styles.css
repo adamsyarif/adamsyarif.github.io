@@ -26,7 +26,7 @@ label {cursor: pointer}
   height: 100%;
 }
 #outer-wrapper {position: relative}
-#inner-wrapper, #bookmark-icon, #cover-load {position: absolute}
+#inner-wrapper, #bookmark-icon {position: absolute}
 #inner-wrapper {
   overflow-x: hidden;
   overflow-y: auto;
@@ -38,12 +38,10 @@ label {cursor: pointer}
 #loader {z-index: 4}
 #loader, #toast {display: none}
 #loader, #toast-msg {background-color: rgba(0,0,0,0.5)}
-#toast, #cover-load {
+#toast {
   left: 0;
   right: 0;
   width: 100%;
-}
-#toast {
   bottom: 80px;
   z-index: 5;
   padding: 0 10px;
@@ -51,11 +49,6 @@ label {cursor: pointer}
 #toast-msg {
   margin: auto;
   max-width: 400px;
-}
-#cover-load {
-  bottom: 25%;
-  text-align: center;
-  color: #fff;
 }
 
 /* ========== class */
