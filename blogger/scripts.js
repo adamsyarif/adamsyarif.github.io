@@ -254,5 +254,7 @@ hljs.initHighlightingOnLoad();
       $('.text-pointer').toggleClass('w3-text-white w3-text-gray');
     }, 500);
   });
-  $('#cover').fadeOut();
+  setTimeout(()=>{
+    $('#cover').fadeOut();
+  }, 500);
 })();
