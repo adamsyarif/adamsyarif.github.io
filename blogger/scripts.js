@@ -10,31 +10,6 @@ const _titles = [
 const _REQ = [];
 let _TOAST, _n = 0;
 
-hljs.initHighlightingOnLoad();
-
-(()=>{
-  const s1 = +$('#search-type').val();
-  if(s1) _search(s1);
-  const s2 = +$('#section-type').val();
-  if(s2) _search(s2);
-  $('.what-time-is').text(()=>{
-    const h = new Date().getHours();
-    return (h >= 3 && h <= 10)? 'pagi' : (h >= 11 && h <= 14)? 'siang' : (h >= 15 && h <= 17)? 'sore' : 'malam';
-  });
-  $('.year').text(new Date().getFullYear());
-  $('form').submit(_preventDefault).trigger('reset');
-  $('input[name=searchbar-option]').change(function(){
-    const c = $('.searchbar-content');
-    c.hide();
-    c.eq(+$(this).val()-1).show();
-  });
-  $('#post-body').on('contextmenu copy cut', _preventDefault);
-  _showTitle(_n);
-  setInterval(()=>{
-    $('.text-pointer').toggleClass('w3-text-white w3-text-gray');
-  }, 500);
-})();
-
 function _preventDefault(e){
   e.preventDefault();
   return false;
@@ -171,8 +146,8 @@ function _postList(e){
 
 const _result = {
   data: [],
-  page: 1,
   showing: 7,
+  page: 1,
   pages: function(){
     const p = Math.ceil(this.data.length/this.showing);
     return (p > 0)? p : 1;
@@ -195,10 +170,14 @@ const _result = {
     $('#search-result').html((e.length > 0)? _postList(e) : _notFound(1));
     $('#current-page').text(this.page);
     $('#total-page').text(this.pages());
-    $('#inner-wrapper').animate({scrollTop: 0}, 800);
+    _scrollTop();
     setTimeout(_loader, 900);
   }
 };
+
+function _scrollTop(){
+  $('#inner-wrapper').animate({scrollTop:0}, 800);
+}
 
 function _searchResult(d, n){
   _result.data = d.feed.entry ? d.feed.entry : [];
@@ -220,19 +199,8 @@ function _notFound(n){
           '</div>';
 }
 
-function _menubar(n){
-  $('.menubar-btn').eq(n).find('i').toggleClass('fa-caret-down fa-caret-up');
-  $('.menubar-content').eq(n).slideToggle();
-}
-
-function _copy(){
-  document.getElementById('post-url').select();
-  document.execCommand('copy');
-  _toast('Teks telah disalin');
-}
-
-function _showTitle(x){
-  const a = _titles[x].split('');
+function _showTitle(c){
+  const a = _titles[_n].split('');
   let n = 0;
   let w = '';
   const i = setInterval(()=>{
@@ -244,8 +212,47 @@ function _showTitle(x){
       setTimeout(()=>{
         _n++;
         if(_n >= _titles.length) _n = 0;
-        _showTitle(_n);
+        _showTitle();
       }, 2000);
     }
   }, 100);
+  if(c) c();
 }
+
+function _menubar(n){
+  $('.menubar-btn').eq(n).find('i').toggleClass('fa-caret-down fa-caret-up');
+  $('.menubar-content').eq(n).slideToggle();
+}
+
+function _copy(){
+  document.getElementById('post-url').select();
+  document.execCommand('copy');
+  _toast('Teks telah disalin');
+}
+
+hljs.initHighlightingOnLoad();
+
+(()=>{
+  const s1 = +$('#search-type').val();
+  if(s1) _search(s1);
+  const s2 = +$('#section-type').val();
+  if(s2) _search(s2);
+  $('.what-time-is').text(()=>{
+    const h = new Date().getHours();
+    return (h >= 3 && h <= 10)? 'pagi' : (h >= 11 && h <= 14)? 'siang' : (h >= 15 && h <= 17)? 'sore' : 'malam';
+  });
+  $('.year').text(new Date().getFullYear());
+  $('form').submit(_preventDefault).trigger('reset');
+  $('input[name=searchbar-option]').change(function(){
+    const c = $('.searchbar-content');
+    c.hide();
+    c.eq(+$(this).val()-1).show();
+  });
+  $('#post-body').on('contextmenu copy cut', _preventDefault);
+  _showTitle(()=>{
+    setInterval(()=>{
+      $('.text-pointer').toggleClass('w3-text-white w3-text-gray');
+    }, 500);
+  });
+  $('#cover').fadeOut();
+})();
