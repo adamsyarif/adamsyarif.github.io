@@ -32,7 +32,7 @@ label {cursor: pointer}
   overflow-y: auto;
 }
 #content-bg {
-  background-image: url('../images/cover.jpg');
+  background-image: url('https://adamsyarif.github.io/blogger/cover.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
