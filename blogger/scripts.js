@@ -1,6 +1,6 @@
 const _repoUrl = 'https://adamsyarif.github.io/blogger';
-const _blogUrl = 'https://web-belajar-pemrograman.blogspot.com';
-const _feedUrl = _blogUrl +'/feeds/posts/default';
+const _blogUrl = 'web-belajar-pemrograman.blogspot.com';
+const _feedUrl = 'https://'+ _blogUrl +'/feeds/posts/default';
 const _titles = [
   'Web Belajar Pemrograman',
   'Belajar HTML',
@@ -89,7 +89,7 @@ function _search(n){
     break;
     default:
       {
-        let u = _blogUrl +'/search';
+        let u = 'https://'+ _blogUrl +'/search';
         switch(+$('input[name=searchbar-option]:checked').val()){
           case 1:
             {
@@ -233,6 +233,7 @@ function _copy(){
 hljs.initHighlightingOnLoad();
 
 (()=>{
+  if(location.hostname != _blogUrl) location.assign('https://'+ _blogUrl);
   const s1 = +$('#search-type').val();
   if(s1) _search(s1);
   const s2 = +$('#section-type').val();
