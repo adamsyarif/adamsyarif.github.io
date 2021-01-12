@@ -233,7 +233,7 @@ function _copy(){
 hljs.initHighlightingOnLoad();
 
 (()=>{
-  if(location.hostname != _blogUrl) location.assign('https://'+ _blogUrl);
+  //if(location.hostname != _blogUrl) location.assign('https://'+ _blogUrl);
   const s1 = +$('#search-type').val();
   if(s1) _search(s1);
   const s2 = +$('#section-type').val();
