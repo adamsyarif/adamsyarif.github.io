@@ -31,6 +31,12 @@ label {cursor: pointer}
   overflow-x: hidden;
   overflow-y: auto;
 }
+#content-bg {
+  background-image: url('../images/cover.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 #bookmark-icon {
   top: -5px;
   right: 16px;
@@ -62,14 +68,14 @@ label {cursor: pointer}
   position: -webkit-sticky;
   position: sticky;
   z-index: 1;
-  top: 0;
 }
 .pointer {cursor: pointer}
 .menubar-content {background-color: #e5e5e5}
 .wrapper {
   position: relative;
   max-width: 570px;
-  margin: 10px auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 .thumbnail {
   width: 75px;
