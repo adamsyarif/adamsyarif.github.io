@@ -84,7 +84,7 @@ function _scrollTesti(){
               '<table class="w3-table">'+
                 '<tr>'+
                   '<td style="width:100px" rowspan="2">'+
-                    '<img class="w3-circle w3-card-2" src="images/dummy.jpg"/>'+
+                    '<img class="w3-circle w3-card-2" src="'+ v.img +'"/>'+
                   '</td>'+
                   '<td>'+
                     '<b class="w3-large w3-text-dark-gray">'+ v.name +'</b><br/>'+
@@ -105,7 +105,7 @@ function _scrollTesti(){
   t.forEach((v)=>{
     ht += '<td class="h-testi">'+
             '<div class="w3-border w3-container w3-round w3-center">'+
-              '<p><img class="thumbnail w3-circle w3-card-2" src="images/dummy.jpg"/></p>'+
+              '<p><img class="thumbnail w3-circle w3-card-2" src="'+ v.img +'"/></p>'+
               '<p>'+
                 '<b class="w3-large w3-text-dark-gray">'+ v.name +'</b><br/>'+
                 '<span class="w3-small w3-text-gray">'+ v.city +'</span>'+
