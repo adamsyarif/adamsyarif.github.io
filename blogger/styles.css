@@ -30,7 +30,7 @@ label {cursor: pointer}
 #inner-wrapper {
   overflow-x: hidden;
   overflow-y: auto;
-  background-image: url('../images/cover.jpg');
+  background-image: url('https://adamsyarif.github.io/blogger/cover.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
