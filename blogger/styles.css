@@ -25,7 +25,6 @@ label {cursor: pointer}
   width: 100%;
   height: 100%;
 }
-#outer-wrapper {position: relative}
 #inner-wrapper, #bookmark-icon {position: absolute}
 #inner-wrapper {
   overflow-x: hidden;
@@ -102,7 +101,6 @@ label {cursor: pointer}
 }
 .testi-msg {padding: 0 16px 8px 8px!important}
 .wrapper {
-  position: relative;
   max-width: 570px;
   margin-left: auto;
   margin-right: auto;
