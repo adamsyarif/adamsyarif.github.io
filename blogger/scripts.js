@@ -117,7 +117,7 @@ function _sectionPost(d){
     c += '<option value="'+ v.term +'">'+ v.term +'</option>';
   });
   $('#searchbar-category').html(c);
-  const e = d.feed.entry.sort(()=>(Math.random()-0.5)).splice(0,5);
+  const e = d.feed.entry.sort(()=>(Math.random()-0.5)).slice(0,5);
   $('#section-post').html(_postList(e));
 }
 
