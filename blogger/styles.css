@@ -95,10 +95,9 @@ label {cursor: pointer}
 .v-scroll::before {background: linear-gradient(#fff, transparent, transparent, transparent, #fff)}
 .h-scroll::before {background: linear-gradient(to right, #fff, transparent, transparent, transparent, #fff)}
 .h-testi {
-  padding: 8px;
+  padding: 0 8px;
   width: 300px;
 }
-.testi-msg {padding: 0 16px 8px 8px!important}
 .wrapper {
   max-width: 570px;
   margin-left: auto;
