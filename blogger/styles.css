@@ -61,7 +61,7 @@ label {cursor: pointer}
 }
 
 /* ========== class */
-.header-btn {vertical-align: middle}
+.header-btn, .h-testi {vertical-align: middle}
 .sidebar, .menubar-content {display: none}
 .sidebar {
   z-index: 3;
@@ -95,7 +95,6 @@ label {cursor: pointer}
 .v-scroll::before {background: linear-gradient(#fff, transparent, transparent, transparent, #fff)}
 .h-scroll::before {background: linear-gradient(to right, #fff, transparent, transparent, transparent, #fff)}
 .h-testi {
-  vertical-align: middle;
   padding: 8px;
   width: 300px;
 }
