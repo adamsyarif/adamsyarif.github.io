@@ -50,7 +50,7 @@ function _toast(m){
 }
 
 function _validate(e, p){
-  e.value = e.value.replace(p, '');
+  $(e).val($(e).val().replace(p, ''));
 }
 
 function _search(n){
@@ -199,7 +199,7 @@ function _notFound(n){
           '</div>';
 }
 
-function _showTitle(c){
+function _showTitle(){
   const a = _titles[_n].split('');
   let n = 0;
   let w = '';
@@ -216,7 +216,6 @@ function _showTitle(c){
       }, 2000);
     }
   }, 100);
-  if(c) c();
 }
 
 function _menubar(n){
@@ -242,7 +241,6 @@ hljs.initHighlightingOnLoad();
     const h = new Date().getHours();
     return (h >= 3 && h <= 10)? 'pagi' : (h >= 11 && h <= 14)? 'siang' : (h >= 15 && h <= 17)? 'sore' : 'malam';
   });
-  $('.year').text(new Date().getFullYear());
   $('form').submit(_preventDefault).trigger('reset');
   $('input[name=searchbar-option]').change(function(){
     const c = $('.searchbar-content');
@@ -250,12 +248,12 @@ hljs.initHighlightingOnLoad();
     c.eq(+$(this).val()-1).show();
   });
   $('#post-body').on('contextmenu copy cut', _preventDefault);
-  _showTitle(()=>{
+  $('.year').text(new Date().getFullYear());
+  setTimeout(()=>{
+    _showTitle();
     setInterval(()=>{
       $('.text-pointer').toggleClass('w3-text-white w3-text-gray');
     }, 500);
-  });
-  setTimeout(()=>{
     $('#cover').fadeOut();
   }, 500);
 })();
