@@ -79,12 +79,12 @@ function _scrollTesti(){
   const t = _testi.sort(()=>(Math.random()-0.5)).slice(0,5);
   let vt = '';
   t.forEach((v)=>{
-    vt += '<tr><td>'+
+    vt += '<tr><td class="w3-padding">'+
             '<div class="w3-border w3-round">'+
               '<table class="w3-table">'+
                 '<tr>'+
                   '<td style="width:100px" rowspan="2">'+
-                    '<img class="w3-circle w3-card-2" src="'+ v.img +'"/>'+
+                    '<img class="w3-circle w3-card-2" src="images/dummy.jpg"/>'+
                   '</td>'+
                   '<td>'+
                     '<b class="w3-large w3-text-dark-gray">'+ v.name +'</b><br/>'+
@@ -92,7 +92,7 @@ function _scrollTesti(){
                   '</td>'+
                 '</tr>'+
                 '<tr>'+
-                  '<td class="w3-justify testi-msg">'+
+                  '<td class="w3-justify" style="padding:0 16px 8px 8px">'+
                     '<i>"'+ v.msg +'"</i>'+
                   '</td>'+
                 '</tr>'+
@@ -105,7 +105,7 @@ function _scrollTesti(){
   t.forEach((v)=>{
     ht += '<td class="h-testi">'+
             '<div class="w3-border w3-container w3-round w3-center">'+
-              '<p><img class="thumbnail w3-circle w3-card-2" src="'+ v.img +'"/></p>'+
+              '<p><img class="thumbnail w3-circle w3-card-2" src="images/dummy.jpg"/></p>'+
               '<p>'+
                 '<b class="w3-large w3-text-dark-gray">'+ v.name +'</b><br/>'+
                 '<span class="w3-small w3-text-gray">'+ v.city +'</span>'+
