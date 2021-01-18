@@ -345,10 +345,10 @@ const _menu2 = {
       c = '';
       if(m.id == id){
         n = a[i+1];
-        if(n) next.show().find('a').attr('href', n.link).find('span').text(n.title);
+        if(n) next.show().find('a').attr('href', n.link).find('span').text(n.name);
         c = 'w3-green';
       }
-      l += '<a href="'+ m.link +'" class="'+ c +' w3-bar-item w3-button">'+ m.title +'</a>';
+      l += '<a href="'+ m.link +'" class="'+ c +' w3-bar-item w3-button">'+ m.name +'</a>';
     });
     return l;
   };
