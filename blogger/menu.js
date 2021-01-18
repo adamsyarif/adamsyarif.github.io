@@ -202,8 +202,9 @@ const _menu2 = {
     });
     return l;
   };
+  const x = $('.menubar-content');
   Object.keys(_menu1).forEach((k, i)=>{
-    $('.menubar-content').eq(i).html(list(_menu1[k]));
-    $('.menubar-content').eq(i+3).html(list(_menu2[k]));
+    x.eq(i).html(list(_menu1[k]));
+    x.eq(i+3).html(list(_menu2[k]));
   });
 })();
