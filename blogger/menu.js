@@ -30,7 +30,7 @@ const _menu1 = {
     {
       id: 2972016429648288247,
       name: 'Apa itu CSS ?',
-      link: '/2020/12/apa-itu-css_25.html'
+      link: '/2020/12/apa-itu-css.html'
     },
     {
       id: 1491101387658211260,
