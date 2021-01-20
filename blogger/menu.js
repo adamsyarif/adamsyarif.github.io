@@ -136,8 +136,8 @@ const _menu1 = {
     },
     {
       id: 1206236644980774137,
-      name: 'JavaScript Error handling',
-      link: '/2021/01/javascript-error-handling.html'
+      name: 'JavaScript Try Catch',
+      link: '/2021/01/javascript-try-catch.html'
     }
   ]
 };
@@ -165,13 +165,18 @@ const _menu2 = {
     },
     {
       id: 1989043964910531869,
-      name: 'JavaScript Async and Await',
-      link: '/2021/01/javascript-async-and-await.html'
+      name: 'JavaScript Async Await',
+      link: '/2021/01/javascript-async-await.html'
     },
     {
       id: 8718410627563179637,
       name: 'JavaScript this Keyword',
       link: '/2021/01/javascript-this-keyword.html'
+    },
+    {
+      id: 8718410627563179637,
+      name: 'JavaScript Arrow function',
+      link: '/2021/01/javascript-arrow-function.html'
     },
     {
       id: 530437586833937029,
