@@ -3,7 +3,7 @@ const _menu1 = {
     {
       id: 4399303728456275015,
       name: 'Apa itu HTML ?',
-      link: '/2021/01/apa-itu-html.html'
+      link: '/2020/12/apa-itu-html.html'
     },
     {
       id: 7888608571628476824,
@@ -30,7 +30,7 @@ const _menu1 = {
     {
       id: 2972016429648288247,
       name: 'Apa itu CSS ?',
-      link: '/2021/01/apa-itu-css_25.html'
+      link: '/2020/12/apa-itu-css_25.html'
     },
     {
       id: 1491101387658211260,
