@@ -1,4 +1,4 @@
-const _menu1 = {
+const _m1 = {
   html: [
     {
       id: 4399303728456275015,
@@ -121,6 +121,11 @@ const _menu1 = {
     },
     {
       id: 2265176596142947677,
+      name: 'JavaScript DOM',
+      link: '/2021/01/javascript-dom.html'
+    },
+    {
+      id: 2265176596142947677,
       name: 'JavaScript Loop',
       link: '/2021/01/javascript-loop.html'
     },
@@ -142,7 +147,7 @@ const _menu1 = {
   ]
 };
 
-const _menu2 = {
+const _m2 = {
   html: [
     {
       id: 4399303728456275015,
@@ -158,6 +163,16 @@ const _menu2 = {
     }
   ],
   javascript: [
+    {
+      id: 5921124459974078627,
+      name: 'JavaScript Object destructuring',
+      link: '/2021/01/javascript-object-destructuring.html'
+    },
+    {
+      id: 5921124459974078627,
+      name: 'JavaScript Array function',
+      link: '/2021/01/javascript-array-function.html'
+    },
     {
       id: 5921124459974078627,
       name: 'JavaScript Promise',
@@ -207,9 +222,9 @@ const _menu2 = {
     });
     return l;
   };
-  const x = $('.menubar-content');
-  Object.keys(_menu1).forEach((k, i)=>{
-    x.eq(i).html(list(_menu1[k]));
-    x.eq(i+3).html(list(_menu2[k]));
+  const content = $('.menubar-content');
+  Object.keys(_m1).forEach((k, i)=>{
+    content.eq(i).html(list(_m1[k]));
+    content.eq(i+3).html(list(_m2[k]));
   });
 })();
