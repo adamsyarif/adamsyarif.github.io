@@ -117,7 +117,7 @@ const _m1 = {
     {
       id: 2265176596142947677,
       name: 'JavaScript DOM',
-      link: '/2021/01/javascript-dom.html'
+      link: '/2021/02/javascript-dom.html'
     },
     {
       id: 4023070051762934749,
@@ -127,22 +127,22 @@ const _m1 = {
     {
       id: 2265176596142947677,
       name: 'JavaScript Loop',
-      link: '/2021/01/javascript-loop.html'
+      link: '/2021/02/javascript-loop.html'
     },
     {
       id: 8724253155128548012,
       name: 'JavaScript Math',
-      link: '/2021/01/javascript-math.html'
+      link: '/2021/02/javascript-math.html'
     },
     {
       id: 7783484893767550398,
       name: 'JavaScript Date',
-      link: '/2021/01/javascript-date.html'
+      link: '/2021/02/javascript-date.html'
     },
     {
       id: 1206236644980774137,
       name: 'JavaScript Try Catch',
-      link: '/2021/01/javascript-try-catch.html'
+      link: '/2021/02/javascript-try-catch.html'
     }
   ]
 };
