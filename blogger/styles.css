@@ -44,6 +44,14 @@ label {cursor: pointer}
   top: -5px;
   right: 16px;
 }
+#post-body {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 #loader {z-index: 4}
 #loader, #toast {display: none}
 #loader, #toast-msg {background-color: rgba(0,0,0,0.5)}
