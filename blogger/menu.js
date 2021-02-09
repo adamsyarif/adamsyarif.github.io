@@ -41,22 +41,22 @@ const _m1 = {
       link: '/2021/02/html-list.html'
     },
     {
-      id: 1
+      id: 1,
       name: 'HTML Table',
       link: '/2021/02/html-table.html'
     },
     {
-      id: 1
+      id: 1,
       name: 'HTML Input',
       link: '/2021/02/html-input.html'
     },
     {
-      id: 1
+      id: 1,
       name: 'HTML Form',
       link: '/2021/02/html-form.html'
     },
     {
-      id: 1
+      id: 1,
       name: 'HTML Image',
       link: '/2021/02/html-image.html'
     }
@@ -190,22 +190,22 @@ const _m1 = {
 const _m2 = {
   html: [
     {
-      id: 1
+      id: 1,
       name: 'HTML Responsive',
       link: '/2021/02/html-responsive.html'
     },
     {
-      id: 1
+      id: 1,
       name: 'HTML Iframe',
       link: '/2021/02/html-iframe.html'
     },
     {
-      id: 1
+      id: 1,
       name: 'HTML Media player',
       link: '/2021/02/html-media-player.html'
     },
     {
-      id: 1
+      id: 1,
       name: 'HTML Entities',
       link: '/2021/02/html-entities.html'
     }
@@ -299,21 +299,21 @@ const _m2 = {
 const _m3 = {
   html: [
     {
-      id: 0,
+      id: 1,
       name: '-',
       link: '/'
     }
   ],
   css: [
     {
-      id: 0,
+      id: 1,
       name: '-',
       link: '/'
     }
   ],
   javascript: [
     {
-      id: 0,
+      id: 1,
       name: '-',
       link: '/'
     }
