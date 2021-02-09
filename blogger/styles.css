@@ -12,6 +12,11 @@ thead td {
 }
 td {vertical-align: top}
 label {cursor: pointer}
+mark {
+  background-color: #f1f1f1;
+  color: #f44336;
+  padding: 1px 8px;
+}
 
 /* ========== id */
 #body, #toast, #loader {position: fixed}
@@ -114,5 +119,13 @@ label {cursor: pointer}
 .thumbnail {
   width: 75px;
   height: 75px;
+}
+.notes {
+  padding: 0.01em 16px;
+  margin: 16px 0;
+  background-color: #ffffcc;
+  color: #3a3a3a;
+  border-left: 6px solid #ccc;
+  border-color: #f0e68c;
 }
 .socmed-icon {padding: 0 5px}
