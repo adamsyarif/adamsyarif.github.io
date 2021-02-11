@@ -138,12 +138,19 @@ mark {
   color: #000!important;
   background-color: #ccc!important;
 }
+.preview {
+  background-color: #f1f1f1;
+  font-size: 12px;
+  border: 1px solid #ccc;
+}
 .notes {
-  padding: 0.01em 16px;
-  margin: 16px 0;
   background-color: #ffffcc;
   color: #3a3a3a;
   border-left: 6px solid #ccc;
   border-color: #f0e68c;
+}
+.preview, .notes {
+  margin: 16px 0;
+  padding: 0.01em 16px;
 }
 .socmed-icon {padding: 0 5px}
