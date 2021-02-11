@@ -120,6 +120,24 @@ mark {
   width: 75px;
   height: 75px;
 }
+.button {
+  border: none;
+  padding: 8px 16px;
+  background-color: inherit;
+  color: inherit;
+  cursor: pointer;
+  border-radius: 4px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.button:hover {
+  color: #000!important;
+  background-color: #ccc!important;
+}
 .notes {
   padding: 0.01em 16px;
   margin: 16px 0;
