@@ -1,16 +1,24 @@
 /* ========== element */
-html, body, img {
+body {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overflow: hidden;
+}
+img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
-img {object-fit: cover}
 a {text-decoration: none}
 table {border-collapse: collapse}
 thead td {
   font-weight: bold;
   white-space: nowrap;
 }
-td {vertical-align: top}
 label {cursor: pointer}
 mark {
   background-color: #f1f1f1;
@@ -19,138 +27,64 @@ mark {
 }
 
 /* ========== id */
-#body, #toast, #loader {position: fixed}
-#body, #inner-wrapper, #loader {
+#body, #toast {position: fixed}
+#body, #inner-wrapper {
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
 }
-#body, #skeleton, #outer-wrapper, #inner-wrapper, #loader {
+#body, #layout, #outer-wrapper, #inner-wrapper {
   width: 100%;
   height: 100%;
 }
-#inner-wrapper, #bookmark-icon {position: absolute}
 #inner-wrapper {
+  position: absolute;
   overflow-x: hidden;
   overflow-y: auto;
-  background-image: url('https://adamsyarif.github.io/blogger/cover.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
-#v-testi {animation: v-testi 40s linear infinite}
-#h-testi {
-  animation: h-testi 40s linear infinite;
-  width: 3000px;
-  height: 100%;
-}
-#bookmark-icon {
-  top: -5px;
-  right: 16px;
-}
-#post-body {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-#loader {z-index: 4}
-#loader, #toast {display: none}
-#loader, #toast-msg {background-color: rgba(0,0,0,0.5)}
 #toast {
+  display: none;
   left: 0;
   right: 0;
   width: 100%;
-  bottom: 80px;
-  z-index: 5;
-  padding: 0 10px;
+  top: 75vh;
+  z-index: 3;
 }
-#toast-msg {
+#toast div {
   margin: auto;
-  max-width: 400px;
+  max-width: 500px;
+  background-color: rgba(0,0,0,0.5);
 }
 
 /* ========== class */
-.header-btn, .h-testi {vertical-align: middle}
-.sidebar, .menubar-content {display: none}
+.w3-row {
+  display: flex!important;
+  flex-wrap: wrap;
+}
 .sidebar {
-  z-index: 3;
-  width: 300px;
+  width: 100%;
+  max-width: 350px;
 }
 .sticky {
   position: -webkit-sticky;
   position: sticky;
+  top: 0;
   z-index: 1;
 }
 .pointer {cursor: pointer}
-.menubar-content {background-color: #e5e5e5}
-.my-row {
-  display: flex;
-  flex-wrap: wrap;
-}
-.endless-scroll {overflow: hidden}
-.endless-scroll, .v-scroll::before, .h-scroll::before {
+.wave {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  right: 0;
   bottom: 0;
-}
-.v-scroll::before, .h-scroll::before {
-  content: '';
-  z-index: 2;
-}
-.v-scroll::before {background: linear-gradient(#fff, transparent, transparent, transparent, #fff)}
-.h-scroll::before {background: linear-gradient(to right, #fff, transparent, transparent, transparent, #fff)}
-.h-testi {
-  padding: 0 8px;
-  width: 300px;
-}
-.label-tag {border-radius:0 0 8px 8px}
-.wrapper {
-  max-width: 570px;
-  margin: auto;
+  left: 0;
 }
 .thumbnail {
   width: 75px;
   height: 75px;
 }
-.button {
-  border: none;
-  padding: 8px 16px;
-  background-color: inherit;
-  color: inherit;
-  cursor: pointer;
-  border-radius: 4px;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+.wrapper {
+  max-width: 570px;
+  margin: auto;
 }
-.button:hover {
-  color: #000!important;
-  background-color: #ccc!important;
-}
-.preview {
-  background-color: #f1f1f1;
-  font-size: 12px;
-  border: 1px solid #ccc;
-}
-.notes {
-  background-color: #ffffcc;
-  color: #3a3a3a;
-  border-left: 6px solid #ccc;
-  border-color: #f0e68c;
-}
-.preview, .notes {
-  margin: 16px 0;
-  padding: 0.01em 16px;
-}
+.wrapper-tag {border-radius:0 0 8px 8px}
 .socmed-icon {padding: 0 5px}
