@@ -1,148 +1,143 @@
-const _repoUrl = 'https://adamsyarif.github.io/blogger';
-const _blogUrl = 'web-belajar-pemrograman.blogspot.com';
-const _feedUrl = 'https://'+ _blogUrl +'/feeds/posts/default';
-const _titles = [
-  'Web Belajar Pemrograman',
-  'Belajar HTML',
-  'Belajar CSS',
-  'Belajar JavaScript'
-];
-const _REQ = [];
-let _TOAST, _n = 0;
+hljs.initHighlightingOnLoad();
 
-function _preventDefault(e){
-  e.preventDefault();
-  return false;
-}
+const ENV = {};
+ENV.repoUrl = 'https://adamsyarif.github.io/blogger/';
+ENV.blogUrl = 'web-belajar-pemrograman.blogspot.com';
 
-function _req(u, c){
-  $.ajax({
-    method: 'GET',
-    url: u,
-    beforeSend: ()=> _loader(true),
-    complete: ()=> _loader(false)
-  }).done(r => c(r)).fail((x, s, e)=>{
-    _toast('Error, please check console for details');
-    console.log(e);
-  });
-}
-
-function _loader(s){
-  const l = $('#loader');
-  if(s){
-    if(_REQ.length == 0) l.show();
-    _REQ.push(1);
-  } else {
-    if(_REQ.length > 0) _REQ.pop();
-    if(_REQ.length == 0) l.hide();
+const APP = {
+  REQ: [],
+  req: function(u, c){
+    $.ajax({
+      method: 'GET',
+      url: u,
+      beforeSend: ()=> this.loader(true),
+      complete: ()=> this.loader(false)
+    }).done(r => c(r)).fail((x, s, e)=>{
+      this.toast('Error, please check console for details');
+      console.log(e);
+    });
+  },
+  loader: function(s){
+    const l = $('#loader');
+    if(s){
+      if(this.REQ.length == 0) l.show();
+      this.REQ.push(1);
+    } else {
+      if(this.REQ.length > 0) this.REQ.pop();
+      if(this.REQ.length == 0) l.hide();
+    }
+  },
+  TOAST: null,
+  toast: function(m){
+    if(this.TOAST) clearTimeout(this.TOAST);
+    const t = $('#toast');
+    t.show().find('div').text(m);
+    this.TOAST = setTimeout(()=>{
+      this.TOAST = null;
+      t.hide();
+    }, 3000);
+  },
+  validate: (e, p)=>{
+    $(e).val($(e).val().replace(p, ''));
+  },
+  copy: function(e){
+    $(e).select();
+    document.execCommand('copy');
+    this.toast('Teks telah disalin');
+  },
+  preventDefault: (e)=>{
+    e.preventDefault();
+    return false;
   }
-}
+};
 
-function _toast(m){
-  if(_TOAST) clearTimeout(_TOAST);
-  $('#toast-msg').text(m);
-  const t = $('#toast');
-  t.show();
-  _TOAST = setTimeout(()=>{
-    TOAST = null;
-    t.hide();
-  }, 3000);
-}
+const _titles = {
+  data: [
+    'Web Belajar Pemrograman',
+    'Belajar HTML',
+    'Belajar CSS',
+    'Belajar JavaScript'
+  ],
+  index: 0,
+  start: function(){
+    setInterval(()=>{
+      $('.titles span').toggleClass('w3-text-white w3-text-gray');
+    }, 500);
+    this.repeat();
+  },
+  repeat: function(){
+    let [i, w] = [0, ''];
+    const a = this.data[this.index].split('');
+    const x = setInterval(()=>{
+      w += a[i];
+      $('.titles b').text(w);
+      i++;
+      if(i >= a.length){
+        clearInterval(x);
+        setTimeout(()=>{
+          this.index++;
+          if(this.index >= this.data.length) this.index = 0;
+          this.repeat();
+        }, 2000);
+      }
+    }, 100);
+  }
+};
 
-function _validate(e, p){
-  $(e).val($(e).val().replace(p, ''));
-}
-
-function _search(n){
+const _search = (n)=>{
+  const f = 'https://'+ ENV.blogUrl +'/feeds/posts/default';
+  const s = 'https://'+ ENV.blogUrl +'/search';
+  const r1 = (n, u, m)=>{
+    $('#search-detail').text('untuk '+ n);
+    APP.req(u +'alt=json&max-results='+ m, _result.main);
+  };
+  const r2 = (n, u, m)=>{
+    $('#section-name').text(n);
+    APP.req(u +'alt=json&max-results='+ m, _result.section);
+  };
   switch(n){
     case 1:
-      $('#section-name').text('Terbaru');
-      _req(_feedUrl +'?alt=json&max-results=10', _sectionPost);
+      {
+        const q = new URL(location.href).searchParams.get('q');
+        r1('kata kunci "'+ q +'"', f +'?q='+ q +'&', 1000);
+      }
     break;
     case 2:
       {
-        $('#section-name').text('Terkait');
-        const c = $('#post-label').val().split(',').filter(v => v.trim() != '');
-        const r = Math.floor(Math.random() * c.length);
-        _req(_feedUrl +'/-/'+ c[r] +'?alt=json&max-results=1000', _sectionPost);
+        const p = new URL(location.href).pathname;
+        const c = p.slice((p.lastIndexOf('/')+1), p.length);
+        r1('kategori "'+ c +'"', f +'/-/'+ c +'?', 1000);
       }
     break;
     case 3:
-      {
-        const q = new URL(location.href).searchParams.get('q');
-        _req(_feedUrl +'?q='+ q +'&alt=json&max-results=1000', (d)=>{
-          _searchResult(d, 'kata kunci "'+ q +'"');
-        });
-      }
+      r2('Terbaru', f +'?', 10);
     break;
     case 4:
       {
-        const p = new URL(location.href).pathname;
-        const c = p.slice((p.lastIndexOf('/')+1), p.length);
-        _req(_feedUrl +'/-/'+ c +'?alt=json&max-results=1000', (d)=>{
-          _searchResult(d, 'kategori "'+ c +'"');
-        });
+        const l = $('#labels').val().split(',').filter(v => v.trim() != '');
+        const r = Math.floor(Math.random() * l.length);
+        r2('Terkait', f +'/-/'+ l[r] +'?', 1000);
       }
-    break;
-    case 5:
-      $('#search-result').html(_notFound(0));
     break;
     default:
       {
-        let u = 'https://'+ _blogUrl +'/search';
-        switch(+$('input[name=searchbar-option]:checked').val()){
+        const e = $('#searchbar');
+        switch(+$('[name=searchbar]:checked').val()){
           case 1:
             {
-              const q = $('#searchbar-query').val().trim();
-              if(!q) return _toast('Kata kunci tidak boleh kosong');
-              u += '?q='+ q;
-              location.assign(encodeURI(u));
+              const q = e.find(':text').val().trim();
+              if(!q) APP.toast('Kata kunci tidak boleh kosong');
+              else location.assign(encodeURI(s +'?q='+ q));
             }
           break;
           case 2:
-            {
-              u += '/label/'+ $('#searchbar-category').val();
-              location.assign(encodeURI(u));
-            }
+            location.assign(encodeURI(s +'/label/'+ e.find('select').val()));
           break;
-          default: _toast('Pilih opsi');
+          default: APP.toast('Pilih opsi pencarian');
         }
       }
   }
-}
-
-function _sectionPost(d){
-  let c = '';
-  d.feed.category.forEach((v)=>{
-    c += '<option value="'+ v.term +'">'+ v.term +'</option>';
-  });
-  $('#searchbar-category').html(c);
-  const e = d.feed.entry.sort(()=>(Math.random()-0.5)).slice(0,5);
-  $('#section-post').html(_postList(e));
-}
-
-function _postList(e){
-  let l = '';
-  e.forEach((v)=>{
-    l += '<table style="width:100%">'+
-            '<tr>'+
-              '<td>'+
-                '<div class="thumbnail w3-card-2 w3-margin-right">'+
-                  '<img src="'+ v.media$thumbnail.url +'"/>'+
-                '</div>'+
-              '</td>'+
-              '<td>'+
-                '<b class="w3-large w3-text-dark-gray">'+ v.title.$t +'</b>'+
-                '<div class="w3-small w3-justify">'+ v.summary.$t.slice(0, 100) +'..</div>'+
-                '<p class="w3-right-align">'+
-                  '<a class="w3-button w3-border w3-small w3-round-large" href="'+ v.link[2].href +'">Baca selengkapnya</a>'+
-                '</p>'+
-              '</td>'+
-            '</tr>'+
-          '</table>';
-  });
-  return l;
-}
+};
 
 const _result = {
   data: [],
@@ -165,95 +160,110 @@ const _result = {
     }
   },
   load: function(){
-    _loader(true);
-    const e = [...this.data].splice((this.page-1) * this.showing, this.showing);
-    $('#search-result').html((e.length > 0)? _postList(e) : _notFound(1));
+    APP.loader(true);
+    const e = this.data.slice((this.page-1) * this.showing, this.showing);
+    (e.length > 0)? $('#search-result').html(this.articleList(e)) : this.notFound(1);
     $('#current-page').text(this.page);
     $('#total-page').text(this.pages());
     _scrollTop();
-    setTimeout(_loader, 900);
+    setTimeout(APP.loader, 900);
+  },
+  main: function(d){
+    this.data = d.feed.entry ? d.feed.entry : [];
+    $('#search-total').text(this.data.length);
+    this.load();
+  },
+  section: function(d){
+    const e = d.feed.entry.sort(()=> Math.random()-0.5).slice(0,5);
+    $('#section-result').html(this.articleList(e));
+  },
+  articleList: (e)=>{
+    let a = '';
+    e.forEach((d)=>{
+      a += '<table style="width:100%">'+
+              '<tr>'+
+                '<td>'+
+                  '<div class="thumbnail w3-card-2 w3-margin-right">'+
+                    '<img src="'+ d.media$thumbnail.url +'"/>'+
+                  '</div>'+
+                '</td>'+
+                '<td>'+
+                  '<b class="w3-large w3-text-dark-gray">'+ d.title.$t +'</b>'+
+                  '<div class="w3-small w3-justify">'+ d.summary.$t.slice(0, 100) +'..</div>'+
+                  '<p class="w3-right-align w3-small">'+
+                    '<a class="w3-button w3-border w3-round-large" href="'+ d.link[2].href +'">Baca selengkapnya</a>'+
+                  '</p>'+
+                '</td>'+
+              '</tr>'+
+            '</table>';
+    });
+    return a;
+  },
+  notFound: (n)=>{
+    const c = $('.main');
+    c.hide();
+    c.eq(n).show();
+  },
+  xxx: (n)=>{
+    const c = [{
+      name: 'halaman',
+      img: '404_not_found.jpg'
+    },{
+      name: 'artikel',
+      img: 'search_result.jpg'
+    }];
+    const r = '<p class="w3-center"><b class="w3-large w3-text-dark-gray">Ups! x tidak ditemukan</b></p>'+
+              '<div><img/></div>'+
+              '<div class="w3-panel w3-pale-yellow w3-leftbar w3-border-khaki w3-text-dark-gray">'+
+                '<p>Sepertinya x yang kamu cari belum ada, coba periksa kembali pencarianmu atau buka daftar menu untuk mencari artikel yang menarik untuk kamu baca.</p>'+
+              '</div>';
+    $('#search-result').html(r);
   }
 };
 
-function _scrollTop(){
-  $('#inner-wrapper').animate({scrollTop:0}, 800);
-}
+const _menubar = (e)=>{
+  $(e).find('i').toggleClass('fa-folder fa-folder-open');
+  $(e).next().slideToggle();
+};
 
-function _searchResult(d, n){
-  _result.data = d.feed.entry ? d.feed.entry : [];
-  $('#search-total').text(_result.data.length);
-  $('#search-name').text('untuk '+ n);
-  _result.load();
-}
-
-function _notFound(n){
-  const c = [{
-    name: 'halaman', img: '404_not_found'
-  },{
-    name: 'artikel', img: 'search_result'
-  }];
-  return '<p class="w3-center"><b class="w3-large w3-text-dark-gray">Ups! '+ c[n].name +' tidak ditemukan..</b></p>'+
-          '<div><img src="'+ _repoUrl +'/'+ c[n].img +'.jpg"/></div>'+
-          '<div class="w3-panel w3-pale-yellow w3-leftbar w3-border-khaki w3-text-dark-gray">'+
-            '<p>Sepertinya '+ c[n].name +' yang kamu cari belum ada, coba periksa kembali pencarianmu atau buka daftar menu untuk mencari artikel yang menarik untuk kamu baca.</p>'+
-          '</div>';
-}
-
-function _showTitle(){
-  const a = _titles[_n].split('');
-  let n = 0;
-  let w = '';
-  const i = setInterval(()=>{
-    w += a[n];
-    $('.titles').text(w);
-    n++;
-    if(n >= a.length){
-      clearInterval(i);
-      setTimeout(()=>{
-        _n++;
-        if(_n >= _titles.length) _n = 0;
-        _showTitle();
-      }, 2000);
-    }
-  }, 100);
-}
-
-function _menubar(n){
-  $('.menubar-btn').eq(n).find('i').toggleClass('fa-caret-down fa-caret-up');
-  $('.menubar-content').eq(n).slideToggle();
-}
-
-function _copy(){
-  document.getElementById('post-url').select();
-  document.execCommand('copy');
-  _toast('Teks telah disalin');
-}
-
-hljs.initHighlightingOnLoad();
+const _scrollTop = ()=> $('#inner-wrapper').animate({scrollTop:0}, 800);
 
 (()=>{
   //if(location.hostname != _blogUrl) location.assign('https://'+ _blogUrl);
-  const s1 = +$('#search-type').val();
-  if(s1) _search(s1);
-  const s2 = +$('#section-type').val();
-  if(s2) _search(s2);
+  //const s1 = +$('#search-type').val();
+  //if(s1) _search(s1);
+  //const s2 = +$('#section-type').val();
+  //if(s2) _search(s2);
+  APP.req('https://'+ ENV.blogUrl +'/feeds/posts/default?alt=json&max-results=1', (r)=>{
+    let l = '';
+    r.feed.category.forEach((c)=>{
+      l += '<option value="'+ c.term +'">'+ c.term +'</option>';
+    });
+    $('#searchbar select').html(l);
+  });
+  $('body').on('contextmenu select copy cut', APP.preventDefault);
+  $('form').submit(APP.preventDefault).trigger('reset');
+  $(':radio').change(function(){
+    $('[name='+ $(this).attr('name') +']').removeAttr('checked');
+    $(this).attr('checked', true);
+  });
+  $('#searchbar :radio').change(function(){
+    const c = $('#searchbar');
+    c.find('section').hide();
+    c.find('section:nth-of-type('+ $(this).val() +')').show();
+  });
   $('.what-time-is').text(()=>{
     const h = new Date().getHours();
+    const c = ((h >= 5 && h <= 6) || (h >= 16 && h <= 17))? '#ff9800' : (h >= 7 && h <= 15)? '#2196F3' : '#616161';
+    $('#inner-wrapper').css('background', 'linear-gradient(90deg,'+ c +',#fff,'+ c +')');
+    $('#home-bg').css('background', 'linear-gradient(#fff,'+ c +')');
     return (h >= 3 && h <= 10)? 'pagi' : (h >= 11 && h <= 14)? 'siang' : (h >= 15 && h <= 17)? 'sore' : 'malam';
   });
-  $('form').submit(_preventDefault).trigger('reset');
-  $('input[name=searchbar-option]').change(function(){
-    const c = $('.searchbar-content');
-    c.hide();
-    c.eq(+$(this).val()-1).show();
-  });
-  $('#post-body').on('contextmenu copy cut', _preventDefault);
-  $('.year').text(new Date().getFullYear());
+  $('.copyright-year').text(new Date().getFullYear());
   setTimeout(()=>{
-    _showTitle();
-    setInterval(()=>{
-      $('.text-pointer').toggleClass('w3-text-white w3-text-gray');
-    }, 500);
-    $('#cover').fadeOut();
-  }, 500);
+    _titles.start();
+    $('#cover').fadeOut(1000, function(){
+      $(this).remove();
+    });
+  }, 100);
 })();
