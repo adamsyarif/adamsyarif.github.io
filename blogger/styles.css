@@ -13,7 +13,6 @@ img {
   object-fit: cover;
 }
 a {text-decoration: none}
-table {border-collapse: collapse}
 thead td {
   font-weight: bold;
   white-space: nowrap;
