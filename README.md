@@ -1,3 +1,3 @@
-# adamsyarif.github.io
+# Adam's portofolio
 
 [Visit Pages](https://adamsyarif.github.io)
