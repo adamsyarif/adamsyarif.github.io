@@ -13,8 +13,10 @@ const APP = {
       beforeSend: ()=> this.loader(true),
       complete: ()=> this.loader(false)
     }).done(r => c(r)).fail((x, s, e)=>{
-      this.toast('Error, please check console for details');
-      console.log(e);
+      e ? (
+        this.toast('Error, please check console for details'),
+        console.log(e)
+      ) : this.toast(s);
     });
   },
   loader: function(s){
@@ -48,39 +50,6 @@ const APP = {
   preventDefault: (e)=>{
     e.preventDefault();
     return false;
-  }
-};
-
-const _titles = {
-  data: [
-    'Web Belajar Pemrograman',
-    'Belajar HTML',
-    'Belajar CSS',
-    'Belajar JavaScript'
-  ],
-  index: 0,
-  start: function(){
-    setInterval(()=>{
-      $('.titles span').toggleClass('w3-text-white w3-text-gray');
-    }, 500);
-    this.repeat();
-  },
-  repeat: function(){
-    let [i, w] = [0, ''];
-    const a = this.data[this.index].split('');
-    const x = setInterval(()=>{
-      w += a[i];
-      $('.titles b').text(w);
-      i++;
-      if(i >= a.length){
-        clearInterval(x);
-        setTimeout(()=>{
-          this.index++;
-          if(this.index >= this.data.length) this.index = 0;
-          this.repeat();
-        }, 2000);
-      }
-    }, 100);
   }
 };
 
@@ -126,8 +95,7 @@ const _search = (n)=>{
           case 1:
             {
               const q = e.find(':text').val().trim();
-              if(!q) APP.toast('Kata kunci tidak boleh kosong');
-              else location.assign(encodeURI(s +'?q='+ q));
+              q ? location.assign(encodeURI(s +'?q='+ q)) : APP.toast('Kata kunci tidak boleh kosong');
             }
           break;
           case 2:
@@ -141,10 +109,10 @@ const _search = (n)=>{
 
 const _result = {
   data: [],
-  showing: 7,
+  show: 7,
   page: 1,
   pages: function(){
-    const p = Math.ceil(this.data.length/this.showing);
+    const p = Math.ceil(this.data.length/this.show);
     return (p > 0)? p : 1;
   },
   previous: function(){
@@ -161,7 +129,7 @@ const _result = {
   },
   load: function(){
     APP.loader(true);
-    const e = this.data.slice((this.page-1) * this.showing, this.showing);
+    const e = this.data.slice((this.page-1) * this.show, this.show);
     (e.length > 0)? $('#search-result').html(this.articleList(e)) : this.notFound(1);
     $('#current-page').text(this.page);
     $('#total-page').text(this.pages());
@@ -200,9 +168,9 @@ const _result = {
     return a;
   },
   notFound: (n)=>{
-    const c = $('.main');
-    c.hide();
-    c.eq(n).show();
+    const e = $('.main');
+    e.hide();
+    e.eq(n).show();
   },
   xxx: (n)=>{
     const c = [{
@@ -241,6 +209,14 @@ const _scrollTop = ()=> $('#inner-wrapper').animate({scrollTop:0}, 800);
     });
     $('#searchbar select').html(l);
   });
+  if(typeof(Worker) != 'undefined'){
+    const w = new Worker('/scripts/workers.js');
+    w.onmessage = (e)=>{
+      const t = $('.titles');
+      if(e.data.text) t.find('b').text(e.data.text);
+      if(e.data.pointer) t.find('span').toggleClass('w3-text-white w3-text-gray');
+    };
+  }
   $('body').on('contextmenu select copy cut', APP.preventDefault);
   $('form').submit(APP.preventDefault).trigger('reset');
   $(':radio').change(function(){
@@ -248,9 +224,9 @@ const _scrollTop = ()=> $('#inner-wrapper').animate({scrollTop:0}, 800);
     $(this).attr('checked', true);
   });
   $('#searchbar :radio').change(function(){
-    const c = $('#searchbar');
-    c.find('section').hide();
-    c.find('section:nth-of-type('+ $(this).val() +')').show();
+    const e = $('#searchbar');
+    e.find('section').hide();
+    e.find('section:nth-of-type('+ $(this).val() +')').show();
   });
   $('.what-time-is').text(()=>{
     const h = new Date().getHours();
@@ -261,7 +237,6 @@ const _scrollTop = ()=> $('#inner-wrapper').animate({scrollTop:0}, 800);
   });
   $('.copyright-year').text(new Date().getFullYear());
   setTimeout(()=>{
-    _titles.start();
     $('#cover').fadeOut(1000, function(){
       $(this).remove();
     });
