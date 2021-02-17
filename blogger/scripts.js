@@ -210,7 +210,7 @@ const _scrollTop = ()=> $('#inner-wrapper').animate({scrollTop:0}, 800);
     $('#searchbar select').html(l);
   });
   if(typeof(Worker) != 'undefined'){
-    const w = new Worker(ENV.repoUrl +'workers.js');
+    const w = new Worker('workers.js');
     w.onmessage = (e)=>{
       const t = $('.titles');
       if(e.data.text) t.find('b').text(e.data.text);
