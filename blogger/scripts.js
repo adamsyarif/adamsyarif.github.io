@@ -2,7 +2,7 @@ hljs.initHighlightingOnLoad();
 
 const ENV = {};
 ENV.repoUrl = 'https://adamsyarif.github.io/blogger/';
-ENV.blogUrl = 'web-belajar-pemrograman.blogspot.com';
+ENV.blogUrl = 'https://web-belajar-pemrograman.blogspot.com/';
 
 const APP = {
   REQ: [],
@@ -62,8 +62,8 @@ const APP = {
 };
 
 const _search = (n)=>{
-  const f = 'https://'+ ENV.blogUrl +'/feeds/posts/default';
-  const s = 'https://'+ ENV.blogUrl +'/search';
+  const f = ENV.blogUrl +'feeds/posts/default';
+  const s = ENV.blogUrl +'search';
   const r1 = (n, u, m)=>{
     $('#search-detail').text('untuk '+ n);
     APP.req(u +'alt=json&max-results='+ m, _result.main);
@@ -205,7 +205,7 @@ const _menubar = (e)=>{
 const _scrollTop = ()=> $('#inner-wrapper').animate({scrollTop:0}, 800);
 
 (()=>{
-  APP.req('https://'+ ENV.blogUrl +'/feeds/posts/default?alt=json&max-results=1', (r)=>{
+  APP.req(ENV.blogUrl +'feeds/posts/default?alt=json&max-results=1', (r)=>{
     let l = '';
     r.feed.category.forEach((c)=>{
       l += '<option value="'+ c.term +'">'+ c.term +'</option>';
