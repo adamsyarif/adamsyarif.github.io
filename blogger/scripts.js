@@ -43,7 +43,8 @@ const APP = {
     this.req(u, (r)=>{
       const b = new Blob([r], {type:'application/javascript'});
       const o = URL.createObjectURL(b);
-      c(new Worker(o));
+      const w = new Worker(o);
+      c(w);
     });
   },
   validate: (e, p)=>{
@@ -68,7 +69,7 @@ const _search = (n)=>{
     APP.req(u +'alt=json&max-results='+ m, _result.main);
   };
   const r2 = (n, u, m)=>{
-    $('#section-name').text(n);
+    $('#section-name b').text(n);
     APP.req(u +'alt=json&max-results='+ m, _result.section);
   };
   switch(n){
@@ -86,13 +87,13 @@ const _search = (n)=>{
       }
     break;
     case 3:
-      r2('Terbaru', f +'?', 10);
+      r2('Artikel terbaru', f +'?', 10);
     break;
     case 4:
       {
         const l = $('#labels').val().split(',').filter(v => v.trim() != '');
         const r = Math.floor(Math.random() * l.length);
-        r2('Terkait', f +'/-/'+ l[r] +'?', 1000);
+        r2('Artikel terkait', f +'/-/'+ l[r] +'?', 1000);
       }
     break;
     default:
@@ -157,7 +158,7 @@ const _result = {
     e.forEach((d)=>{
       a += '<table style="width:100%">'+
               '<tr>'+
-                '<td>'+
+                '<td style="vertical-align:top">'+
                   '<div class="thumbnail w3-card-2 w3-margin-right">'+
                     '<img src="'+ d.media$thumbnail.url +'"/>'+
                   '</div>'+
@@ -165,8 +166,8 @@ const _result = {
                 '<td>'+
                   '<b class="w3-large w3-text-dark-gray">'+ d.title.$t +'</b>'+
                   '<div class="w3-small w3-justify">'+ d.summary.$t.slice(0, 100) +'..</div>'+
-                  '<p class="w3-right-align w3-small">'+
-                    '<a class="w3-button w3-border w3-round-large" href="'+ d.link[2].href +'">Baca selengkapnya</a>'+
+                  '<p class="w3-right-align">'+
+                    '<a class="w3-button w3-small w3-border w3-round-large" href="'+ d.link[2].href +'">Baca selengkapnya</a>'+
                   '</p>'+
                 '</td>'+
               '</tr>'+
@@ -204,13 +205,6 @@ const _menubar = (e)=>{
 const _scrollTop = ()=> $('#inner-wrapper').animate({scrollTop:0}, 800);
 
 (()=>{
-  /*
-  if(location.hostname != _blogUrl) location.assign('https://'+ _blogUrl);
-  const s1 = +$('#search-type').val();
-  if(s1) _search(s1);
-  const s2 = +$('#section-type').val();
-  if(s2) _search(s2);
-  */
   APP.req('https://'+ ENV.blogUrl +'/feeds/posts/default?alt=json&max-results=1', (r)=>{
     let l = '';
     r.feed.category.forEach((c)=>{
@@ -227,7 +221,7 @@ const _scrollTop = ()=> $('#inner-wrapper').animate({scrollTop:0}, 800);
       };
     });
   }
-  $('body').on('contextmenu select copy cut', APP.preventDefault);
+  $('body').on('contextmenu', APP.preventDefault);
   $('form').submit(APP.preventDefault).trigger('reset');
   $(':radio').change(function(){
     $('[name='+ $(this).attr('name') +']').removeAttr('checked');
@@ -238,11 +232,16 @@ const _scrollTop = ()=> $('#inner-wrapper').animate({scrollTop:0}, 800);
     e.find('section').hide();
     e.find('section:nth-of-type('+ $(this).val() +')').show();
   });
+  $('#inner-wrapper').scroll(function(){
+    const s = $('#article-scroll').parent();
+    ($('#article-body').position().top < 0)? s.show() : s.fadeOut();
+    const n = $('.article-nav');
+    ((n.eq(1).position().top - $(this).height()) > 0)? n.eq(0).show() : n.eq(0).fadeOut();
+  });
+  $('#article-body').on('select copy cut', APP.preventDefault);
   $('.what-time-is').text(()=>{
     const h = new Date().getHours();
     const c = ((h >= 5 && h <= 6) || (h >= 16 && h <= 17))? '#ff9800' : (h >= 7 && h <= 15)? '#2196F3' : '#616161';
-    $('#inner-wrapper').css('background', 'linear-gradient(90deg,'+ c +',#fff,'+ c +')');
-    $('#home-bg').css('background', 'linear-gradient(#fff,'+ c +')');
     return (h >= 3 && h <= 10)? 'pagi' : (h >= 11 && h <= 14)? 'siang' : (h >= 15 && h <= 17)? 'sore' : 'malam';
   });
   $('.copyright-year').text(new Date().getFullYear());
