@@ -6,7 +6,9 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  background-color: #333;
 }
+main {background-color: lightblue}
 img {
   width: 100%;
   height: 100%;
@@ -42,7 +44,6 @@ mark {
   overflow-y: auto;
 }
 #toast {
-  display: none;
   left: 0;
   right: 0;
   width: 100%;
@@ -67,22 +68,15 @@ mark {
 .sticky {
   position: -webkit-sticky;
   position: sticky;
-  top: 0;
   z-index: 1;
 }
 .pointer {cursor: pointer}
-.wave {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
 .thumbnail {
   width: 75px;
   height: 75px;
 }
-.wrapper {
-  max-width: 570px;
-  margin: auto;
-}
-.wrapper-tag {border-radius:0 0 8px 8px}
+.left-radius {border-radius: 8px 0 0 8px}
+.top-radius {border-radius: 8px 8px 0 0}
+.right-radius {border-radius: 0 8px 8px 0}
+.bottom-radius {border-radius: 0 0 8px 8px}
 .socmed-icon {padding: 0 5px}
