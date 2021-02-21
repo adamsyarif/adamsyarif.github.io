@@ -145,6 +145,7 @@ const _result = {
     setTimeout(APP.loader, 900);
   },
   main: function(d){
+    console.log(this);
     this.data = d.feed.entry ? d.feed.entry : [];
     $('#search-total').text(this.data.length);
     this.load();
