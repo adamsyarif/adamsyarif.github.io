@@ -115,7 +115,7 @@ const _search = (i)=>{
   }
 };
 
-var _result = {
+const _result = {
   data: [],
   show: 7,
   page: 1,
@@ -145,7 +145,7 @@ var _result = {
     setTimeout(APP.loader, 900);
   },
   main: function(d){
-    console.log(this);
+    console.log(_result);
     this.data = d.feed.entry ? d.feed.entry : [];
     $('#search-total').text(this.data.length);
     this.load();
