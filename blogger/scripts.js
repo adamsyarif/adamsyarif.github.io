@@ -234,9 +234,9 @@ const _scrollTop = ()=> $('#inner-wrapper').animate({scrollTop:0}, 800);
   });
   $('#inner-wrapper').scroll(function(){
     const s = $('#article-scroll').parent();
-    ($('#article-body').position().top < 0)? s.show() : s.fadeOut();
+    if(s) ($('#article-body').position().top < 0)? s.show() : s.fadeOut();
     const n = $('.article-nav');
-    ((n.eq(1).position().top - $(this).height()) > 0)? n.eq(0).show() : n.eq(0).fadeOut();
+    if(n) ((n.eq(1).position().top - $(this).height()) > 0)? n.eq(0).show() : n.eq(0).fadeOut();
   });
   $('#article-body').on('select copy cut', APP.preventDefault);
   $('.what-time-is').text(()=>{
