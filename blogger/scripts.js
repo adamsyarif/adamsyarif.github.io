@@ -138,7 +138,7 @@ const _result = {
   load: function(){
     APP.loader(true);
     const e = this.data.slice((this.page-1) * this.show, this.show);
-    (e.length > 0)? $('#search-result').html(this.articleList(e)) : this.notFound(1);
+    (e.length > 0)? $('#search-result').html(this.articleList(e)) : this.notFound();
     $('#current-page').text(this.page);
     $('#total-page').text(this.pages());
     _scrollTop();
@@ -175,25 +175,10 @@ const _result = {
     });
     return a;
   },
-  notFound: (n)=>{
-    const e = $('.main');
+  notFound: ()=>{
+    const e = $('.search-result');
     e.hide();
-    e.eq(n).show();
-  },
-  xxx: (n)=>{
-    const c = [{
-      name: 'halaman',
-      img: '404_not_found.jpg'
-    },{
-      name: 'artikel',
-      img: 'search_result.jpg'
-    }];
-    const r = '<p class="w3-center"><b class="w3-large w3-text-dark-gray">Ups! x tidak ditemukan</b></p>'+
-              '<div><img/></div>'+
-              '<div class="w3-panel w3-pale-yellow w3-leftbar w3-border-khaki w3-text-dark-gray">'+
-                '<p>Sepertinya x yang kamu cari belum ada, coba periksa kembali pencarianmu atau buka daftar menu untuk mencari artikel yang menarik untuk kamu baca.</p>'+
-              '</div>';
-    $('#search-result').html(r);
+    e.eq(1).show();
   }
 };
 
@@ -216,7 +201,7 @@ const _scrollTop = ()=> $('#inner-wrapper').animate({scrollTop:0}, 800);
     $('#searchbar select').html(l);
   });
   if(typeof(Worker) != 'undefined'){
-    APP.worker('/scripts/workers.js', (w)=>{
+    APP.worker(ENV.repoUrl +'workers.js', (w)=>{
       w.onmessage = (e)=>{
         const t = $('.titles');
         if(e.data.text) t.find('b').text(e.data.text);
