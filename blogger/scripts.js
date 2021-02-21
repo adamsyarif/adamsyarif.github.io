@@ -87,14 +87,14 @@ const _search = (n)=>{
       }
     break;
     case 3:
-      r2('Artikel terbaru', f +'?', 10);
-    break;
-    case 4:
       {
         const l = $('#labels').val().split(',').filter(v => v.trim() != '');
         const r = Math.floor(Math.random() * l.length);
         r2('Artikel terkait', f +'/-/'+ l[r] +'?', 1000);
       }
+    break;
+    case 4:
+      r2('Artikel terbaru', f +'?', 10);
     break;
     default:
       {
