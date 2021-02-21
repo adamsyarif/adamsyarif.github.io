@@ -61,7 +61,7 @@ const APP = {
   }
 };
 
-const _search = (n)=>{
+const _search = (i)=>{
   const f = ENV.blogUrl +'feeds/posts/default';
   const s = ENV.blogUrl +'search';
   const r1 = (n, u, m)=>{
@@ -72,7 +72,7 @@ const _search = (n)=>{
     $('#section-name b').text(n);
     APP.req(u +'alt=json&max-results='+ m, _result.section);
   };
-  switch(n){
+  switch(i){
     case 1:
       {
         const q = new URL(location.href).searchParams.get('q');
