@@ -190,9 +190,6 @@ const _menubar = (e)=>{
 const _scrollTop = ()=> $('#inner-wrapper').animate({scrollTop:0}, 800);
 
 (()=>{
-  /*
-  if(location.hostname != _blogUrl) location.assign('https://'+ _blogUrl);
-  */
   APP.req(ENV.blogUrl +'feeds/posts/default?alt=json&max-results=1', (r)=>{
     let l = '';
     r.feed.category.forEach((c)=>{
