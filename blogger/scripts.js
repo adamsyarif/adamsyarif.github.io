@@ -6,41 +6,41 @@ ENV.blogUrl = 'https://web-belajar-pemrograman.blogspot.com/';
 
 const APP = {
   REQ: [],
-  req: function(u, c){
+  req: (u, c)=>{
     $.ajax({
       method: 'GET',
       url: u,
-      beforeSend: ()=> this.loader(true),
-      complete: ()=> this.loader(false)
+      beforeSend: ()=> APP.loader(true),
+      complete: ()=> APP.loader(false)
     }).done(r => c(r)).fail((x, s, e)=>{
       e ? (
-        this.toast('Error, please check console for details'),
+        APP.toast('Error, please check console for details'),
         console.log(e)
-      ) : this.toast(s);
+      ) : APP.toast(s);
     });
   },
-  loader: function(s){
+  loader: (s)=>{
     const l = $('#loader');
     if(s){
-      if(this.REQ.length == 0) l.show();
-      this.REQ.push(1);
+      if(APP.REQ.length == 0) l.show();
+      APP.REQ.push(1);
     } else {
-      if(this.REQ.length > 0) this.REQ.pop();
-      if(this.REQ.length == 0) l.hide();
+      if(APP.REQ.length > 0) APP.REQ.pop();
+      if(APP.REQ.length == 0) l.hide();
     }
   },
   TOAST: null,
-  toast: function(m){
-    if(this.TOAST) clearTimeout(this.TOAST);
+  toast: (m)=>{
+    if(APP.TOAST) clearTimeout(APP.TOAST);
     const t = $('#toast');
     t.show().find('div').text(m);
-    this.TOAST = setTimeout(()=>{
-      this.TOAST = null;
+    APP.TOAST = setTimeout(()=>{
+      APP.TOAST = null;
       t.hide();
     }, 3000);
   },
-  worker: function(u, c){
-    this.req(u, (r)=>{
+  worker: (u, c)=>{
+    APP.req(u, (r)=>{
       const b = new Blob([r], {type:'application/javascript'});
       const o = URL.createObjectURL(b);
       const w = new Worker(o);
@@ -50,14 +50,80 @@ const APP = {
   validate: (e, p)=>{
     $(e).val($(e).val().replace(p, ''));
   },
-  copy: function(e){
+  copy: (e)=>{
     $(e).select();
     document.execCommand('copy');
-    this.toast('Teks telah disalin');
+    APP.toast('Teks telah disalin');
   },
   preventDefault: (e)=>{
     e.preventDefault();
     return false;
+  }
+};
+
+const RESULT = {
+  data: [],
+  show: 7,
+  page: 1,
+  pages: ()=>{
+    const p = Math.ceil(RESULT.data.length/RESULT.show);
+    return (p > 0)? p : 1;
+  },
+  previous: ()=>{
+    if(RESULT.page > 1){
+      RESULT.page -= 1;
+      RESULT.load();
+    }
+  },
+  next: ()=>{
+    if(RESULT.page < RESULT.pages()){
+      RESULT.page += 1;
+      RESULT.load();
+    }
+  },
+  load: ()=>{
+    const e = RESULT.data.slice((RESULT.page-1) * RESULT.show, RESULT.show);
+    (e.length > 0)? $('#search-result').html(RESULT.articleList(e)) : RESULT.notFound();
+    $('#current-page').text(RESULT.page);
+    $('#total-page').text(RESULT.pages());
+    _scrollTop();
+    setTimeout(APP.loader, 900);
+  },
+  main: (d)=>{
+    RESULT.data = d.feed.entry ? d.feed.entry : [];
+    $('#search-total').text(RESULT.data.length);
+    RESULT.load();
+  },
+  section: (d)=>{
+    const e = d.feed.entry.sort(()=> Math.random()-0.5).slice(0,5);
+    $('#section-result').html(RESULT.articleList(e));
+  },
+  articleList: (e)=>{
+    let a = '';
+    e.forEach((d)=>{
+      a += '<table style="width:100%">'+
+              '<tr>'+
+                '<td style="vertical-align:top">'+
+                  '<div class="thumbnail w3-card-2 w3-margin-right">'+
+                    '<img src="'+ d.media$thumbnail.url +'"/>'+
+                  '</div>'+
+                '</td>'+
+                '<td>'+
+                  '<b class="w3-large w3-text-dark-gray">'+ d.title.$t +'</b>'+
+                  '<div class="w3-small w3-justify">'+ d.summary.$t.slice(0, 100) +'..</div>'+
+                  '<p class="w3-right-align">'+
+                    '<a class="w3-button w3-small w3-border w3-round-large" href="'+ d.link[2].href +'">Baca selengkapnya</a>'+
+                  '</p>'+
+                '</td>'+
+              '</tr>'+
+            '</table>';
+    });
+    return a;
+  },
+  notFound: ()=>{
+    const e = $('.search-result');
+    e.hide();
+    e.eq(1).show();
   }
 };
 
@@ -115,74 +181,6 @@ const _search = (i)=>{
   }
 };
 
-const _result = {
-  data: [],
-  show: 7,
-  page: 1,
-  pages: function(){
-    const p = Math.ceil(this.data.length/this.show);
-    return (p > 0)? p : 1;
-  },
-  previous: function(){
-    if(this.page > 1){
-      this.page -= 1;
-      this.load();
-    }
-  },
-  next: function(){
-    if(this.page < this.pages()){
-      this.page += 1;
-      this.load();
-    }
-  },
-  load: function(){
-    APP.loader(true);
-    const e = this.data.slice((this.page-1) * this.show, this.show);
-    (e.length > 0)? $('#search-result').html(this.articleList(e)) : this.notFound();
-    $('#current-page').text(this.page);
-    $('#total-page').text(this.pages());
-    _scrollTop();
-    setTimeout(APP.loader, 900);
-  },
-  main: function(d){
-    console.log(_result);
-    this.data = d.feed.entry ? d.feed.entry : [];
-    $('#search-total').text(this.data.length);
-    this.load();
-  },
-  section: function(d){
-    const e = d.feed.entry.sort(()=> Math.random()-0.5).slice(0,5);
-    $('#section-result').html(this.articleList(e));
-  },
-  articleList: (e)=>{
-    let a = '';
-    e.forEach((d)=>{
-      a += '<table style="width:100%">'+
-              '<tr>'+
-                '<td style="vertical-align:top">'+
-                  '<div class="thumbnail w3-card-2 w3-margin-right">'+
-                    '<img src="'+ d.media$thumbnail.url +'"/>'+
-                  '</div>'+
-                '</td>'+
-                '<td>'+
-                  '<b class="w3-large w3-text-dark-gray">'+ d.title.$t +'</b>'+
-                  '<div class="w3-small w3-justify">'+ d.summary.$t.slice(0, 100) +'..</div>'+
-                  '<p class="w3-right-align">'+
-                    '<a class="w3-button w3-small w3-border w3-round-large" href="'+ d.link[2].href +'">Baca selengkapnya</a>'+
-                  '</p>'+
-                '</td>'+
-              '</tr>'+
-            '</table>';
-    });
-    return a;
-  },
-  notFound: ()=>{
-    const e = $('.search-result');
-    e.hide();
-    e.eq(1).show();
-  }
-};
-
 const _menubar = (e)=>{
   $(e).find('i').toggleClass('fa-folder fa-folder-open');
   $(e).next().slideToggle();
@@ -191,6 +189,9 @@ const _menubar = (e)=>{
 const _scrollTop = ()=> $('#inner-wrapper').animate({scrollTop:0}, 800);
 
 (()=>{
+  /*
+  if(location.hostname != _blogUrl) location.assign('https://'+ _blogUrl);
+  */
   APP.req(ENV.blogUrl +'feeds/posts/default?alt=json&max-results=1', (r)=>{
     let l = '';
     r.feed.category.forEach((c)=>{
