@@ -82,8 +82,8 @@ const RESULT = {
     }
   },
   load: ()=>{
+    APP.loader(true);
     const e = [...RESULT.data].splice((RESULT.page-1) * RESULT.show, RESULT.show);
-    console.log(e);
     (e.length > 0)? $('#search-result').html(RESULT.articleList(e)) : RESULT.notFound();
     $('#current-page').text(RESULT.page);
     $('#total-page').text(RESULT.pages());
