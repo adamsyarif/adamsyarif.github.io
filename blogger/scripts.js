@@ -115,7 +115,7 @@ const _search = (i)=>{
   }
 };
 
-const _result = {
+var _result = {
   data: [],
   show: 7,
   page: 1,
