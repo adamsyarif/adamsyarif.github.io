@@ -82,7 +82,7 @@ const RESULT = {
     }
   },
   load: ()=>{
-    const e = RESULT.data.slice((RESULT.page-1) * RESULT.show, RESULT.show);
+    const e = [...RESULT.data].slice((RESULT.page-1) * RESULT.show, RESULT.show);
     (e.length > 0)? $('#search-result').html(RESULT.articleList(e)) : RESULT.notFound();
     $('#current-page').text(RESULT.page);
     $('#total-page').text(RESULT.pages());
