@@ -132,11 +132,11 @@ const _search = (i)=>{
   const s = ENV.blogUrl +'search';
   const r1 = (n, u, m)=>{
     $('#search-detail').text('untuk '+ n);
-    APP.req(u +'alt=json&max-results='+ m, _result.main);
+    APP.req(u +'alt=json&max-results='+ m, RESULT.main);
   };
   const r2 = (n, u, m)=>{
     $('#section-name').text(n);
-    APP.req(u +'alt=json&max-results='+ m, _result.section);
+    APP.req(u +'alt=json&max-results='+ m, RESULT.section);
   };
   switch(i){
     case 1:
