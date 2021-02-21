@@ -8,11 +8,6 @@
   background-color: rgba(0,0,0,0.5);
   color: #fff;
 }
-#section-name {
-  position: relative;
-  top: -5px;
-  display: inline-block;
-}
 #article-scroll {
   position: absolute;
   top: 16px;
