@@ -103,6 +103,7 @@
   const b = x => '<button class="w3-bar-item w3-button w3-hover-light-gray" onclick="_menubar(this)"><i class="fas fa-folder w3-text-yellow w3-margin-right"></i>'+ x +'</button>';
   const d = x => '<div class="w3-margin-left" style="display:none">'+ x +'</div>';
   const id = +$('#article-id').val();
+  console.log(id);
   let c, l, m2, m1 = '';
   Object.keys(menu).forEach((k)=>{
     m1 += b(menu[k].title);
