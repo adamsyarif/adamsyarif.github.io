@@ -25,6 +25,7 @@ mark {
   color: #f44336;
   padding: 1px 8px;
 }
+pre, code {margin: 0}
 
 /* ========== id */
 #body, #toast {position: fixed}
@@ -74,6 +75,21 @@ mark {
 .thumbnail {
   width: 75px;
   height: 75px;
+}
+.subtitle {border-bottom: 2px solid #2196F3}
+.subtitle div {
+  display: inline-block;
+  background-color: #f1f1f1;
+  padding: 8px 16px;
+  color: #3a3a3a;
+  border-radius: 0 8px 0 0;
+}
+.example {
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  padding: 0.01em 16px;
+  font-size: 12px;
+  margin-top: 16px 0;
 }
 .left-radius {border-radius: 8px 0 0 8px}
 .top-radius {border-radius: 8px 8px 0 0}
