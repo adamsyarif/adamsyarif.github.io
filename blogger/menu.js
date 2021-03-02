@@ -1,17 +1,17 @@
 const MENU = {
-  m1: {
+  a: {
     title: 'Materi dasar',
-    content: [
+    folders: [
       {
         title: 'HTML',
-        content: [
+        articles: [
           {
             id: 1597950370420002790,
             title: 'HTML 1',
             link: '#'
           },
           {
-            id: 6067687399795089400,
+            id: 1597950370420002789,
             title: 'HTML 2',
             link: '#'
           },
@@ -58,7 +58,7 @@ const MENU = {
         ]
       },{
         title: 'CSS',
-        content: [
+        articles: [
           {
             id: 8036674375849984253,
             title: 'CSS 1',
@@ -112,7 +112,7 @@ const MENU = {
         ]
       },{
         title: 'JavaScript',
-        content: [
+        articles: [
           {
             id: 5692676830589396381,
             title: 'JavaScript 1',
@@ -167,12 +167,12 @@ const MENU = {
       }
     ]
   },
-  m2: {
+  b: {
     title: 'Materi lanjutan',
-    content: [
+    folders: [
       {
         title: 'HTML',
-        content: [
+        articles: [
           {
             id: 1597950370420002790,
             title: 'HTML 1',
@@ -226,7 +226,7 @@ const MENU = {
         ]
       },{
         title: 'CSS',
-        content: [
+        articles: [
           {
             id: 8036674375849984253,
             title: 'CSS 1',
@@ -280,7 +280,7 @@ const MENU = {
         ]
       },{
         title: 'JavaScript',
-        content: [
+        articles: [
           {
             id: 5692676830589396381,
             title: 'JavaScript 1',
@@ -335,12 +335,12 @@ const MENU = {
       }
     ]
   },
-  m3: {
+  c: {
     title: 'Referensi',
-    content: [
+    folders: [
       {
         title: 'HTML',
-        content: [
+        articles: [
           {
             id: 1597950370420002790,
             title: 'HTML 1',
@@ -394,7 +394,7 @@ const MENU = {
         ]
       },{
         title: 'CSS',
-        content: [
+        articles: [
           {
             id: 8036674375849984253,
             title: 'CSS 1',
@@ -448,7 +448,7 @@ const MENU = {
         ]
       },{
         title: 'JavaScript',
-        content: [
+        articles: [
           {
             id: 5692676830589396381,
             title: 'JavaScript 1',
@@ -506,39 +506,53 @@ const MENU = {
 };
 
 (()=>{
-  const b = x => '<button class="w3-bar-item w3-button w3-hover-light-gray" onclick="_menubar(this)"><i class="fas fa-folder w3-text-yellow w3-margin-right"></i>'+ x +'</button>';
-  const d = x => '<div class="w3-margin-left" style="display:none">'+ x +'</div>';
-  const id = +$('#article-id').val();
-  let c, l, m2, m1 = '';
-  Object.keys(MENU).forEach((k)=>{
-    m1 += b(MENU[k].title);
-    m2 = '';
-    MENU[k].content.forEach((s)=>{
-      m2 += b(s.title);
-      l = '';
-      s.content.forEach((a, i, x)=>{
-        c = '';
-        if(a.id == id){
-          c = 'w3-light-gray w3-rightbar';
-          const prev = x[i-1];
-          const next = x[i+1];
-          if(prev || next){
-            $('.article-nav').show();
-            const n1 = $('.article-nav1');
-            const n2 = $('.article-nav2');
-            const n = (ii, nx)=>{
-              n1.eq(ii).show().attr('href', nx.link);
-              n2.eq(ii).show().find('a').attr('href', nx.link).text(nx.title);
-            };
-            if(prev) n(0, prev);
-            if(next) n(1, next);
-          }
-        }
-        l += '<a href="'+ a.link +'" class="'+ c +' w3-bar-item w3-button w3-hover-light-gray"><i class="far fa-file-alt w3-margin-right"></i>'+ a.title +'</a>';
-      });
-      m2 += d(l);
+  MENU.page_id = +$('#page-id').val();
+  MENU.article_id = +$('#article-id').val();
+  MENU.article = (index, data)=>{
+    const pd = data[index-1];
+    const nd = data[index+1];
+    if(pd || nd){
+      $('.article-nav').show();
+      const n = (i, a)=>{
+        $('.article-nav1').eq(i).show().attr('href', a.link);
+        $('.article-nav2').eq(i).show().find('a').attr('href', a.link).text(a.title);
+      };
+      if(pd && pd.link != '#') n(0, pd);
+      if(nd && nd.link != '#') n(1, nd);
+    }
+  };
+  MENU.list = function(data){
+    let c, l = '';
+    data.forEach((i, x, d)=>{
+      c = '';
+      if((i.id == this.page_id) || (i.id == this.article_id)){
+        c = 'w3-light-gray w3-rightbar';
+        (i.id == this.page_id)? this.page(x, d) : this.article(x, d);
+      }
+      l += '<a '+ ((i.link != '#')? ('href="'+ i.link +'"') : '') +' class="'+ c +' w3-bar-item w3-button w3-hover-light-gray"><i class="far fa-file-alt w3-margin-right"></i>'+ i.title + ((i.link != '#')? '' : ' <sup class="w3-text-red">(<i>draft</i>)</sup>') +'</a>';
     });
-    m1 += d(m2);
-  });
-  $('#menubar nav').html(m1);
+    return l;
+  };
+  MENU.docs = list => '<div class="w3-margin-left" style="display:none">'+ list +'</div>';
+  MENU.folder = name => '<button class="w3-bar-item w3-button w3-hover-light-gray" onclick="_menubar(this)"><i class="fas fa-folder w3-text-yellow w3-margin-right"></i>'+ name +'</button>';
+  MENU.folders = function(folders){
+    let f = '';
+    folders.forEach((folder)=>{
+      f += this.folder(folder.title);
+      f += this.docs(this.list(folder.articles));
+    });
+    return f;
+  };
+  MENU.navigation = function(){
+    let m2, m1 = '';
+    Object.keys(MENU).forEach((k)=>{
+      if(MENU[k].title){
+        m1 += this.folder(MENU[k].title);
+        m2 = (MENU[k].folders)? this.folders(MENU[k].folders) : this.list(MENU[k].pages);
+        m1 += this.docs(m2);
+      }
+    });
+    return m1;
+  };
+  $('#menubar').find('nav').html(MENU.navigation());
 })();
