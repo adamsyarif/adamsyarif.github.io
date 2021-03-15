@@ -15,17 +15,14 @@ img {
   object-fit: cover;
 }
 a {text-decoration: none}
+textarea {resize: none}
+label, .pointer {cursor: pointer}
+pre, code {margin: 0}
 thead td {
   font-weight: bold;
   white-space: nowrap;
-}
-label {cursor: pointer}
-mark {
   background-color: #f1f1f1;
-  color: #f44336;
-  padding: 1px 8px;
 }
-pre, code {margin: 0}
 
 /* ========== id */
 #body, #toast {position: fixed}
@@ -71,28 +68,12 @@ pre, code {margin: 0}
   position: sticky;
   z-index: 1;
 }
-.pointer {cursor: pointer}
 .thumbnail {
   width: 75px;
   height: 75px;
 }
-.subtitle {border-bottom: 2px solid #2196F3}
-.subtitle div {
-  display: inline-block;
-  background-color: #f1f1f1;
-  padding: 8px 16px;
-  color: #3a3a3a;
-  border-radius: 0 8px 0 0;
-}
-.example {
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
-  padding: 0.01em 16px;
-  font-size: 12px;
-  margin-top: 16px 0;
-}
-.left-radius {border-radius: 8px 0 0 8px}
 .top-radius {border-radius: 8px 8px 0 0}
 .right-radius {border-radius: 0 8px 8px 0}
 .bottom-radius {border-radius: 0 0 8px 8px}
-.socmed-icon {padding: 0 5px}
+.left-radius {border-radius: 8px 0 0 8px}
+.socmed-icon {padding: 0.01em 5px}
