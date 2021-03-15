@@ -174,11 +174,8 @@ const _menubar = e =>{
 const _scrollTop = ()=> $('#inner-wrapper').animate({scrollTop:0}, 800);
 
 (()=>{
-  /*
-  if(location.hostname != _blogUrl) location.assign('https://'+ _blogUrl);
-  */
   if(typeof(Worker) != 'undefined'){
-    APP.worker('/scripts/workers.js', w =>{
+    APP.worker(ENV.repoUrl +'workers.js', w =>{
       w.onmessage = e =>{
         const t = $('.titles');
         if(e.data.text) t.find('b').text(e.data.text);
