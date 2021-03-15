@@ -126,10 +126,6 @@ const RESULT = {
   }
 };
 
-const _categories = d =>{
-	console.log(d);
-};
-
 const _search = i =>{
   const f = ENV.blogUrl +'feeds/posts/default';
   const s = ENV.blogUrl +'search';
