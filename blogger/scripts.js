@@ -89,7 +89,7 @@ const FEED = {
     (+$('[name=searchbar]:checked').val() == 1)? (()=>{
       const q = s.find(':text').val().trim();
       q ? location.assign(encodeURI(FEED.u2 +'?q='+ q)) : APP.toast('Kata kunci tidak boleh kosong');
-    }) : location.assign(encodeURI(FEED.u2 +'/label/'+ s.find('select').val()));
+    })() : location.assign(encodeURI(FEED.u2 +'/label/'+ s.find('select').val()));
   }
 };
 
@@ -119,7 +119,7 @@ const RESULT = {
       const r = $('.search-result');
       r.hide();
       r.eq(1).show();
-    });
+    })();
     $('#current-page').text(RESULT.page);
     $('#total-page').text(RESULT.pages());
     _scrollTop();
