@@ -126,6 +126,14 @@ const RESULT = {
   }
 };
 
+const _categories = r =>{
+	let l = '';
+	r.feed.category.forEach((c)=>{
+		l += '<option value="'+ c.term +'">'+ c.term +'</option>';
+	});
+	$('#searchbar select').html(l);
+};
+
 const _search = i =>{
   const f = ENV.blogUrl +'feeds/posts/default';
   const s = ENV.blogUrl +'search';
@@ -191,13 +199,6 @@ const _scrollTop = ()=> $('#inner-wrapper').animate({scrollTop:0}, 800);
   /*
   if(location.hostname != _blogUrl) location.assign('https://'+ _blogUrl);
   */
-  APP.req(ENV.blogUrl +'feeds/posts/default?alt=json&max-results=1', r =>{
-    let l = '';
-    r.feed.category.forEach((c)=>{
-      l += '<option value="'+ c.term +'">'+ c.term +'</option>';
-    });
-    $('#searchbar select').html(l);
-  });
   if(typeof(Worker) != 'undefined'){
     APP.worker('/scripts/workers.js', (w)=>{
       w.onmessage = (e)=>{
