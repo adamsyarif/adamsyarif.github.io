@@ -19,7 +19,7 @@ const APP = {
       ) : APP.toast(s);
     });
   },
-  loader: (s)=>{
+  loader: s =>{
     const l = $('#loader');
     if(s){
       if(APP.REQ.length == 0) l.show();
@@ -30,7 +30,7 @@ const APP = {
     }
   },
   TOAST: null,
-  toast: (m)=>{
+  toast: m =>{
     if(APP.TOAST) clearTimeout(APP.TOAST);
     const t = $('#toast');
     t.show().find('div').text(m);
@@ -40,22 +40,20 @@ const APP = {
     }, 3000);
   },
   worker: (u, c)=>{
-    APP.req(u, (r)=>{
+    APP.req(u, r =>{
       const b = new Blob([r], {type:'application/javascript'});
-      const o = URL.createObjectURL(b);
-      const w = new Worker(o);
-      c(w);
+      c(new Worker(URL.createObjectURL(b)));
     });
   },
   validate: (e, p)=>{
     $(e).val($(e).val().replace(p, ''));
   },
-  copy: (e)=>{
+  copy: e =>{
     $(e).select();
     document.execCommand('copy');
     APP.toast('Teks telah disalin');
   },
-  preventDefault: (e)=>{
+  preventDefault: e =>{
     e.preventDefault();
     return false;
   }
@@ -82,7 +80,7 @@ const RESULT = {
     }
   },
   load: ()=>{
-    APP.loader(true);
+		APP.loader(true);
     const e = [...RESULT.data].splice((RESULT.page-1) * RESULT.show, RESULT.show);
     (e.length > 0)? $('#search-result').html(RESULT.articleList(e)) : RESULT.notFound();
     $('#current-page').text(RESULT.page);
@@ -90,18 +88,18 @@ const RESULT = {
     _scrollTop();
     setTimeout(APP.loader, 900);
   },
-  main: (d)=>{
+  main: d =>{
     RESULT.data = d.feed.entry ? d.feed.entry : [];
     $('#search-total').text(RESULT.data.length);
     RESULT.load();
   },
-  section: (d)=>{
+  section: d =>{
     const e = d.feed.entry.sort(()=> Math.random()-0.5).slice(0,5);
     $('#section-result').html(RESULT.articleList(e));
   },
-  articleList: (e)=>{
+  articleList: e =>{
     let a = '';
-    e.forEach((d)=>{
+    e.forEach(d =>{
       a += '<table style="width:100%">'+
               '<tr>'+
                 '<td style="vertical-align:top">'+
@@ -128,7 +126,11 @@ const RESULT = {
   }
 };
 
-const _search = (i)=>{
+const _categories = d =>{
+	console.log(d);
+};
+
+const _search = i =>{
   const f = ENV.blogUrl +'feeds/posts/default';
   const s = ENV.blogUrl +'search';
   const r1 = (n, u, m)=>{
@@ -193,7 +195,7 @@ const _scrollTop = ()=> $('#inner-wrapper').animate({scrollTop:0}, 800);
   /*
   if(location.hostname != _blogUrl) location.assign('https://'+ _blogUrl);
   */
-  APP.req(ENV.blogUrl +'feeds/posts/default?alt=json&max-results=1', (r)=>{
+  APP.req(ENV.blogUrl +'feeds/posts/default?alt=json&max-results=1', r =>{
     let l = '';
     r.feed.category.forEach((c)=>{
       l += '<option value="'+ c.term +'">'+ c.term +'</option>';
@@ -201,7 +203,7 @@ const _scrollTop = ()=> $('#inner-wrapper').animate({scrollTop:0}, 800);
     $('#searchbar select').html(l);
   });
   if(typeof(Worker) != 'undefined'){
-    APP.worker(ENV.repoUrl +'workers.js', (w)=>{
+    APP.worker('/scripts/workers.js', (w)=>{
       w.onmessage = (e)=>{
         const t = $('.titles');
         if(e.data.text) t.find('b').text(e.data.text);
