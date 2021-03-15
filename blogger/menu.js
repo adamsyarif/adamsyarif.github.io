@@ -509,17 +509,11 @@ const MENU = {
   MENU.page_id = +$('#page-id').val();
   MENU.article_id = +$('#article-id').val();
   MENU.article = (index, data)=>{
-    const pd = data[index-1];
-    const nd = data[index+1];
-    if(pd || nd){
-      $('.article-nav').show();
-      const n = (i, a)=>{
-        $('.article-nav1').eq(i).show().attr('href', a.link);
-        $('.article-nav2').eq(i).show().find('a').attr('href', a.link).text(a.title);
-      };
-      if(pd && pd.link != '#') n(0, pd);
-      if(nd && nd.link != '#') n(1, nd);
-    }
+    const x = (i, a)=> $('.article-nav').eq(i).show().find('a').attr('href', a.link).text(a.title);
+    const p = data[index-1];
+    const n = data[index+1];
+    if(p && p.link != '#') x(0, p);
+    if(n && n.link != '#') x(1, n);
   };
   MENU.list = function(data){
     let c, l = '';
@@ -537,7 +531,7 @@ const MENU = {
   MENU.folder = name => '<button class="w3-bar-item w3-button w3-hover-light-gray" onclick="_menubar(this)"><i class="fas fa-folder w3-text-yellow w3-margin-right"></i>'+ name +'</button>';
   MENU.folders = function(folders){
     let f = '';
-    folders.forEach((folder)=>{
+    folders.forEach(folder =>{
       f += this.folder(folder.title);
       f += this.docs(this.list(folder.articles));
     });
@@ -545,10 +539,10 @@ const MENU = {
   };
   MENU.navigation = function(){
     let m2, m1 = '';
-    Object.keys(MENU).forEach((k)=>{
-      if(MENU[k].title){
-        m1 += this.folder(MENU[k].title);
-        m2 = (MENU[k].folders)? this.folders(MENU[k].folders) : this.list(MENU[k].pages);
+    Object.keys(this).forEach(key =>{
+      if(this[key].title){
+        m1 += this.folder(this[key].title);
+        m2 = (this[key].folders)? this.folders(this[key].folders) : this.list(this[key].pages);
         m1 += this.docs(m2);
       }
     });
