@@ -86,10 +86,10 @@ const FEED = {
   },
   search: ()=>{
     const s = $('#searchbar');
-    (+$('[name=searchbar]:checked').val() == 1)? (
-      const q = s.find(':text').val().trim(),
-      q ? location.assign(encodeURI(FEED.u2 +'?q='+ q)) : APP.toast('Kata kunci tidak boleh kosong')
-    ) : location.assign(encodeURI(FEED.u2 +'/label/'+ s.find('select').val()));
+    (+$('[name=searchbar]:checked').val() == 1)? (()=>{
+      const q = s.find(':text').val().trim();
+      q ? location.assign(encodeURI(FEED.u2 +'?q='+ q)) : APP.toast('Kata kunci tidak boleh kosong');
+    }) : location.assign(encodeURI(FEED.u2 +'/label/'+ s.find('select').val()));
   }
 };
 
@@ -115,11 +115,11 @@ const RESULT = {
   load: ()=>{
     APP.loader(true);
     const e = [...RESULT.data].splice(((RESULT.page-1)*7),7);
-    (e.length > 0)? $('#search-result').html(RESULT.article(e)) : (
-      const r = $('.search-result'),
-      r.hide(),
-      r.eq(1).show()
-    );
+    (e.length > 0)? $('#search-result').html(RESULT.article(e)) : (()=>{
+      const r = $('.search-result');
+      r.hide();
+      r.eq(1).show();
+    });
     $('#current-page').text(RESULT.page);
     $('#total-page').text(RESULT.pages());
     _scrollTop();
