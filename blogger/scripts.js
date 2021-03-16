@@ -85,7 +85,7 @@ const _categories = r =>{
   $('#searchbar select').html(l);
 };
 
-(()=>{
+$(document).ready(()=>{
   if(typeof(Worker) != 'undefined'){
     APP.worker(ENV.repoUrl +'workers.js', w =>{
       w.onmessage = e =>{
@@ -121,4 +121,4 @@ const _categories = r =>{
       $(this).remove();
     });
   }, 100);
-})();
+});
