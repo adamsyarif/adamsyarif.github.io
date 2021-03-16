@@ -1,3 +1,17 @@
+const _titleNav = s =>{
+  const t = $('#title-nav');
+  if(s){
+    let x1, x2, n = '';
+    $('h4 div').each(function(){
+      x1 = $('#inner-wrapper').scrollTop();
+      x2 = $(this).offset().top;
+      n += '<button onclick="_jumpTo('+ (Math.round(x1 + x2)-150) +')" class="w3-bar-item w3-button">'+ $(this).text() +'</button>';
+    });
+    t.show().find('nav').html(n);
+  }
+  else t.hide();
+};
+
 const _jumpTo = x =>{
   $('#inner-wrapper').animate({scrollTop:x}, 800);
   $('#title-nav').hide();
@@ -94,11 +108,6 @@ FEED.newer = ()=>{
   (+$('#search-type').val() == 1)? FEED.query() : FEED.label();
   (+$('#section-type').val() == 1)? FEED.related() : FEED.newer();
   $('#article-body').on('select copy cut', APP.preventDefault);
-  let n = '';
-  $('h4 div').each(function(){
-    n += '<button onclick="_jumpTo('+ (Math.round($(this).offset().top)-150) +')" class="w3-bar-item w3-button">'+ $(this).text() +'</button>';
-  });
-  $('#title-nav nav').html(n);
   const p = $('.preview');
   p.find('button').off('click');
   p.find('button.active').click(function(){
