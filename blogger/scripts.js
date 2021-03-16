@@ -96,6 +96,11 @@ const _categories = r =>{
     });
   }
   $('body').on('contextmenu', APP.preventDefault);
+  $('[data-onclick]').each(e =>{
+    e.on('click', function(){
+      eval($(this).attr('data-onclick'));
+    });
+  });
   $('form').submit(APP.preventDefault).trigger('reset');
   $(':radio').change(function(){
     $('[name='+ $(this).attr('name') +']').removeAttr('checked');
