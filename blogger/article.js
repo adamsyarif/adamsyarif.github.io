@@ -95,7 +95,7 @@ FEED.newer = ()=>{
   (+$('#section-type').val() == 1)? FEED.related() : FEED.newer();
   $('#article-body').on('select copy cut', APP.preventDefault);
   let n = '';
-  $('h4').each(function(){
+  $('h4 div').each(function(){
     n += '<button onclick="_jumpTo('+ (Math.round($(this).offset().top)-150) +')" class="w3-bar-item w3-button">'+ $(this).text() +'</button>';
   });
   $('#title-nav nav').html(n);
