@@ -61,7 +61,7 @@ const _testi = [
   }
 ];
 
-(()=>{
+$(document).ready(()=>{
   let t = '';
   _testi.sort(()=> Math.random()-0.5).slice(0,5).forEach((d)=>{
     t += '<td class="w3-container w3-center" style="width:300px">'+
@@ -74,4 +74,4 @@ const _testi = [
           '</td>';
   });
   $('#testi table').html('<tr>'+ (t+t) +'</tr>').css('animation', 'testi 40s linear infinite');
-})();
+});
