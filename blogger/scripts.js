@@ -91,6 +91,11 @@ $(document).ready(()=>{
       eval($(this).attr('data-onclick'));
     });
   });
+  $('[data-oninput]').each(function(){
+    $(this).on('input', function(){
+      eval($(this).attr('data-input'));
+    });
+  });
   $('form').submit(APP.preventDefault).trigger('reset');
   $(':radio').change(function(){
     $('[name='+ $(this).attr('name') +']').removeAttr('checked');
