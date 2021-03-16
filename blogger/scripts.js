@@ -86,8 +86,8 @@ $(document).ready(()=>{
     });
   }
   //$('body').on('contextmenu', APP.preventDefault);
-  $('[data-onclick]').each(e =>{
-    $(e).on('click', function(){
+  $('[data-onclick]').each(function(){
+    $(this).on('click', function(){
       eval($(this).attr('data-onclick'));
     });
   });
