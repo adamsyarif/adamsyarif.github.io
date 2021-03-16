@@ -1,9 +1,5 @@
 hljs.initHighlightingOnLoad();
 
-const ENV = {};
-ENV.repoUrl = 'https://adamsyarif.github.io/blogger/';
-ENV.blogUrl = 'https://web-belajar-pemrograman.blogspot.com/';
-
 const APP = {
   REQ: [],
   req: (u, c)=>{
