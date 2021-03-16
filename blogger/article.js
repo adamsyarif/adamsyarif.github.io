@@ -104,7 +104,7 @@ FEED.newer = ()=>{
   APP.req(FEED.u2 +'?'+ FEED.u3 + 10, RESULT.section);
 };
 
-(()=>{
+$(document).ready(()=>{
   (+$('#search-type').val() == 1)? FEED.query() : FEED.label();
   (+$('#section-type').val() == 1)? FEED.related() : FEED.newer();
   $('#article-body').on('select copy cut', APP.preventDefault);
@@ -128,4 +128,4 @@ FEED.newer = ()=>{
     }
     else $(this).remove();
   });
-})();
+});
