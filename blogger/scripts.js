@@ -1,5 +1,3 @@
-hljs.initHighlightingOnLoad();
-
 const ENV = {};
 ENV.repoUrl = 'https://adamsyarif.github.io/blogger/';
 ENV.blogUrl = 'https://web-belajar-pemrograman.blogspot.com/';
@@ -75,14 +73,6 @@ const FEED = {
 const _menubar = e =>{
   $(e).find('i').toggleClass('fa-folder fa-folder-open');
   $(e).next().slideToggle();
-};
-
-const _categories = r =>{
-  let l = '';
-  r.feed.category.forEach(c =>{
-    l += '<option value="'+ c.term +'">'+ c.term +'</option>';
-  });
-  $('#searchbar select').html(l);
 };
 
 $(document).ready(()=>{
