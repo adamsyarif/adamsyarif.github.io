@@ -505,7 +505,7 @@ const MENU = {
   }
 };
 
-(()=>{
+$(document).ready(()=>{
   MENU.page_id = +$('#page-id').val();
   MENU.article_id = +$('#article-id').val();
   MENU.article = (index, data)=>{
@@ -549,4 +549,4 @@ const MENU = {
     return m1;
   };
   $('#menubar').find('nav').html(MENU.navigation());
-})();
+});
