@@ -163,6 +163,6 @@ $(document).ready(()=>{
     s.eq(+$(this).val()-1).show();
   });
   $('[data-validation]').on('input', function(){
-    $(this).val($(this).val().replace('/[^'+ $(this).attr('data-validation') +']/gi', ''));
+    $(this).val($(this).val().replace(new RegExp('[^'+ $(this).attr('data-validation') +']', 'gim'), ''));
   });
 });
