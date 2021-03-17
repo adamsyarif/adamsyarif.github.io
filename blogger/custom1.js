@@ -1,3 +1,3 @@
-document.querySelector('#tombol').onclick = ()=>{
-	alert(123);
-};
+document.querySelector('#tombol').addEventListener('click', ()=>{
+  alert(123);
+});
