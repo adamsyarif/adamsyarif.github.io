@@ -140,6 +140,7 @@ $(document).ready(()=>{
     return (h >= 3 && h <= 10)? 'pagi' : (h >= 11 && h <= 14)? 'siang' : (h >= 15 && h <= 17)? 'sore' : 'malam';
   });
   $('.copyright-year').text(new Date().getFullYear());
+  $('body').css('visibility', 'visible');
   /*
   setTimeout(()=>{
     $('#cover').fadeOut(1000, function(){
@@ -161,7 +162,7 @@ $(document).ready(()=>{
     s.hide();
     s.eq(+$(this).val()-1).show();
   });
-  $('[data-validation]').input(function(){
+  $('[data-validation]').on('input', function(){
     $(this).val($(this).val().replace('/[^'+ $(this).attr('data-validation') +']/gi', ''));
   });
 });
