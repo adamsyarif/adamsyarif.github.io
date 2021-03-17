@@ -140,7 +140,7 @@ $(document).ready(()=>{
     return (h >= 3 && h <= 10)? 'pagi' : (h >= 11 && h <= 14)? 'siang' : (h >= 15 && h <= 17)? 'sore' : 'malam';
   });
   $('.copyright-year').text(new Date().getFullYear());
-  $('body').css('visibility', 'visible');
+  $('body').fadeIn(1000);
   /*
   setTimeout(()=>{
     $('#cover').fadeOut(1000, function(){
