@@ -1,4 +1,3 @@
-document.querySelector('#tombol').addEventListener('click', function(){
-  this.textContent = ENV;
-  console.log(123);
+document.querySelector('#button2').addEventListener('click', function(){
+  document.querySelector('#div2').textContent = 'dua';
 });
