@@ -124,7 +124,7 @@ $(document).ready(()=>{
 
   if(typeof(Worker) != 'undefined'){
     APP.worker(ENV.repoUrl +'workers.js', w =>{
-      $(w).on('message', (e =>{
+      $(w).on('message', e =>{
         const t = $('.titles');
         if(e.data.text) t.find('b').text(e.data.text);
         if(e.data.pointer) t.find('span').toggleClass('w3-text-white w3-text-gray');
