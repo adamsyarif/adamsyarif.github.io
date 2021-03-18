@@ -33,6 +33,6 @@ $(document).ready(()=>{
               '<p><q><i>'+ d.msg +'</i></q></p>'+
             '</td>';
     });
-    $('#testi').find('tr').html(t+t).css('animation', 'testi 40s linear infinite');
+    $('#testi').find('table').html('<tr>'+ (t+t) +'</tr>').css('animation', 'testi 40s linear infinite');
   });
 });
