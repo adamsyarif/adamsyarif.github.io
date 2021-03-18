@@ -1,115 +1,87 @@
-const _titleNav = s =>{
+RUN.titleNav = s =>{
   const t = $('#title-nav');
   if(s){
     let x1, x2, n = '';
     $('h4 div').each(function(){
       x1 = $('#inner-wrapper').scrollTop();
       x2 = $(this).offset().top;
-      n += '<button onclick="_jumpTo('+ (Math.round(x1 + x2)-150) +')" class="w3-bar-item w3-button">'+ $(this).text() +'</button>';
+      n += '<button onclick="RUN.jumpTo('+ (Math.round(x1 + x2)-150) +')" class="w3-bar-item w3-button">'+ $(this).text() +'</button>';
     });
     t.show().find('nav').html(n);
   }
   else t.hide();
 };
 
-const _jumpTo = x =>{
+RUN.jumpTo = x =>{
   $('#inner-wrapper').animate({scrollTop:x}, 800);
-  $('#title-nav').hide();
+  RUN.titleNav(false);
 };
 
-const RESULT = {
-  data: [],
-  page: 1,
-  pages: ()=>{
-    const p = Math.ceil(RESULT.data.length/7);
-    return (p > 0)? p : 1;
-  },
-  previous: ()=>{
-    if(RESULT.page > 1){
-      RESULT.page -= 1;
-      RESULT.load();
+RUN.mainFeed = ()=>{
+  const t = +$('#search-type').val();
+  if(t){
+    const d = $('#search-details').find('span').eq(1);
+    if(t == 1){
+      d.text('kata kunci "'+ q +'"');
+      FEED.query();
+    } else {
+      d.text('kategori "'+ l +'"');
+      FEED.label();
     }
-  },
-  next: ()=>{
-    if(RESULT.page < RESULT.pages()){
-      RESULT.page += 1;
-      RESULT.load();
-    }
-  },
-  load: ()=>{
-    APP.loader(true);
-    const e = [...RESULT.data].splice(((RESULT.page-1)*7),7);
-    (e.length > 0)? $('#search-result').html(RESULT.article(e)) : (()=>{
-      const r = $('.search-result');
-      r.hide();
-      r.eq(1).show();
-    })();
-    $('#current-page').text(RESULT.page);
-    $('#total-page').text(RESULT.pages());
-    _jumpTo(0);
-    setTimeout(APP.loader, 900);
-  },
-  main: d =>{
-    RESULT.data = d.feed.entry ? d.feed.entry : [];
-    $('#search-total').text(RESULT.data.length);
-    RESULT.load();
-  },
-  section: d =>{
-    const e = d.feed.entry.sort(()=> Math.random()-0.5).slice(0,5);
-    $('#section-result').html(RESULT.article(e));
-  },
-  article: e =>{
-    let a = '';
-    e.forEach(d =>{
-      a += '<table style="width:100%">'+
-              '<tr>'+
-                '<td style="vertical-align:top">'+
-                  '<div class="thumbnail w3-card-2 w3-margin-right">'+
-                    '<img src="'+ d.media$thumbnail.url +'"/>'+
-                  '</div>'+
-                '</td>'+
-                '<td>'+
-                  '<b class="w3-large w3-text-dark-gray">'+ d.title.$t +'</b>'+
-                  '<div class="w3-small w3-justify">'+ d.summary.$t.slice(0,100) +'..</div>'+
-                  '<p class="w3-right-align">'+
-                    '<a class="w3-button w3-small w3-border w3-round-large" href="'+ d.link[2].href +'">Baca selengkapnya</a>'+
-                  '</p>'+
-                '</td>'+
-              '</tr>'+
-            '</table>';
-    });
-    return a;
   }
 };
 
 FEED.query = ()=>{
   const q = new URL(location.href).searchParams.get('q');
-  $('#search-detail').text(' untuk kata kunci "'+ q +'"');
-  APP.req(FEED.u2 +'?q='+ q +'&'+ FEED.u3 + 1000, RESULT.main);
+  APP.req(FEED.u2 + FEED.u3(1000) +'&q='+ q, RESULT.main);
 };
 FEED.label = ()=>{
   const p = new URL(location.href).pathname;
   const l = p.slice((p.lastIndexOf('/')+1), p.length);
-  $('#search-detail').text(' untuk kategori "'+ l +'"');
-  APP.req(FEED.u2 +'/-/'+ l +'?'+ FEED.u3 + 1000, RESULT.main);
+  APP.req(FEED.u2 +'/-/'+ l + FEED.u3(1000), RESULT.main);
 };
-FEED.related = ()=>{
-  $('#section-name').text('Artikel terkait');
-  const l = $('#article-label').val().split(',').filter(v => v.trim() != '');
-  const r = Math.floor(Math.random() * l.length);
-  APP.req(FEED.u2 +'/-/'+ l[r] +'?'+ FEED.u3 + 1000, RESULT.section);
+
+RESULT.main = d =>{
+  RESULT.data = d.feed.entry ? d.feed.entry : [];
+  $('#search-details').find('span').eq(0).text(RESULT.data.length);
+  RESULT.load();
 };
-FEED.newer = ()=>{
-  $('#section-name').text('Artikel terbaru');
-  APP.req(FEED.u2 +'?'+ FEED.u3 + 10, RESULT.section);
+RESULT.data = [];
+RESULT.page = 1;
+RESULT.pages = ()=>{
+  const p = Math.ceil(RESULT.data.length/7);
+  return (p > 0)? p : 1;
+};
+RESULT.previous = ()=>{
+  if(RESULT.page > 1){
+    RESULT.page -= 1;
+    RESULT.load();
+  }
+};
+RESULT.next = ()=>{
+  if(RESULT.page < RESULT.pages()){
+    RESULT.page += 1;
+    RESULT.load();
+  }
+};
+RESULT.load = ()=>{
+  APP.loader(900);
+  const e = [...RESULT.data].splice(((RESULT.page-1)*7),7);
+  (e.length > 0)? $('#search-result').html(RESULT.article(e)) : (()=>{
+    const r = $('.search-result');
+    r.hide();
+    r.eq(1).show();
+  })();
+  const p = $('#search-pages').find('span');
+  p.eq(0).text(RESULT.page);
+  p.eq(1).text(RESULT.pages());
+  RUN.jumpTo(0);
 };
 
 $(document).ready(()=>{
-  (+$('#search-type').val() == 1)? FEED.query() : FEED.label();
-  (+$('#section-type').val() == 1)? FEED.related() : FEED.newer();
+  RUN.mainFeed();
   $('#article-body').on('select copy cut', APP.preventDefault);
   const p = $('.preview');
-  p.find('button').off('click');
   p.find('button.active').click(function(){
     const a = $(this).parent().parent();
     const b = a.find('button');
