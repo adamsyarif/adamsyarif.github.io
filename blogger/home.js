@@ -1,3 +1,25 @@
+const SLIDE = {
+  index: 0,
+  left: ()=>{
+    if(SLIDE.index > 0){
+      SLIDE.index -= 1;
+      SLIDE.show();
+    }
+  },
+  right: ()=>{
+    if(SLIDE.index == 0){
+      SLIDE.index += 1;
+      SLIDE.show();
+    }
+  },
+  show: ()=>{
+    const s = $('.slides');
+    s.addClass('w3-hide-small w3-hide-medium');
+    s.eq(SLIDE.index).removeClass('w3-hide-small w3-hide-medium');
+    $('#slides').find('.fa-circle').toggleClass('w3-text-blue w3-text-gray');
+  }
+};
+
 $(document).ready(()=>{
   APP.data('testi', r =>{
     let t = '';
