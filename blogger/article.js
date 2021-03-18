@@ -20,23 +20,16 @@ RUN.mainFeed = ()=>{
   if(t){
     const d = $('#search-details').find('span').eq(1);
     if(t == 1){
+      const q = new URL(location.href).searchParams.get('q');
       d.text('kata kunci "'+ q +'"');
-      FEED.query();
+      APP.req(FEED.u2 + FEED.u3(1000) +'&q='+ q, RESULT.main);
     } else {
+      const p = new URL(location.href).pathname;
+      const l = p.slice((p.lastIndexOf('/')+1), p.length);
       d.text('kategori "'+ l +'"');
-      FEED.label();
+      APP.req(FEED.u2 +'/-/'+ l + FEED.u3(1000), RESULT.main);
     }
   }
-};
-
-FEED.query = ()=>{
-  const q = new URL(location.href).searchParams.get('q');
-  APP.req(FEED.u2 + FEED.u3(1000) +'&q='+ q, RESULT.main);
-};
-FEED.label = ()=>{
-  const p = new URL(location.href).pathname;
-  const l = p.slice((p.lastIndexOf('/')+1), p.length);
-  APP.req(FEED.u2 +'/-/'+ l + FEED.u3(1000), RESULT.main);
 };
 
 RESULT.main = d =>{
