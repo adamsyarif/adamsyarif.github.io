@@ -11,10 +11,12 @@ const RUN = {
       const n = $('#section-name');
       if(t == 1){
         n.text('Artikel terkait');
-        FEED.related();
+        const l = $('#article-label').val().split(',').filter(v => v.trim() != '');
+        const r = Math.floor(Math.random() * l.length);
+        APP.req(FEED.u2 +'/-/'+ l[r] + FEED.u3(1000), RESULT.section);
       } else {
         n.text('Artikel terbaru');
-        FEED.newer();
+        APP.req(FEED.u2 + FEED.u3(10), RESULT.section);
       }
     }
   },
@@ -118,13 +120,7 @@ const FEED = {
       const q = s.find(':text').val().trim();
       q ? location.assign(encodeURI(FEED.u1 +'?q='+ q)) : APP.toast('Kata kunci tidak boleh kosong');
     })() : location.assign(encodeURI(FEED.u1 +'/label/'+ s.find('select').val()));
-  },
-  related: ()=>{
-    const l = $('#article-label').val().split(',').filter(v => v.trim() != '');
-    const r = Math.floor(Math.random() * l.length);
-    APP.req(FEED.u2 +'/-/'+ l[r] + FEED.u3(1000), RESULT.section);
-  },
-  newer: ()=> APP.req(FEED.u2 + FEED.u3(10), RESULT.section)
+  }
 };
 
 const RESULT = {
