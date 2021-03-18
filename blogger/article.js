@@ -11,12 +11,10 @@ RUN.titleNav = s =>{
   }
   else t.hide();
 };
-
 RUN.jumpTo = x =>{
   $('#inner-wrapper').animate({scrollTop:x}, 800);
   RUN.titleNav(false);
 };
-
 RUN.mainFeed = ()=>{
   const t = +$('#search-type').val();
   if(t){
