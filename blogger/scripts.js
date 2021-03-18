@@ -1,5 +1,5 @@
 const ENV = {
-  devMode: true,
+  devMode: false,
   repoUrl: 'https://adamsyarif.github.io/blogger/',
   blogUrl: 'https://web-belajar-pemrograman.blogspot.com/'
 };
