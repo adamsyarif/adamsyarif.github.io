@@ -40,6 +40,10 @@ const APP = {
       t.hide();
     }, 3000);
   },
+  data: (d, c)=>{
+    const u = (ENV.devMode ? '/data/' : ENV.repoUrl)+ d +'.json';
+    APP.req(u, r => c(r));
+  },
   worker: (u, c)=>{
     APP.req(u, r =>{
       const b = new Blob([r], {type:'application/javascript'});
