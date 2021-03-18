@@ -1,9 +1,3 @@
-const ENV = {
-  devMode: false,
-  repoUrl: 'https://adamsyarif.github.io/blogger/',
-  blogUrl: 'https://web-belajar-pemrograman.blogspot.com/'
-};
-
 const RUN = {
   sectionFeed: ()=>{
     const t = +$('#section-type').val();
