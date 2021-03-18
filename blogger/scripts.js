@@ -1,5 +1,5 @@
 const ENV = {
-  devMode: false,
+  devMode: true,
   repoUrl: 'https://adamsyarif.github.io/blogger/',
   blogUrl: 'https://web-belajar-pemrograman.blogspot.com/'
 };
@@ -31,8 +31,7 @@ const RUN = {
     });
   },
   displayMenu: ()=>{
-    const u = (ENV.devMode ? '/data/' : ENV.repoUrl) +'menu.json';
-    APP.req(u, r =>{
+    APP.data('menu', r =>{
       r.page_id = +$('#page-id').val();
       r.article_id = +$('#article-id').val();
       r.article = (index, data)=>{
@@ -69,7 +68,7 @@ const RUN = {
         Object.keys(this).forEach(key =>{
           if(this[key].title){
             m1 += this.folder(this[key].title);
-            m2 = (this[key].folders)? this.folders(this[key].folders) : this.list(this[key].pages);
+            m2 = this[key].folders ? this.folders(this[key].folders) : this.list(this[key].pages);
             m1 += this.docs(m2);
           }
         });
@@ -84,6 +83,11 @@ const RUN = {
       return (h >= 3 && h <= 10)? 'pagi' : (h >= 11 && h <= 14)? 'siang' : (h >= 15 && h <= 17)? 'sore' : 'malam';
     });
     $('.copyright-year').text(new Date().getFullYear());
+    if(hljs){
+      $('pre code').each(function(){
+        hljs.highlightBlock(this);
+      });
+    }
     setTimeout(()=>{
       $('body').fadeIn(1000);
     }, 100);
