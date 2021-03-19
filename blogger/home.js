@@ -13,10 +13,10 @@ const SLIDE = {
     }
   },
   show: ()=>{
-    const s = $('.slides');
+    const s = $('.slide');
     s.addClass('w3-hide-small w3-hide-medium');
     s.eq(SLIDE.index).removeClass('w3-hide-small w3-hide-medium');
-    $('#slides').find('.fa-circle').toggleClass('w3-text-blue w3-text-gray');
+    $('#slide').find('.fa-circle').toggleClass('w3-text-white w3-text-gray');
   }
 };
 
@@ -24,7 +24,7 @@ $(document).ready(()=>{
   APP.data('testi', r =>{
     let t = '';
     r.data.sort(()=> Math.random()-0.5).slice(0,5).forEach(d =>{
-      t += '<td class="w3-container w3-center" style="width:300px">'+
+      t += '<td class="w3-container" style="width:300px">'+
               '<p><img class="thumbnail w3-circle w3-card-2" src="'+ d.img +'"/></p>'+
               '<p>'+
                 '<b class="w3-large w3-text-dark-gray">'+ d.name +'</b><br/>'+
