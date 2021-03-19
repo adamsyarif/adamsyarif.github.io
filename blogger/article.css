@@ -33,11 +33,6 @@ mark {
 }
 
 /* ========== class */
-.wrapper {
-  max-width: 570px;
-  margin-left: auto;
-  margin-right: auto;
-}
 .article-btn {
   position: absolute;
   top: 16px;
