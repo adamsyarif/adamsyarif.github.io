@@ -72,22 +72,36 @@ const RUN = {
     });
   },
   domContent: ()=>{
-    $('.what-time-is').text(()=>{
-      const h = new Date().getHours();
-      return (h >= 3 && h <= 10)? 'pagi' : (h >= 11 && h <= 14)? 'siang' : (h >= 15 && h <= 17)? 'sore' : 'malam';
-    });
+    const h = new Date().getHours();
+    $('body').addClass(((h >= 5 && h <= 6) || (h >= 16 && h <= 17))? 'bg-sunny' : (h >= 7 && h <= 15)? 'bg-day' : 'bg-night');
+    $('.what-time-is').text((h >= 3 && h <= 10)? 'pagi' : (h >= 11 && h <= 14)? 'siang' : (h >= 15 && h <= 17)? 'sore' : 'malam');
     $('.copyright-year').text(new Date().getFullYear());
-    if(hljs){
+    if(typeof hljs != 'undefined'){
       $('pre code').each(function(){
         hljs.highlightBlock(this);
       });
     }
     setTimeout(()=>{
-      $('body').fadeIn(1000);
+      $('#body').fadeIn(1000);
     }, 100);
   },
   bindEvent: ()=>{
     if(!ENV.devMode) $('body').on('contextmenu', APP.preventDefault);
+    $('#inner-wrapper').scroll(function(){
+      const h = $(this).height();
+      const s = $(this).scrollTop();
+      $('.a-sh').each(function(){
+        const t = $(this).offset().top;
+        if(((h+s)-(s+t)) > 50){
+          $(this).find('.a-left').addClass('w3-animate-left');
+          $(this).find('.a-right').addClass('w3-animate-right');
+          $(this).removeClass('a-hide');
+        } else {
+          $(this).find('.a-left, .a-right').removeClass('w3-animate-left w3-animate-right');
+          $(this).addClass('a-hide');
+        }
+      });
+    });
     $('form').submit(APP.preventDefault).trigger('reset');
     $(':radio').change(function(){
       $('[name='+ $(this).attr('name') +']').removeAttr('checked');
