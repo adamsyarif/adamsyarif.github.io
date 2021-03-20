@@ -70,7 +70,6 @@ const RUN = {
   domContent: ()=>{
     const h = new Date().getHours();
     //$('body').addClass(((h >= 5 && h <= 6) || (h >= 16 && h <= 17))? 'bg-sunny' : (h >= 7 && h <= 15)? 'bg-day' : 'bg-night');
-    $('body').css('background-color', 'red');
     $('.what-time-is').text((h >= 3 && h <= 10)? 'pagi' : (h >= 11 && h <= 14)? 'siang' : (h >= 15 && h <= 17)? 'sore' : 'malam');
     $('.copyright-year').text(new Date().getFullYear());
     if(typeof hljs != 'undefined'){
