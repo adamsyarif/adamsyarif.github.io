@@ -82,7 +82,7 @@ const RUN = {
     }, 100);
   },
   bindEvent: ()=>{
-    if(!ENV.devMode) $('body').on('contextmenu', APP.preventDefault);
+    //if(!ENV.devMode) $('body').on('contextmenu', APP.preventDefault);
     $('#inner-wrapper').scroll(function(){
       const h = $(this).height();
       const s = $(this).scrollTop();
