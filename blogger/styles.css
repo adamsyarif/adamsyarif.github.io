@@ -60,6 +60,11 @@ thead td {
 .bg-sunny {background-image: linear-gradient(#fff,#ff9800)}
 .bg-day {background-image: linear-gradient(#fff,#2196F3)}
 .bg-night {background-image: linear-gradient(#fff,#616161)}
+.titles span {animation: blink 1s linear infinite}
+@keyframes blink {
+  from {color: #fff}
+  to {color: #757575}
+}
 .w3-row {
   display: flex!important;
   flex-wrap: wrap;
