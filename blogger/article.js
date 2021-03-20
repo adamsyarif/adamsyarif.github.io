@@ -37,4 +37,7 @@ $(document).ready(()=>{
     }
     else $(this).remove();
   });
+  $('pre code').each(function(){
+    hljs.highlightBlock(this);
+  });
 });
