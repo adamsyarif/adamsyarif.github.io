@@ -17,11 +17,7 @@ const RUN = {
   worker: ()=>{
     const u = (ENV.devMode ? '/scripts/' : ENV.repoUrl) +'workers.js';
     APP.worker(u, w =>{
-      w.onmessage = e =>{
-        const t = $('.titles');
-        if(e.data.text) t.find('b').text(e.data.text);
-        if(e.data.pointer) t.find('span').toggleClass('w3-text-white w3-text-gray');
-      };
+      w.onmessage = e => $('.titles').find('b').text(e.data);
     });
   },
   displayMenu: ()=>{
