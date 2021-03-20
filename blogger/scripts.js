@@ -110,7 +110,8 @@ const RUN = {
   toggleFolder: f =>{
     $(f).find('i').toggleClass('fa-folder fa-folder-open');
     $(f).next().slideToggle();
-  }
+  },
+	jumpTo: x =>{$('#inner-wrapper').animate({scrollTop:x}, 800)}
 };
 
 const FEED = {
