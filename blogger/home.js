@@ -16,7 +16,6 @@ const SLIDE = {
     const s = $('.slide');
     s.addClass('w3-hide-small w3-hide-medium');
     s.eq(SLIDE.index).removeClass('w3-hide-small w3-hide-medium');
-    $('#slide').find('.fa-circle').toggleClass('w3-text-white w3-text-gray');
   }
 };
 
