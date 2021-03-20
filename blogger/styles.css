@@ -57,7 +57,7 @@ thead td {
 
 /* ========== class */
 .bg-sunny {background: linear-gradient(#fff,#ff9800)}
-.bg-day {background: linear-gradient(#fff,#2196F3)}
+.bg-day {background-color: red}
 .bg-night {background: linear-gradient(#fff,#616161)}
 .bg-sunny, .bg-day, .bg-night {
   background-size: cover;
