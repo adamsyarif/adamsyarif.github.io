@@ -56,6 +56,13 @@ thead td {
 }
 
 /* ========== class */
+.bg-sunny {background-image: linear-gradient(#fff,#ff9800)}
+.bg-day {background-image: linear-gradient(#fff,#2196F3)}
+.bg-night {background-image: linear-gradient(#fff,#616161)}
+.bg-sunny, .bg-day, .bg-night {
+  background-size: cover;
+  background-attachment: fixed;
+}
 .titles span {animation: blink 1s linear infinite}
 @keyframes blink {
   from {color: #fff}
