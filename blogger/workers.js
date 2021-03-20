@@ -1,4 +1,4 @@
-const _titles = {
+const TITLES = {
   data: [
     'Web Belajar Pemrograman',
     'Belajar HTML',
@@ -6,18 +6,12 @@ const _titles = {
     'Belajar JavaScript'
   ],
   index: 0,
-  start: function(){
-    setInterval(()=>{
-      postMessage({pointer: true});
-    }, 500);
-    this.repeat();
-  },
   repeat: function(){
     let [i, w] = [0, ''];
     const a = this.data[this.index].split('');
     const x = setInterval(()=>{
       w += a[i];
-      postMessage({text: w});
+      postMessage(w);
       i++;
       if(i >= a.length){
         clearInterval(x);
@@ -30,4 +24,4 @@ const _titles = {
     }, 100);
   }
 };
-_titles.start();
+TITLES.repeat();
