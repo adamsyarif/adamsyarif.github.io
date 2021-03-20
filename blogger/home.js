@@ -34,10 +34,10 @@ $(document).ready(()=>{
     });
     $('#testi').find('table').html('<tr>'+ (t+t) +'</tr>').css('animation', 'testi 40s linear infinite');
   });
-	$('.code').eq(0).find('code').text('body{color:red}');
-	$('.code').eq(1).find('code').text('function a(){}');
-	$('.code').eq(2).find('code').text('<div>');
-	$('pre code').each(function(){
-		hljs.highlightBlock(this);
-	});
+  $('.code').eq(0).find('code').text('body {\ncolor:red;\n}');
+  $('.code').eq(1).find('code').text('function a(){}');
+  $('.code').eq(2).find('code').text('<div>');
+  $('pre code').each(function(){
+    hljs.highlightBlock(this);
+  });
 });
