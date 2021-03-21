@@ -11,3 +11,7 @@ RUN.titleNav = s =>{
   }
   else t.hide();
 };
+
+$(document).ready(()=>{
+  if($('h4 div').length == 0) $('.title-nav').eq(0).hide();
+});
