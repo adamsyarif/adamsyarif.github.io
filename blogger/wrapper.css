@@ -1,0 +1,31 @@
+/* ========== element */
+h4 {border-bottom: 2px solid #2196F3}
+h4 div {
+  display: inline-block;
+  background-color: #f1f1f1;
+  padding: 8px 16px;
+  color: #3a3a3a;
+  border-radius: 0 8px 0 0;
+}
+mark {
+  background-color: #f1f1f1;
+  color: #f44336;
+  padding: 1px 8px;
+}
+
+/* ========== id */
+#title-nav .w3-display-container {height: 100%}
+#title-nav .w3-display-middle {
+  width: 100%;
+  max-width: 500px;
+}
+#title-nav nav {
+  overflow-y: auto;
+  max-height: 300px;
+}
+
+/* ========== class */
+.title-nav {
+  position: absolute;
+  top: 16px;
+}
