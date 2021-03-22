@@ -7,52 +7,27 @@
         "articles": [
           {
             "id": 1597950370420002790,
-            "title": "HTML 1",
+            "title": "Apa itu HTML ?",
             "link": "#"
-          },
-          {
+          },{
             "id": 1597950370420002789,
-            "title": "HTML 2",
+            "title": "HTML Attribute",
             "link": "#"
-          },
-          {
+          },{
             "id": 3690771088787136045,
-            "title": "HTML 3",
+            "title": "HTML Head dan Body",
             "link": "#"
-          },
-          {
+          },{
             "id": 3106329856000173413,
-            "title": "HTML 4",
+            "title": "HTML Layout",
             "link": "#"
-          },
-          {
+          },{
             "id": 6549503090008236913,
-            "title": "HTML 5",
+            "title": "HTML Display",
             "link": "#"
-          },
-          {
+          },{
             "id": 8150178120548183983,
-            "title": "HTML 6",
-            "link": "#"
-          },
-          {
-            "id": 1318087276413249419,
-            "title": "HTML 7",
-            "link": "#"
-          },
-          {
-            "id": 6703499625453782676,
-            "title": "HTML 8",
-            "link": "#"
-          },
-          {
-            "id": 1824354937244109916,
-            "title": "HTML 9",
-            "link": "#"
-          },
-          {
-            "id": 9219623027993842342,
-            "title": "HTML 10",
+            "title": "HTML Content",
             "link": "#"
           }
         ]
@@ -61,52 +36,27 @@
         "articles": [
           {
             "id": 8036674375849984253,
-            "title": "CSS 1",
+            "title": "Apa itu CSS ?",
             "link": "#"
-          },
-          {
+          },{
             "id": 3727947643361574085,
-            "title": "CSS 2",
+            "title": "CSS Selector",
             "link": "#"
-          },
-          {
+          },{
             "id": 8516299039556026245,
-            "title": "CSS 3",
+            "title": "CSS Unit",
             "link": "#"
-          },
-          {
+          },{
             "id": 6052784238775251994,
-            "title": "CSS 4",
+            "title": "CSS Display",
             "link": "#"
-          },
-          {
+          },{
             "id": 7460474317346439971,
-            "title": "CSS 5",
+            "title": "CSS Position",
             "link": "#"
-          },
-          {
+          },{
             "id": 6438771186465022259,
-            "title": "CSS 6",
-            "link": "#"
-          },
-          {
-            "id": 4338805438377385377,
-            "title": "CSS 7",
-            "link": "#"
-          },
-          {
-            "id": 5753026692942134198,
-            "title": "CSS 8",
-            "link": "#"
-          },
-          {
-            "id": 8254240317553649969,
-            "title": "CSS 9",
-            "link": "#"
-          },
-          {
-            "id": 8639547391447360116,
-            "title": "CSS 10",
+            "title": "CSS Box model",
             "link": "#"
           }
         ]
@@ -115,52 +65,43 @@
         "articles": [
           {
             "id": 5692676830589396381,
-            "title": "JavaScript 1",
+            "title": "Apa itu JavaScript ?",
             "link": "#"
-          },
-          {
+          },{
             "id": 1501970772916942068,
-            "title": "JavaScript 2",
+            "title": "JavaScript Variable",
             "link": "#"
-          },
-          {
+          },{
             "id": 4375439667220814557,
-            "title": "JavaScript 3",
+            "title": "JavaScript Data type",
             "link": "#"
-          },
-          {
+          },{
             "id": 1191480030942323295,
-            "title": "JavaScript 4",
+            "title": "JavaScript Operator",
             "link": "#"
-          },
-          {
+          },{
             "id": 3765732994823261306,
-            "title": "JavaScript 5",
+            "title": "JavaScript Conditional statement",
             "link": "#"
-          },
-          {
+          },{
             "id": 3184372552608933243,
-            "title": "JavaScript 6",
+            "title": "JavaScript Function",
             "link": "#"
-          },
-          {
+          },{
             "id": 3774519311112725111,
-            "title": "JavaScript 7",
+            "title": "JavaScript DOM",
             "link": "#"
-          },
-          {
+          },{
             "id": 6646883228793108470,
-            "title": "JavaScript 8",
+            "title": "JavaScript Event listener",
             "link": "#"
-          },
-          {
+          },{
             "id": 7394785913873760971,
-            "title": "JavaScript 9",
+            "title": "JavaScript Loop",
             "link": "#"
-          },
-          {
+          },{
             "id": 450220391097339238,
-            "title": "JavaScript 10",
+            "title": "JavaScript Error handling",
             "link": "#"
           }
         ]
@@ -175,52 +116,15 @@
         "articles": [
           {
             "id": 1597950370420002790,
-            "title": "HTML 1",
+            "title": "HTML Meta tags",
             "link": "#"
-          },
-          {
+          },{
             "id": 6067687399795089400,
-            "title": "HTML 2",
+            "title": "HTML Assets",
             "link": "#"
-          },
-          {
-            "id": 3690771088787136045,
-            "title": "HTML 3",
-            "link": "#"
-          },
-          {
-            "id": 3106329856000173413,
-            "title": "HTML 4",
-            "link": "#"
-          },
-          {
-            "id": 6549503090008236913,
-            "title": "HTML 5",
-            "link": "#"
-          },
-          {
+          },{
             "id": 8150178120548183983,
-            "title": "HTML 6",
-            "link": "#"
-          },
-          {
-            "id": 1318087276413249419,
-            "title": "HTML 7",
-            "link": "#"
-          },
-          {
-            "id": 6703499625453782676,
-            "title": "HTML 8",
-            "link": "#"
-          },
-          {
-            "id": 1824354937244109916,
-            "title": "HTML 9",
-            "link": "#"
-          },
-          {
-            "id": 9219623027993842342,
-            "title": "HTML 10",
+            "title": "HTML Entities",
             "link": "#"
           }
         ]
@@ -229,52 +133,35 @@
         "articles": [
           {
             "id": 8036674375849984253,
-            "title": "CSS 1",
+            "title": "CSS Variable",
             "link": "#"
-          },
-          {
+          },{
             "id": 3727947643361574085,
-            "title": "CSS 2",
+            "title": "CSS Font",
             "link": "#"
-          },
-          {
+          },{
             "id": 8516299039556026245,
-            "title": "CSS 3",
+            "title": "CSS Icon",
             "link": "#"
-          },
-          {
+          },{
             "id": 6052784238775251994,
-            "title": "CSS 4",
+            "title": "CSS Flex box",
             "link": "#"
-          },
-          {
+          },{
             "id": 7460474317346439971,
-            "title": "CSS 5",
+            "title": "CSS Grid layout",
             "link": "#"
-          },
-          {
+          },{
             "id": 6438771186465022259,
-            "title": "CSS 6",
+            "title": "CSS Media queries",
             "link": "#"
-          },
-          {
+          },{
             "id": 4338805438377385377,
-            "title": "CSS 7",
+            "title": "CSS Effect",
             "link": "#"
-          },
-          {
+          },{
             "id": 5753026692942134198,
-            "title": "CSS 8",
-            "link": "#"
-          },
-          {
-            "id": 8254240317553649969,
-            "title": "CSS 9",
-            "link": "#"
-          },
-          {
-            "id": 8639547391447360116,
-            "title": "CSS 10",
+            "title": "CSS Animation",
             "link": "#"
           }
         ]
@@ -283,52 +170,47 @@
         "articles": [
           {
             "id": 5692676830589396381,
-            "title": "JavaScript 1",
+            "title": "JavaScript Strict mode",
             "link": "#"
-          },
-          {
-            "id": 1501970772916942068,
-            "title": "JavaScript 2",
-            "link": "#"
-          },
-          {
+          },{
             "id": 4375439667220814557,
-            "title": "JavaScript 3",
+            "title": "JavaScript JSON",
             "link": "#"
-          },
-          {
+          },{
             "id": 1191480030942323295,
-            "title": "JavaScript 4",
+            "title": "JavaScript Object destructuring",
             "link": "#"
-          },
-          {
+          },{
             "id": 3765732994823261306,
-            "title": "JavaScript 5",
+            "title": "JavaScript Array function",
             "link": "#"
-          },
-          {
+          },{
             "id": 3184372552608933243,
-            "title": "JavaScript 6",
+            "title": "JavaScript Promise",
             "link": "#"
-          },
-          {
+          },{
             "id": 3774519311112725111,
-            "title": "JavaScript 7",
+            "title": "JavaScript Async Await",
             "link": "#"
-          },
-          {
+          },{
             "id": 6646883228793108470,
-            "title": "JavaScript 8",
+            "title": "JavaScript Class",
             "link": "#"
-          },
-          {
+          },{
+            "id": 1501970772916942068,
+            "title": "JavaScript BOM",
+            "link": "#"
+          },{
             "id": 7394785913873760971,
-            "title": "JavaScript 9",
+            "title": "JavaScript AJAX",
             "link": "#"
-          },
-          {
+          },{
             "id": 450220391097339238,
-            "title": "JavaScript 10",
+            "title": "JavaScript Web API",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript RegExp",
             "link": "#"
           }
         ]
@@ -343,52 +225,59 @@
         "articles": [
           {
             "id": 1597950370420002790,
-            "title": "HTML 1",
+            "title": "HTML Heading",
             "link": "#"
-          },
-          {
+          },{
             "id": 6067687399795089400,
-            "title": "HTML 2",
+            "title": "HTML Paragraph",
             "link": "#"
-          },
-          {
+          },{
             "id": 3690771088787136045,
-            "title": "HTML 3",
+            "title": "HTML Text",
             "link": "#"
-          },
-          {
+          },{
             "id": 3106329856000173413,
-            "title": "HTML 4",
+            "title": "HTML Image",
             "link": "#"
-          },
-          {
+          },{
             "id": 6549503090008236913,
-            "title": "HTML 5",
+            "title": "HTML Link",
             "link": "#"
-          },
-          {
+          },{
             "id": 8150178120548183983,
-            "title": "HTML 6",
+            "title": "HTML List",
             "link": "#"
-          },
-          {
-            "id": 1318087276413249419,
-            "title": "HTML 7",
-            "link": "#"
-          },
-          {
+          },{
             "id": 6703499625453782676,
-            "title": "HTML 8",
+            "title": "HTML Table",
             "link": "#"
-          },
-          {
+          },{
             "id": 1824354937244109916,
-            "title": "HTML 9",
+            "title": "HTML Input",
             "link": "#"
-          },
-          {
+          },{
+            "id": 1318087276413249419,
+            "title": "HTML Option",
+            "link": "#"
+          },{
             "id": 9219623027993842342,
-            "title": "HTML 10",
+            "title": "HTML Button",
+            "link": "#"
+          },{
+            "id": 9219623027993842342,
+            "title": "HTML Form",
+            "link": "#"
+          },{
+            "id": 9219623027993842342,
+            "title": "HTML Comment",
+            "link": "#"
+          },{
+            "id": 9219623027993842342,
+            "title": "HTML Tags",
+            "link": "#"
+          },{
+            "id": 9219623027993842342,
+            "title": "HTML Attributes",
             "link": "#"
           }
         ]
@@ -397,52 +286,39 @@
         "articles": [
           {
             "id": 8036674375849984253,
-            "title": "CSS 1",
+            "title": "CSS Margin dan Padding",
             "link": "#"
-          },
-          {
+          },{
             "id": 3727947643361574085,
-            "title": "CSS 2",
+            "title": "CSS Border",
             "link": "#"
-          },
-          {
+          },{
             "id": 8516299039556026245,
-            "title": "CSS 3",
+            "title": "CSS Width dan Height",
             "link": "#"
-          },
-          {
+          },{
             "id": 6052784238775251994,
-            "title": "CSS 4",
+            "title": "CSS Image",
             "link": "#"
-          },
-          {
-            "id": 7460474317346439971,
-            "title": "CSS 5",
-            "link": "#"
-          },
-          {
+          },{
             "id": 6438771186465022259,
-            "title": "CSS 6",
+            "title": "CSS Color",
             "link": "#"
-          },
-          {
+          },{
+            "id": 7460474317346439971,
+            "title": "CSS Background",
+            "link": "#"
+          },{
             "id": 4338805438377385377,
-            "title": "CSS 7",
+            "title": "CSS Important",
             "link": "#"
-          },
-          {
+          },{
             "id": 5753026692942134198,
-            "title": "CSS 8",
+            "title": "CSS Comment",
             "link": "#"
-          },
-          {
+          },{
             "id": 8254240317553649969,
-            "title": "CSS 9",
-            "link": "#"
-          },
-          {
-            "id": 8639547391447360116,
-            "title": "CSS 10",
+            "title": "CSS Properties",
             "link": "#"
           }
         ]
@@ -451,52 +327,155 @@
         "articles": [
           {
             "id": 5692676830589396381,
-            "title": "JavaScript 1",
+            "title": "JavaScript var",
             "link": "#"
-          },
-          {
+          },{
             "id": 1501970772916942068,
-            "title": "JavaScript 2",
+            "title": "JavaScript let",
             "link": "#"
-          },
-          {
+          },{
             "id": 4375439667220814557,
-            "title": "JavaScript 3",
+            "title": "JavaScript const",
             "link": "#"
-          },
-          {
+          },{
             "id": 1191480030942323295,
-            "title": "JavaScript 4",
+            "title": "JavaScript String",
             "link": "#"
-          },
-          {
+          },{
             "id": 3765732994823261306,
-            "title": "JavaScript 5",
+            "title": "JavaScript Number",
             "link": "#"
-          },
-          {
+          },{
             "id": 3184372552608933243,
-            "title": "JavaScript 6",
+            "title": "JavaScript Boolean",
             "link": "#"
-          },
-          {
+          },{
             "id": 3774519311112725111,
-            "title": "JavaScript 7",
+            "title": "JavaScript Object",
             "link": "#"
-          },
-          {
+          },{
             "id": 6646883228793108470,
-            "title": "JavaScript 8",
+            "title": "JavaScript Array",
             "link": "#"
-          },
-          {
+          },{
             "id": 7394785913873760971,
-            "title": "JavaScript 9",
+            "title": "JavaScript Empty data",
             "link": "#"
-          },
-          {
+          },{
             "id": 450220391097339238,
-            "title": "JavaScript 10",
+            "title": "JavaScript If Else",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Switch Case",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Ternary operator",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript this Keyword",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Callback function",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript DOM nodes",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript For",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript While",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Math",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Date",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Try Catch",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Window",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Screen",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Location",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript History",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Navigator",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Popups",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Timing",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Cookie",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript JSON parse",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript JSON stringify",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript XMLHttp",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Console",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Local storage",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Worker",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Fetch",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Geolocation",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Comment",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Keywords",
             "link": "#"
           }
         ]
