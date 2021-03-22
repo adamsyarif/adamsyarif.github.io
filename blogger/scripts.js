@@ -22,23 +22,11 @@ const RUN = {
   },
   displayMenu: ()=>{
     APP.data('menu', r =>{
-      r.page_id = +$('#page-id').val();
-      r.article_id = +$('#article-id').val();
-      r.article = (index, data)=>{
-        const x = (i, a)=> $('.article-nav').eq(i).show().find('a').attr('href', a.link).text(a.title);
-        const p = data[index-1];
-        const n = data[index+1];
-        if(p && p.link != '#') x(0, p);
-        if(n && n.link != '#') x(1, n);
-      };
       r.list = function(data){
         let c, l = '';
         data.forEach((i, x, d)=>{
           c = '';
-          if((i.id == this.page_id) || (i.id == this.article_id)){
-            c = 'w3-light-gray w3-rightbar';
-            (i.id == this.page_id)? this.page(x, d) : this.article(x, d);
-          }
+          if((i.id == +$('#page-id').val()) || (i.id == +$('#article-id').val())) c = 'w3-light-gray w3-rightbar';
           l += '<a '+ ((i.link != '#')? ('href="'+ i.link +'"') : '') +' class="'+ c +' w3-bar-item w3-button w3-hover-light-gray"><i class="far fa-file-alt w3-margin-right"></i>'+ i.title + ((i.link != '#')? '' : ' <sup class="w3-text-red">(<i>draft</i>)</sup>') +'</a>';
         });
         return l;
@@ -146,7 +134,7 @@ const RESULT = {
                   '<b class="w3-large w3-text-dark-gray">'+ d.title.$t +'</b>'+
                   '<div class="w3-small w3-justify">'+ d.summary.$t.slice(0,100) +'..</div>'+
                   '<p class="w3-right-align">'+
-                    '<a class="w3-button w3-small w3-border w3-round-large" href="'+ d.link[2].href +'">Baca selengkapnya</a>'+
+                    '<a class="w3-btn w3-small w3-border w3-round-large" href="'+ d.link[2].href +'">Baca selengkapnya</a>'+
                   '</p>'+
                 '</td>'+
               '</tr>'+
