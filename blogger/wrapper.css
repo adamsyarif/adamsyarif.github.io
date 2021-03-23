@@ -29,3 +29,12 @@ mark {
   position: absolute;
   top: 16px;
 }
+.notes {
+  background-color: #ffffcc;
+  color: #3a3a3a;
+  font-size: 12px;
+  margin: 16px 0;
+  padding: 0.01em 16px;
+  border-left: 6px solid #f0e68c;
+  border-radius: 4px;
+}
