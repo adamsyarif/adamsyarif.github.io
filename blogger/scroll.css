@@ -1,0 +1,19 @@
+/* ========== class */
+.scroll::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background: linear-gradient(90deg, #f1f1f1, transparent, transparent, transparent, transparent, #f1f1f1);
+}
+.scroll > div {overflow: hidden}
+.scroll table {width: 3000px}
+@keyframes scroll {
+  0% {transform: translateX(0)}
+  100% {transform: translateX(-1500px)}
+}
