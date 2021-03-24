@@ -121,7 +121,6 @@ const RESULT = {
     $('#section-result').html(RESULT.article(e));
   },
   article: e =>{
-    console.log(e);
     let a = '';
     e.forEach(d =>{
       a += '<table style="width:100%">'+
