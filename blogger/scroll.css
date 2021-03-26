@@ -1,4 +1,5 @@
 /* ========== class */
+.scroll {position: relative}
 .scroll::before {
   content: '';
   position: absolute;
@@ -11,7 +12,7 @@
   z-index: 1;
   background: linear-gradient(90deg, #f1f1f1, transparent, transparent, transparent, transparent, #f1f1f1);
 }
-.scroll > div {overflow: hidden}
+.scroll .w3-responsive {overflow: hidden}
 .scroll table {width: 3000px}
 @keyframes scroll {
   0% {transform: translateX(0)}
