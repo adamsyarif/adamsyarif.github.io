@@ -24,43 +24,22 @@ thead td {
 }
 
 /* ========== id */
-#body, #toast {position: fixed}
-#body, #inner-wrapper {
+#body, #toast {
+  position: fixed;
   left: 0;
-  top: 0;
   right: 0;
-  bottom: 0;
-}
-#body, #layout, #outer-wrapper, #inner-wrapper {
   width: 100%;
-  height: 100%;
 }
-#inner-wrapper {
-  position: absolute;
+#body {
+  top: 0;
+  bottom: 0;
+  height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
 }
-#menubar, #searchbar {z-index: 4}
-#loader {z-index: 5}
-#toast {
-  left: 0;
-  right: 0;
-  width: 100%;
-  top: 75vh;
-  z-index: 6;
-}
-#toast div {
-  margin: auto;
-  max-width: 500px;
-  background-color: rgba(0,0,0,0.5);
-}
+#toast {bottom: 250px}
 
 /* ========== class */
-.titles span {animation: blink 1s linear infinite}
-@keyframes blink {
-  from {color: #fff}
-  to {color: #757575}
-}
 .w3-row {
   display: flex!important;
   flex-wrap: wrap;
@@ -72,27 +51,30 @@ thead td {
 .sticky {
   position: -webkit-sticky;
   position: sticky;
+  top: 0;
   z-index: 1;
 }
 .thumbnail {
   width: 75px;
   height: 75px;
 }
-.centered {
+.middle {
   max-width: 570px;
   margin-left: auto;
   margin-right: auto;
 }
-.a-hide {
-  opacity: 0;
-  animation: a-hide 0.5s linear;
+.transparent-color {
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
 }
-@keyframes a-hide {
-  from {opacity: 1}
-  to {opacity: 0}
-}
-.top-radius {border-radius: 8px 8px 0 0}
+.a-sh {opacity: 0}
 .right-radius {border-radius: 0 8px 8px 0}
-.bottom-radius {border-radius: 0 0 8px 8px}
 .left-radius {border-radius: 8px 0 0 8px}
+.bottom-radius {border-radius: 0 0 8px 8px}
 .socmed-icon {padding: 0.01em 5px}
+
+/* ========== keys */
+@keyframes blink {
+  from {color: #fff}
+  to {color: #757575}
+}
