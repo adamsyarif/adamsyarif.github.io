@@ -76,7 +76,7 @@ thead td {
 
 /* ========== keys */
 @media (max-width:600px){
-	header {text-align: center}
+	#header {text-align: center}
 }
 @media (min-width:601px) and (max-width:992px){
 	header {
