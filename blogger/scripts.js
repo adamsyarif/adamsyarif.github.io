@@ -84,13 +84,13 @@ const RUN = {
         data.forEach((i, x, d)=>{
           c = '';
           if((i.id == +$('#page-id').val()) || (i.id == +$('#article-id').val())) c = 'w3-light-gray w3-rightbar';
-          l += '<a '+ ((i.link != '#')? ('href="'+ i.link +'"') : '') +' class="'+ c +' w3-bar-item w3-button w3-hover-light-gray"><i class="far fa-file-alt w3-margin-right"></i>'+ i.title + ((i.link != '#')? '' : ' <sup class="w3-text-red">(<i>draft</i>)</sup>') +'</a>';
+          l += '<a '+ ((i.link != '#')? ('href="'+ i.link +'"') : '') +' class="'+ c +' w3-bar-item w3-button w3-hover-light-gray"><i class="far fa-file-alt w3-margin-right"></i>'+ i.title + ((i.link != '#')? '' : ' <i class="w3-small w3-text-red">(draft)</i>') +'</a>';
         });
         return l;
       };
       r.lists = list => '<div class="w3-margin-left">'+ list +'</div>';
       r.docs = lists => '<details>'+ lists +'</details>';
-      r.folder = name => '<summary class="w3-bar-item w3-button w3-hover-light-gray" onclick="RUN.toggleFolder(this)"><i class="fas fa-folder w3-text-yellow w3-margin-right"></i>'+ name +'</summary>';
+      r.folder = name => '<summary class="w3-bar-item w3-button w3-hover-light-gray" onclick="$(this).find("i").toggleClass("fa-folder fa-folder-open")"><i class="fas fa-folder w3-text-yellow w3-margin-right"></i>'+ name +'</summary>';
       r.folders = function(folders){
         let f, d = '';
         folders.forEach(folder =>{
@@ -115,10 +115,11 @@ const RUN = {
     });
   },
   domContent: ()=>{
-    const h = new Date().getHours();
+    const d = new Date();
+    const h = d.getHours();
     $('#body').addClass(((h >= 5 && h <= 6) || (h >= 16 && h <= 17))? 'bg-sunny' : (h >= 7 && h <= 15)? 'bg-day' : 'bg-night');
     $('.what-time-is').text((h >= 3 && h <= 10)? 'pagi' : (h >= 11 && h <= 14)? 'siang' : (h >= 15 && h <= 17)? 'sore' : 'malam');
-    $('.copyright-year').text(new Date().getFullYear());
+    $('.copyright-year').text(d.getFullYear());
     setTimeout(()=>{
       $('#body').fadeIn(1000);
     }, 100);
@@ -131,12 +132,9 @@ const RUN = {
       $('.a-sh').each(function(){
         const t = $(this).offset().top;
         if(((h+s)-(s+t)) > 50){
+          $(this).removeClass('a-sh');
           $(this).find('.a-left').addClass('w3-animate-left');
           $(this).find('.a-right').addClass('w3-animate-right');
-          $(this).removeClass('a-hide');
-        } else {
-          $(this).find('.a-left, .a-right').removeClass('w3-animate-left w3-animate-right');
-          $(this).addClass('a-hide');
         }
       });
     });
@@ -146,17 +144,13 @@ const RUN = {
       $(this).attr('checked', true);
     });
     $('#searchbar :radio').change(function(){
-      const s = $(this).parent().parent().find('.section');
+      const s = $(this).parent().parent().find('.searchbar');
       s.hide();
-      s.eq(+$(this).val()-1).show();
+      s.eq(+$(this).val()).show();
     });
     $('[data-validation]').on('input', function(){
       $(this).val($(this).val().replace(new RegExp('[^'+ $(this).attr('data-validation') +']', 'gim'), ''));
     });
-  },
-  toggleFolder: f =>{
-    $(f).find('i').toggleClass('fa-folder fa-folder-open');
-    //$(f).next().slideToggle();
   },
   jumpTo: x =>{$('#inner-wrapper').animate({scrollTop:x}, 800)}
 };
@@ -167,36 +161,39 @@ const FEED = {
   u3: m => '?alt=json&max-results='+ m,
   search: ()=>{
     const s = $('#searchbar');
-    (+$('[name=searchbar]:checked').val() == 1)? (()=>{
+    if(+$('[name=searchbar]:checked').val() == 0){
       const q = s.find(':text').val().trim();
       q ? location.assign(encodeURI(FEED.u1 +'?q='+ q)) : APP.toast('Kata kunci tidak boleh kosong');
-    })() : location.assign(encodeURI(FEED.u1 +'/label/'+ s.find('select').val()));
+    }
+		else location.assign(encodeURI(FEED.u1 +'/label/'+ s.find('select').val()));
   }
 };
 
 const RESULT = {
-  section: d =>{
+  aside: d =>{
     const e = d.feed.entry.sort(()=> Math.random()-0.5).slice(0,5);
-    $('#section-result').html(RESULT.article(e));
+    $('#aside-result').html(RESULT.article(e));
   },
   article: e =>{
     let a = '';
     e.forEach(d =>{
-      a += '<table style="width:100%">'+
+      a += '<table class="w3-table">'+
               '<tr>'+
-                '<td style="vertical-align:top">'+
-                  '<div class="thumbnail w3-card-2 w3-margin-right">'+
+                '<td rowspan="2">'+
+                  '<div class="thumbnail w3-card-2">'+
                     '<img src="'+ d.media$thumbnail.url +'"/>'+
                   '</div>'+
                 '</td>'+
                 '<td>'+
                   '<b class="w3-large w3-text-dark-gray">'+ d.title.$t +'</b>'+
                   '<div class="w3-small w3-justify">'+ d.summary.$t.slice(0,100) +'..</div>'+
-                  '<p class="w3-right-align">'+
-                    '<a class="w3-btn w3-small w3-border w3-round-large" href="'+ d.link[2].href +'">Baca selengkapnya</a>'+
-                  '</p>'+
                 '</td>'+
               '</tr>'+
+							'<tr>'+
+								'<td class="w3-right-align">'+
+									'<a class="w3-btn w3-small w3-border w3-round-large" href="'+ d.link[2].href +'">Baca selengkapnya</a>'+
+								'</td>'+
+							'</tr>'+
             '</table>';
     });
     return a;
