@@ -14,12 +14,8 @@ mark {
 }
 
 /* ========== id */
-#title-nav .w3-display-container {height: 100%}
-#title-nav .w3-display-middle {
-  width: 100%;
-  max-width: 500px;
-}
 #title-nav nav {
+  overflow-x: hidden;
   overflow-y: auto;
   max-height: 250px;
 }
