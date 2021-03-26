@@ -1,23 +1,80 @@
-const RUN = {
-  sectionFeed: ()=>{
-    const t = +$('#section-type').val();
-    if(t){
-      const n = $('#section-name');
-      if(t == 1){
-        n.text('Artikel terkait');
-        const l = $('#article-label').val().split(',').filter(v => v.trim() != '');
-        const r = Math.floor(Math.random() * l.length);
-        APP.req(FEED.u2 +'/-/'+ l[r] + FEED.u3(1000), RESULT.section);
+const APP = {
+  REQ: [],
+  req: (u, c)=>{
+    $.ajax({
+      method: 'GET',
+      url: u,
+      beforeSend: ()=> APP.loader(true),
+      complete: ()=> APP.loader(false)
+    }).done(r => c(r)).fail((x, s, e)=>{
+      e ? (()=>{
+        APP.toast('Error, please check console for details');
+        console.log(e);
+      })() : APP.toast(s);
+    });
+  },
+  loader: s =>{
+    const l = $('#loader');
+    if(s){
+      if(typeof s == 'number'){
+        l.show();
+        setTimeout(l.hide, s);
       } else {
-        n.text('Artikel terbaru');
-        APP.req(FEED.u2 + FEED.u3(10), RESULT.section);
+        if(APP.REQ.length == 0) l.show();
+        APP.REQ.push(1);
       }
+    } else {
+      if(APP.REQ.length > 0) APP.REQ.pop();
+      if(APP.REQ.length == 0) l.hide();
     }
   },
-  worker: ()=>{
+  TOAST: null,
+  toast: m =>{
+    if(APP.TOAST) clearTimeout(APP.TOAST);
+    const t = $('#toast');
+    t.show().find('div').text(m);
+    APP.TOAST = setTimeout(()=>{
+      APP.TOAST = null;
+      t.hide();
+    }, 3000);
+  },
+  data: (d, c)=>{
+    const u = (ENV.devMode ? '/data/' : ENV.repoUrl)+ d +'.json';
+    APP.req(u, r => c(r));
+  },
+  worker: (u, c)=>{
+    APP.req(u, r =>{
+      const b = new Blob([r], {type:'application/javascript'});
+      c(new Worker(URL.createObjectURL(b)));
+    });
+  },
+  copy: e =>{
+    $(e).select();
+    document.execCommand('copy');
+    APP.toast('Teks telah disalin');
+  },
+  preventDefault: e =>{
+    e.preventDefault();
+    return false;
+  }
+};
+
+const RUN = {
+  asideFeed: ()=>{
+		switch(+$('#aside-type').val()){
+			case 1:
+				const l = $('#article-label').val().split(',').filter(v => v.trim() != '');
+				const r = Math.floor(Math.random() * l.length);
+				APP.req(FEED.u2 +'/-/'+ l[r] + FEED.u3(1000), RESULT.aside);
+				break;
+			case 2:
+				APP.req(FEED.u2 + FEED.u3(10), RESULT.aside);
+		}
+  },
+  workers: ()=>{
     const u = (ENV.devMode ? '/scripts/' : ENV.repoUrl) +'workers.js';
     APP.worker(u, w =>{
-      w.onmessage = e => $('.titles').find('b').text(e.data);
+      w.onmessage = e => $('#title').find('b').text(e.data);
     });
   },
   displayMenu: ()=>{
@@ -31,26 +88,28 @@ const RUN = {
         });
         return l;
       };
-      r.docs = list => '<div class="w3-margin-left" style="display:none">'+ list +'</div>';
-      r.folder = name => '<button class="w3-bar-item w3-button w3-hover-light-gray" onclick="RUN.toggleFolder(this)"><i class="fas fa-folder w3-text-yellow w3-margin-right"></i>'+ name +'</button>';
+      r.lists = list => '<div class="w3-margin-left">'+ list +'</div>';
+      r.docs = lists => '<details>'+ lists +'</details>';
+      r.folder = name => '<summary class="w3-bar-item w3-button w3-hover-light-gray" onclick="RUN.toggleFolder(this)"><i class="fas fa-folder w3-text-yellow w3-margin-right"></i>'+ name +'</summary>';
       r.folders = function(folders){
-        let f = '';
+        let f, d = '';
         folders.forEach(folder =>{
-          f += this.folder(folder.title);
-          f += this.docs(this.list(folder.articles));
+					f = this.folder(folder.title);
+          f += this.lists(this.list(folder.articles));
+					d += this.docs(f);
         });
-        return f;
+        return d;
       };
       r.navigation = function(){
-        let m2, m1 = '';
+        let m, d = '';
         Object.keys(this).forEach(key =>{
           if(this[key].title){
-            m1 += this.folder(this[key].title);
-            m2 = this[key].folders ? this.folders(this[key].folders) : this.list(this[key].pages);
-            m1 += this.docs(m2);
+            m = this.folder(this[key].title);
+            m += this.lists(this[key].folders ? this.folders(this[key].folders) : this.list(this[key].pages));
+						d += this.docs(m);
           }
         });
-        return m1;
+        return d;
       };
       $('#menubar').find('nav').html(r.navigation());
     });
@@ -145,8 +204,8 @@ const RESULT = {
 };
 
 $(document).ready(()=>{
-  RUN.sectionFeed();
-  RUN.worker();
+  RUN.asideFeed();
+  RUN.workers();
   RUN.displayMenu();
   RUN.domContent();
   RUN.bindEvent();
