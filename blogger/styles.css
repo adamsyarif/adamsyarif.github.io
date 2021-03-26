@@ -41,6 +41,9 @@ summary {list-style: none}
 #toast {bottom: 250px}
 
 /* ========== class */
+.bg-sunny {background: linear-gradient(#fff,#ff9800)}
+.bg-day {background: linear-gradient(#fff,#2196F3)}
+.bg-night {background: linear-gradient(#fff,#616161)}
 .w3-row {
   display: flex!important;
   flex-wrap: wrap;
