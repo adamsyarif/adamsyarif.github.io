@@ -48,12 +48,13 @@ thead td {
   width: 100%;
   max-width: 350px;
 }
-.sticky {
+.sticky-top, .sticky-bottom {
   position: -webkit-sticky;
   position: sticky;
-  top: 0;
   z-index: 1;
 }
+.sticky-top {top: 0}
+.sticky-bottom {bottom: 0}
 .thumbnail {
   width: 75px;
   height: 75px;
@@ -74,6 +75,25 @@ thead td {
 .socmed-icon {padding: 0.01em 5px}
 
 /* ========== keys */
+@media (max-width:600px){
+	header {text-align: center}
+}
+@media (min-width:601px) and (max-width:992px){
+	header {
+		position: -webkit-sticky;
+		position: sticky;
+		z-index: 1;
+		top: 0;
+	}
+}
+@media (min-width:993px){
+	header {
+		position: -webkit-sticky;
+		position: sticky;
+		z-index: 1;
+		top: 0;
+	}
+}
 @keyframes blink {
   from {color: #fff}
   to {color: #757575}
