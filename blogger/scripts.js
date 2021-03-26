@@ -126,7 +126,7 @@ const RUN = {
   },
   bindEvent: ()=>{
     if(!ENV.devMode) $('body').on('contextmenu', APP.preventDefault);
-    $('#inner-wrapper').scroll(function(){
+    $('#body').scroll(function(){
       const h = $(this).height();
       const s = $(this).scrollTop();
       $('.a-sh').each(function(){
