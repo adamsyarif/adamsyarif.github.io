@@ -39,6 +39,7 @@ summary {list-style: none}
   overflow-y: auto;
 }
 #toast {bottom: 150px}
+#title span {animation: blink 1s linear infinite}
 
 /* ========== class */
 .bg-sunny {background: linear-gradient(#fff,#ff9800)}
