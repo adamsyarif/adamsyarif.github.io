@@ -38,7 +38,7 @@ summary {list-style: none}
   overflow-x: hidden;
   overflow-y: auto;
 }
-#toast {bottom: 250px}
+#toast {bottom: 150px}
 
 /* ========== class */
 .bg-sunny {background: linear-gradient(#fff,#ff9800)}
