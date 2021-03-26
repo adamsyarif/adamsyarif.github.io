@@ -156,7 +156,7 @@ const RUN = {
   },
   toggleFolder: f =>{
     $(f).find('i').toggleClass('fa-folder fa-folder-open');
-    $(f).next().slideToggle();
+    //$(f).next().slideToggle();
   },
   jumpTo: x =>{$('#inner-wrapper').animate({scrollTop:x}, 800)}
 };
