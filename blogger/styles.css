@@ -22,10 +22,6 @@ thead td {
   white-space: nowrap;
   background-color: #f1f1f1;
 }
-summary::-webkit-details-marker, summary::marker {
-	display: none;
-	content: '';
-}
 
 /* ========== id */
 #body, #toast {
@@ -41,7 +37,7 @@ summary::-webkit-details-marker, summary::marker {
   overflow-x: hidden;
   overflow-y: auto;
 }
-#navbar, #menubar, #searchbar {z-index: 4}
+#navbar, #menubar, #searchbar, header {z-index: 4}
 #loader {z-index: 5}
 #toast {
 	bottom: 150px;
@@ -61,13 +57,13 @@ summary::-webkit-details-marker, summary::marker {
   width: 100%;
   max-width: 350px;
 }
-.sticky-top, .sticky-bottom {
+.sticky {
   position: -webkit-sticky;
   position: sticky;
   z-index: 1;
 }
-.sticky-top {top: 0}
-.sticky-bottom {bottom: 0}
+.sticky.top {top: 0}
+.sticky.bottom {bottom: 0}
 .thumbnail {
   width: 75px;
   height: 75px;
@@ -91,19 +87,10 @@ summary::-webkit-details-marker, summary::marker {
 @media (max-width:600px){
 	#header {text-align: center}
 }
-@media (min-width:601px) and (max-width:992px){
+@media (min-width:601px){
 	header {
 		position: -webkit-sticky;
 		position: sticky;
-		z-index: 4;
-		top: 0;
-	}
-}
-@media (min-width:993px){
-	header {
-		position: -webkit-sticky;
-		position: sticky;
-		z-index: 4;
 		top: 0;
 	}
 }
