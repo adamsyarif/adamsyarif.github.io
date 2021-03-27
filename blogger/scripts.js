@@ -74,7 +74,9 @@ const RUN = {
   workers: ()=>{
     const u = (ENV.devMode ? '/scripts/' : ENV.repoUrl) +'workers.js';
     APP.worker(u, w =>{
-      w.onmessage = e => $('#title').find('b').text(e.data);
+			setTimeout(()=>{
+				w.onmessage = e => $('#title').find('b').text(e.data);
+			}, 2000);
     });
   },
   displayMenu: ()=>{
@@ -90,7 +92,7 @@ const RUN = {
       };
       r.lists = list => '<div class="w3-margin-left">'+ list +'</div>';
       r.docs = lists => '<details>'+ lists +'</details>';
-      r.folder = name => '<summary class="w3-bar-item w3-button w3-hover-light-gray" onclick="$(this).find(\'i\').toggleClass(\'fa-folder fa-folder-open\')"><i class="fas fa-folder w3-text-yellow w3-margin-right"></i>'+ name +'</summary>';
+      r.folder = name => '<summary class="w3-ul w3-bar-item w3-button w3-hover-light-gray" onclick="$(this).find(\'i\').toggleClass(\'fa-folder fa-folder-open\')"><i class="fas fa-folder w3-text-yellow w3-margin-right"></i>'+ name +'</summary>';
       r.folders = function(folders){
         let f, d = '';
         folders.forEach(folder =>{
