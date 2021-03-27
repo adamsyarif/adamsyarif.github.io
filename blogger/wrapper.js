@@ -1,7 +1,7 @@
 RUN.titleNav = s =>{
   const t = $('#title-nav');
   if(s){
-    let x1, x2, x3, x4, n = '';
+    let x1, x2, x3, n = '';
     $('h4 div').each(function(){
       x1 = $('#body').scrollTop();
       x2 = $(this).offset().top;
