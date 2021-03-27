@@ -16,7 +16,7 @@ $(document).ready(()=>{
     const a = $(this).parent().parent();
     if(a.find('button').eq(0).hasClass('active')){
       const c = a.find('code');
-			return t.replace('{HTML}', c.eq(0).html()).replace('{CSS}', c.eq(1).html()).replace('{JS}', c.eq(2).html());
+			return t.replace('{HTML}', c.eq(0).text()).replace('{CSS}', c.eq(1).text()).replace('{JS}', c.eq(2).text());
     }
     else $(this).remove();
   });
