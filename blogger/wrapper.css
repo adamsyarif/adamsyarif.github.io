@@ -39,8 +39,8 @@ mark {
 
 /* ========== keys */
 @media (max-width:600px){
-	.sticky.responsive {top: 0}
+	.sticky.responsive {top: 16px}
 }
 @media (min-width:601px){
-	.sticky.responsive {top: 85px}
+	.sticky.responsive {top: 86px}
 }
