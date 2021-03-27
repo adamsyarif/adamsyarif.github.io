@@ -1,11 +1,12 @@
 RUN.titleNav = s =>{
   const t = $('#title-nav');
   if(s){
-    let x1, x2, n = '';
+    let x1, x2, w, n = '';
     $('h4 div').each(function(){
       x1 = $('#body').scrollTop();
       x2 = $(this).offset().top;
-      n += '<button onclick="RUN.jumpTo('+ (Math.round(x1 + x2)-150) +'); RUN.titleNav(false)" class="w3-bar-item w3-button">'+ $(this).text() +'</button>';
+			w = (screen.width > 600)? 150 : 0;
+      n += '<button onclick="RUN.jumpTo('+ (Math.round(x1 + x2)-w) +'); RUN.titleNav(false)" class="w3-bar-item w3-button">'+ $(this).text() +'</button>';
     });
     t.show().find('nav').html(n);
   }
