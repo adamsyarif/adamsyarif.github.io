@@ -16,19 +16,19 @@
   top: 50px;
   left: 10%;
 	z-index: 1;
-	animation: code1 .3s linear;
+	animation: code1 .2s linear;
 }
 .code2{
   top: 100px;
   left: 30%;
 	z-index: 2;
-	animation: code2 .3s linear;
+	animation: code2 .2s linear;
 }
 .code3{
   top: 150px;
   left: 20%;
 	z-index: 3;
-	animation: code3 .3s linear;
+	animation: code3 .2s linear;
 }
 .wave {
   position: absolute;
