@@ -34,3 +34,11 @@ mark {
   border-left: 6px solid #f0e68c;
   border-radius: 4px;
 }
+
+/* ========== keys */
+@media (max-width:600px){
+	.sticky.responsive {top: 0}
+}
+@media (min-width:601px){
+	.sticky.responsive {top: 100px}
+}
