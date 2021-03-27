@@ -18,7 +18,9 @@ const APP = {
     if(s){
       if(typeof s == 'number'){
         l.show();
-        setTimeout(l.hide, s);
+        setTimeout(()=>{
+					l.hide();
+				}, s);
       } else {
         if(APP.REQ.length == 0) l.show();
         APP.REQ.push(1);
@@ -179,21 +181,21 @@ const RESULT = {
   article: e =>{
     let a = '';
     e.forEach(d =>{
-      a += '<table class="w3-table">'+
+      a += '<table style="width:100%">'+
               '<tr>'+
-                '<td rowspan="2">'+
-                  '<div class="thumbnail w3-card-2">'+
+                '<td rowspan="2" style="vertical-align:top">'+
+                  '<div class="thumbnail w3-card-2 w3-margin-right">'+
                     '<img src="'+ d.media$thumbnail.url +'"/>'+
                   '</div>'+
                 '</td>'+
                 '<td>'+
                   '<b class="w3-large w3-text-dark-gray">'+ d.title.$t +'</b>'+
-                  '<div class="w3-small w3-justify">'+ d.summary.$t.slice(0,100) +'..</div>'+
+                  '<div class="w3-small w3-justify">'+ d.summary.$t +'</div>'+
                 '</td>'+
               '</tr>'+
 							'<tr>'+
 								'<td class="w3-right-align">'+
-									'<a class="w3-btn w3-small w3-border w3-round-large" href="'+ d.link[2].href +'">Baca selengkapnya</a>'+
+									'<p><a class="w3-btn w3-small w3-border w3-round-large" href="'+ d.link[2].href +'">Baca selengkapnya</a></p>'+
 								'</td>'+
 							'</tr>'+
             '</table>';
