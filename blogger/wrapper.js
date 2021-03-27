@@ -5,8 +5,9 @@ RUN.titleNav = s =>{
     $('h4 div').each(function(){
       x1 = $('#body').scrollTop();
       x2 = $(this).offset().top;
-			x3 = (window.innerWidth > 600)? 150 : 0;
-      n += '<button onclick="RUN.jumpTo('+ (Math.round(x1 + x2)-x3) +'); RUN.titleNav(false)" class="w3-bar-item w3-button">'+ $(this).text() +'</button>';
+			x3 = Math.round(x1 + x2);
+			x4 = (window.innerWidth > 600)? (x3 - 150) : (x3 - 50);
+      n += '<button onclick="RUN.jumpTo('+ x4 +'); RUN.titleNav(false)" class="w3-bar-item w3-button">'+ $(this).text() +'</button>';
     });
     t.show().find('nav').html(n);
   }
