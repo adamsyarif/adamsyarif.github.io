@@ -63,6 +63,7 @@ summary:before {content: ''}
 .sidebar {
   width: 100%;
   max-width: 350px;
+  overflow-x: hidden;
 }
 .sticky {
   position: -webkit-sticky;
