@@ -14,9 +14,6 @@ mark {
 }
 
 /* ========== id */
-#title-btn button {position: absolute}
-#title-btn button:nth-child(1) {left: -21px}
-#title-btn button:nth-child(2) {right: -21px}
 #title-nav .middle {
   overflow-x: hidden;
   overflow-y: auto;
@@ -24,6 +21,9 @@ mark {
 }
 
 /* ========== class */
+.title-nav {position: absolute}
+.title-nav:nth-child(1) {left: -21px}
+.title-nav:nth-child(2) {right: -21px}
 .notes {
   background-color: #ffffcc;
   color: #3a3a3a;
