@@ -154,7 +154,7 @@ const RUN = {
       $(this).val($(this).val().replace(new RegExp('[^'+ $(this).attr('data-validation') +']', 'gim'), ''));
     });
   },
-  jumpTo: x =>{$('#inner-wrapper').animate({scrollTop:x}, 800)}
+  jumpTo: x =>{$('#body').animate({scrollTop:x}, 800)}
 };
 
 const FEED = {
