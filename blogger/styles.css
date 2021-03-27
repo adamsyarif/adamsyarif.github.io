@@ -38,7 +38,12 @@ summary {list-style: none}
   overflow-x: hidden;
   overflow-y: auto;
 }
-#toast {bottom: 150px}
+#navbar, #menubar, #searchbar {z-index: 4}
+#loader {z-index: 5}
+#toast {
+	bottom: 150px;
+	z-index: 6;
+}
 #title span {animation: blink 1s linear infinite}
 
 /* ========== class */
@@ -87,7 +92,7 @@ summary {list-style: none}
 	header {
 		position: -webkit-sticky;
 		position: sticky;
-		z-index: 1;
+		z-index: 4;
 		top: 0;
 	}
 }
@@ -95,7 +100,7 @@ summary {list-style: none}
 	header {
 		position: -webkit-sticky;
 		position: sticky;
-		z-index: 1;
+		z-index: 4;
 		top: 0;
 	}
 }
