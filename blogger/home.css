@@ -16,15 +16,15 @@
   animation: code 10s cubic-bezier(0,0,0,1) infinite,
              code1 10s cubic-bezier(0,0,0,1) infinite;
 }
-.code:nth-child(1){
+.code1{
   top: 50px;
   left: 10%;
 }
-.code:nth-child(2){
+.code2{
   top: 100px;
   left: 30%;
 }
-.code:nth-child(3){
+.code3{
   top: 150px;
   left: 20%;
 }
