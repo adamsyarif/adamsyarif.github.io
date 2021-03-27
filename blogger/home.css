@@ -7,7 +7,7 @@
 #slide button:nth-child(2) {border-radius: 100% 0 0 100%}
 
 /* ========== class */
-.code {
+.code-html, .code-css, .code-js{
   position: absolute;
   width: 60%;
   background-color: #333;
