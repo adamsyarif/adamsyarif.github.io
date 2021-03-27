@@ -41,7 +41,7 @@
 /* ========== keys */
 @keyframes code1 {
   from {
-		opacity: 0;
+		opacity: .5;
 		top: 150px;
 		left: 20%;
 	}
@@ -53,7 +53,7 @@
 }
 @keyframes code2 {
   from {
-		opacity: 0;
+		opacity: .5;
 		top: 50px;
 		left: 10%;
 	}
@@ -65,7 +65,7 @@
 }
 @keyframes code3 {
   from {
-		opacity: 0;
+		opacity: .5;
 		top: 100px;
 		left: 30%;
 	}
