@@ -11,11 +11,12 @@ $(document).ready(()=>{
     d.hide();
     d.eq(i).show();
   });
+	const t = $('#i-template').html();
   p.find('iframe').attr('srcdoc', function(){
     const a = $(this).parent().parent();
     if(a.find('button').eq(0).hasClass('active')){
       const c = a.find('code');
-      return (c.eq(0).text() +'<style>html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}body{margin:0;padding:0}'+ c.eq(1).text() +'</style><script>'+ c.eq(2).text() +'</script>');
+			return t.replace('{HTML}', c.eq(0).html()).replace('{CSS}', c.eq(1).html()).replace('{JS}', c.eq(2).html());
     }
     else $(this).remove();
   });
