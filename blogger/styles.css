@@ -22,8 +22,8 @@ thead td {
   white-space: nowrap;
   background-color: #f1f1f1;
 }
-summary::-webkit-details-marker {display: none!important}
-summary:before {content: ''!important}
+summary::-webkit-details-marker {display: none}
+summary:before {content: ''}
 
 /* ========== id */
 #body, #toast {
