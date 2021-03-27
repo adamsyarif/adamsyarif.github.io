@@ -40,5 +40,5 @@ mark {
 	.sticky.responsive {top: 0}
 }
 @media (min-width:601px){
-	.sticky.responsive {top: 100px}
+	.sticky.responsive {top: 75px}
 }
