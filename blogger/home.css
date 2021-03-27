@@ -12,79 +12,23 @@
   width: 60%;
   background-color: #333;
 }
-.kjnfksndf{
-  animation: code 10s cubic-bezier(0,0,0,1) infinite,
-             code1 10s cubic-bezier(0,0,0,1) infinite;
-}
 .code1{
   top: 50px;
   left: 10%;
 	z-index: 1;
+	animation: code1 1s linear;
 }
 .code2{
   top: 100px;
   left: 30%;
 	z-index: 2;
+	animation: code2 1s linear;
 }
 .code3{
   top: 150px;
   left: 20%;
 	z-index: 3;
-}
-@keyframes code {
-  1%, 34%, 67% {opacity: 0.1}
-  0%, 33%, 66%, 100% {opacity: 1}
-}
-@keyframes code1 {
-  0%, 100% {
-    top: 50px;
-    left: 10%;
-  }
-  10%, 33% {z-index: 2}
-  33% {
-    top: 100px;
-    left: 30%;
-  }
-  43%, 66% {z-index: 3}
-  66% {
-    top: 150px;
-    left: 20%;
-  }
-  0%, 76%, 100% {z-index: 1}
-}
-@keyframes code2 {
-  0%, 100% {
-    top: 100px;
-    left: 30%;
-  }
-  10%, 33% {z-index: 3}
-  33% {
-    top: 150px;
-    left: 20%;
-  }
-  43%, 66% {z-index: 1}
-  66% {
-    top: 50px;
-    left: 10%;
-  }
-  0%, 76%, 100% {z-index: 2}
-}
-@keyframes code3 {
-  0%, 100% {
-    top: 150px;
-    left: 20%;
-  }
-  10%, 33% {z-index: 1}
-  33% {
-    top: 50px;
-    left: 10%;
-  }
-  43%, 66% {z-index: 2}
-  66% {
-    top: 100px;
-    left: 30%;
-  }
-  0%, 76%, 100% {z-index: 3}
+	animation: code3 1s linear;
 }
 .wave {
   position: absolute;
@@ -92,4 +36,42 @@
   left: 0;
   right: 0;
   width: 100%;
+}
+
+/* ========== keys */
+@keyframes code1 {
+  from {
+		opacity: 0;
+		top: 150px;
+		left: 20%;
+	}
+  to {
+		opacity: 1;
+		top: 50px;
+		left: 10%;
+	}
+}
+@keyframes code2 {
+  from {
+		opacity: 0;
+		top: 50px;
+		left: 10%;
+	}
+  to {
+		opacity: 1;
+		top: 100px;
+		left: 30%;
+	}
+}
+@keyframes code3 {
+  from {
+		opacity: 0;
+		top: 100px;
+		left: 30%;
+	}
+  to {
+		opacity: 1;
+		top: 150px;
+		left: 20%;
+	}
 }
