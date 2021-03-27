@@ -14,7 +14,7 @@ img {
 }
 a {text-decoration: none}
 textarea {resize: none}
-label {cursor: pointer}
+label, .pointer {cursor: pointer}
 pre, code {margin: 0}
 table {border-collapse: collapse}
 thead td {
