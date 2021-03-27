@@ -22,6 +22,10 @@ thead td {
   white-space: nowrap;
   background-color: #f1f1f1;
 }
+summary::-webkit-details-marker, summary::marker {
+	display: none;
+	content: '';
+}
 
 /* ========== id */
 #body, #toast {
