@@ -23,6 +23,7 @@ thead td {
   background-color: #f1f1f1;
 }
 summary {
+	display: inline-block;
 	list-style-type: none;
 	padding: 0;
 	margin: 0;
