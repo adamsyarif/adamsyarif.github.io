@@ -190,7 +190,7 @@ const RESULT = {
                 '</td>'+
                 '<td>'+
                   '<b class="w3-large w3-text-dark-gray">'+ d.title.$t +'</b>'+
-                  '<div class="w3-small w3-justify">'+ d.summary.$t +'</div>'+
+                  '<div class="w3-small w3-justify">'+ d.summary.$t.slice(0, 150) +'..</div>'+
                 '</td>'+
               '</tr>'+
 							'<tr>'+
