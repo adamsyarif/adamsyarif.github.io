@@ -21,7 +21,10 @@ mark {
 }
 
 /* ========== class */
-.title-nav {position: absolute}
+.title-nav {
+	position: absolute;
+	top: 16px;
+}
 .title-nav:nth-child(1) {left: -21px}
 .title-nav:nth-child(2) {right: -21px}
 .notes {
