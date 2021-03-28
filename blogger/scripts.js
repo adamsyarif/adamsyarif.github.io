@@ -88,13 +88,13 @@ const RUN = {
         data.forEach((i, x, d)=>{
           c = '';
           if((i.id == +$('#page-id').val()) || (i.id == +$('#article-id').val())) c = 'w3-light-gray w3-rightbar';
-          l += '<a '+ ((i.link != '#')? ('href="'+ i.link +'"') : '') +' class="'+ c +' w3-bar-item w3-button w3-hover-light-gray"><i class="far fa-file-alt w3-margin-right"></i>'+ i.title + ((i.link != '#')? '' : ' <i class="w3-small w3-text-red">(draft)</i>') +'</a>';
+          l += '<a '+ ((i.link != '#')? ('href="'+ i.link +'"') : '') +' class="'+ c +' w3-bar-item pointer w3-hover-light-gray"><i class="far fa-file-alt w3-margin-right"></i>'+ i.title + ((i.link != '#')? '' : ' <i class="w3-small w3-text-red">(draft)</i>') +'</a>';
         });
         return l;
       };
-      r.lists = list => '<div style="padding-left:16px">'+ list +'</div>';
+      r.lists = list => '<div class="w3-margin-left">'+ list +'</div>';
       r.docs = lists => '<details>'+ lists +'</details>';
-      r.folder = name => '<summary class="w3-ul w3-bar-item w3-button w3-hover-light-gray" onclick="$(this).find(\'i\').toggleClass(\'fa-folder fa-folder-open\')"><i class="fas fa-folder w3-text-yellow w3-margin-right"></i>'+ name +'</summary>';
+      r.folder = name => '<summary class="w3-ul w3-bar-item pointer w3-hover-light-gray" onclick="$(this).find(\'i\').toggleClass(\'fa-folder fa-folder-open\')"><i class="fas fa-folder w3-text-yellow w3-margin-right"></i>'+ name +'</summary>';
       r.folders = function(folders){
         let f, d = '';
         folders.forEach(folder =>{
