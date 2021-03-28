@@ -78,7 +78,7 @@ const RUN = {
     APP.worker(u, w =>{
       setTimeout(()=>{
         w.onmessage = e => $('#title').find('b').text(e.data);
-      }, 500);
+      }, 2300);
     });
   },
   displayMenu: ()=>{
