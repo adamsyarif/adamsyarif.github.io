@@ -22,12 +22,6 @@ thead td {
   white-space: nowrap;
   background-color: #f1f1f1;
 }
-summary {
-	display: inline-block;
-	list-style-type: none;
-	padding: 0;
-	margin: 0;
-}
 summary::-webkit-details-marker {display: none}
 summary:before {content: ''}
 
@@ -64,7 +58,6 @@ summary:before {content: ''}
 .sidebar {
   width: 100%;
   max-width: 350px;
-  overflow-x: hidden;
 }
 .sticky {
   position: -webkit-sticky;
