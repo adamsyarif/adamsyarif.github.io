@@ -94,7 +94,7 @@ const RUN = {
       };
       r.lists = list => '<div class="w3-margin-left">'+ list +'</div>';
       r.docs = lists => '<details>'+ lists +'</details>';
-      r.folder = name => '<label class="w3-bar-item w3-hover-light-gray" onclick="$(this).find(\'i\').toggleClass(\'fa-folder fa-folder-open\')"><i class="fas fa-folder w3-text-yellow w3-margin-right"></i><summary>'+ name +'</summary></label>';
+      r.folder = name => '<summary><button class="w3-bar-item w3-button w3-hover-light-gray" onclick="$(this).find(\'i\').toggleClass(\'fa-folder fa-folder-open\')"><i class="fas fa-folder w3-text-yellow w3-margin-right"></i>'+ name +'</button></summary>';
       r.folders = function(folders){
         let f, d = '';
         folders.forEach(folder =>{
