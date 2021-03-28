@@ -78,7 +78,7 @@ const RUN = {
     APP.worker(u, w =>{
       setTimeout(()=>{
         w.onmessage = e => $('#title').find('b').text(e.data);
-      }, 2000);
+      }, 2300);
     });
   },
   displayMenu: ()=>{
@@ -126,7 +126,7 @@ const RUN = {
     $('.copyright-year').text(d.getFullYear());
     setTimeout(()=>{
       $('#body').fadeIn(500);
-    }, 100);
+    }, 500);
   },
   bindEvent: ()=>{
     if(!ENV.devMode) $('body').on('contextmenu', APP.preventDefault);
