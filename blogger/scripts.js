@@ -125,7 +125,7 @@ const RUN = {
     $('.what-time-is').text((h >= 3 && h <= 10)? 'pagi' : (h >= 11 && h <= 14)? 'siang' : (h >= 15 && h <= 17)? 'sore' : 'malam');
     $('.copyright-year').text(d.getFullYear());
     setTimeout(()=>{
-      $('#body').fadeIn(1000);
+      $('#body').fadeIn(500);
     }, 100);
   },
   bindEvent: ()=>{
