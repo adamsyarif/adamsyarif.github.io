@@ -22,7 +22,6 @@ thead td {
   background-color: #f1f1f1;
 }
 label, .pointer {cursor: pointer}
-summary{display: inline}
 summary::-webkit-details-marker {display: none}
 summary:before {content: ''}
 
@@ -43,8 +42,8 @@ summary:before {content: ''}
 #navbar, #menubar, #searchbar, header {z-index: 4}
 #loader {z-index: 5}
 #toast {
-	bottom: 150px;
-	z-index: 6;
+  bottom: 150px;
+  z-index: 6;
 }
 #title span {animation: blink 1s linear infinite}
 
@@ -88,14 +87,14 @@ summary:before {content: ''}
 
 /* ========== keys */
 @media (max-width:600px){
-	#header {text-align: center}
+  #header {text-align: center}
 }
 @media (min-width:601px){
-	header {
-		position: -webkit-sticky;
-		position: sticky;
-		top: 0;
-	}
+  header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+  }
 }
 @keyframes blink {
   from {color: #fff}
