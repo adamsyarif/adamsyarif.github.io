@@ -8,7 +8,7 @@
 }
 
 /* ========== class */
-.preview button {width: 25%}
+.preview button {width: 25%!important}
 .preview iframe {
   width: 100%;
   border: none;
