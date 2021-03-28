@@ -48,4 +48,4 @@ $(document).ready(()=>{
     d.text('kategori "'+ l +'"');
     APP.req(FEED.u2 +'/-/'+ l + FEED.u3(1000), RESULT.search);
   }
-});
+}); 
