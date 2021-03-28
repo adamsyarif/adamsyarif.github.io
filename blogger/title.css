@@ -7,16 +7,16 @@
 
 /* ========== class */
 .title-nav {
-	position: absolute;
-	top: 16px;
+  position: absolute;
+  top: 16px;
 }
 .title-nav:nth-child(1) {left: -21px}
 .title-nav:nth-child(2) {right: -21px}
 
 /* ========== keys */
 @media (max-width:600px){
-	.sticky.responsive {top: 16px}
+  .sticky.responsive {top: 16px}
 }
 @media (min-width:601px){
-	.sticky.responsive {top: 86px}
+  .sticky.responsive {top: 86px}
 }
