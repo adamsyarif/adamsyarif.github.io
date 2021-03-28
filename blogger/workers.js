@@ -1,9 +1,9 @@
 const TITLES = {
   data: [
+    'Web Belajar Pemrograman',
     'Belajar HTML',
     'Belajar CSS',
-    'Belajar JavaScript',
-    'Web Belajar Pemrograman'
+    'Belajar JavaScript'
   ],
   index: 0,
   repeat: function(){
