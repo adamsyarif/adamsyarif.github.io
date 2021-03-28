@@ -19,8 +19,8 @@ const APP = {
       if(typeof s == 'number'){
         l.show();
         setTimeout(()=>{
-					l.hide();
-				}, s);
+          l.hide();
+        }, s);
       } else {
         if(APP.REQ.length == 0) l.show();
         APP.REQ.push(1);
@@ -63,22 +63,22 @@ const APP = {
 
 const RUN = {
   asideFeed: ()=>{
-		switch(+$('#aside-type').val()){
-			case 1:
-				const l = $('#article-label').val().split(',').filter(v => v.trim() != '');
-				const r = Math.floor(Math.random() * l.length);
-				APP.req(FEED.u2 +'/-/'+ l[r] + FEED.u3(1000), RESULT.aside);
-				break;
-			case 2:
-				APP.req(FEED.u2 + FEED.u3(10), RESULT.aside);
-		}
+    switch(+$('#aside-type').val()){
+      case 1:
+        const l = $('#article-label').val().split(',').filter(v => v.trim() != '');
+        const r = Math.floor(Math.random() * l.length);
+        APP.req(FEED.u2 +'/-/'+ l[r] + FEED.u3(1000), RESULT.aside);
+        break;
+      case 2:
+        APP.req(FEED.u2 + FEED.u3(10), RESULT.aside);
+    }
   },
   workers: ()=>{
     const u = (ENV.devMode ? '/scripts/' : ENV.repoUrl) +'workers.js';
     APP.worker(u, w =>{
-			setTimeout(()=>{
-				w.onmessage = e => $('#title').find('b').text(e.data);
-			}, 2000);
+      setTimeout(()=>{
+        w.onmessage = e => $('#title').find('b').text(e.data);
+      }, 2000);
     });
   },
   displayMenu: ()=>{
@@ -92,15 +92,15 @@ const RUN = {
         });
         return l;
       };
-      r.lists = list => '<div class="w3-margin-left">'+ list +'</div>';
+      r.lists = list => '<div class="w3-margin-lef">'+ list +'</div>';
       r.docs = lists => '<details>'+ lists +'</details>';
-      r.folder = name => '<summary><button class="w3-bar-item w3-button w3-hover-light-gray" onclick="$(this).find(\'i\').toggleClass(\'fa-folder fa-folder-open\')"><i class="fas fa-folder w3-text-yellow w3-margin-right"></i>'+ name +'</button></summary>';
+      r.folder = name => '<summary class="w3-bar-item w3-button w3-hover-light-gray" onclick="$(this).find(\'i\').toggleClass(\'fa-folder fa-folder-open\')"><i class="fas fa-folder w3-text-yellow w3-margin-right"></i>'+ name +'</summary>';
       r.folders = function(folders){
         let f, d = '';
         folders.forEach(folder =>{
-					f = this.folder(folder.title);
+          f = this.folder(folder.title);
           f += this.lists(this.list(folder.articles));
-					d += this.docs(f);
+          d += this.docs(f);
         });
         return d;
       };
@@ -110,7 +110,7 @@ const RUN = {
           if(this[key].title){
             m = this.folder(this[key].title);
             m += this.lists(this[key].folders ? this.folders(this[key].folders) : this.list(this[key].pages));
-						d += this.docs(m);
+            d += this.docs(m);
           }
         });
         return d;
@@ -169,7 +169,7 @@ const FEED = {
       const q = s.find(':text').val().trim();
       q ? location.assign(encodeURI(FEED.u1 +'?q='+ q)) : APP.toast('Kata kunci tidak boleh kosong');
     }
-		else location.assign(encodeURI(FEED.u1 +'/label/'+ s.find('select').val()));
+    else location.assign(encodeURI(FEED.u1 +'/label/'+ s.find('select').val()));
   }
 };
 
@@ -193,11 +193,11 @@ const RESULT = {
                   '<div class="w3-small w3-justify">'+ d.summary.$t.slice(0, 150) +'..</div>'+
                 '</td>'+
               '</tr>'+
-							'<tr>'+
-								'<td class="w3-right-align">'+
-									'<p><a class="w3-btn w3-small w3-border w3-round-large" href="'+ d.link[2].href +'">Baca selengkapnya</a></p>'+
-								'</td>'+
-							'</tr>'+
+              '<tr>'+
+                '<td class="w3-right-align">'+
+                  '<p><a class="w3-btn w3-small w3-border w3-round-large" href="'+ d.link[2].href +'">Baca selengkapnya</a></p>'+
+                '</td>'+
+              '</tr>'+
             '</table>';
     });
     return a;
