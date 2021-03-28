@@ -51,13 +51,23 @@
         to {visibility:visible}
       }
     </style>
+    <noscript>
+      <style amp-boilerplate>
+      body {
+        -webkit-animation: none;
+        -moz-animation: none;
+        -ms-animation: none;
+        animation: none;
+      }
+      </style>
+    </noscript>
+    <script async='async' src='https://cdn.ampproject.org/v0.js'></script>
+    <script async='async' custom-element='amp-script' src='https://cdn.ampproject.org/v0/amp-script-0.1.js'></script>
   </head>
   <body>
     <amp-script layout='container' script='scripts'>
       <h1>Halo dunia!</h1>
-    </amp-script>
-    <script async='async' src='https://cdn.ampproject.org/v0.js'></script>
-    <script async='async' custom-element='amp-script' src='https://cdn.ampproject.org/v0/amp-script-0.1.js'></script>
+    </amp-script>    
     <script id='scripts' target='amp-script' type='text/plain'>
       console.log('valid');
     </script>
