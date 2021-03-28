@@ -23,7 +23,7 @@ thead td {
 label, .pointer {cursor: pointer}
 summary::-webkit-details-marker {display: none}
 summary:before {content: ''}
-code {
+pre, code {
   margin: 0;
   font-size: 12px;
 }
