@@ -14,7 +14,6 @@ img {
 }
 a {text-decoration: none}
 textarea {resize: none}
-pre, code {margin: 0}
 table {border-collapse: collapse}
 thead td {
   font-weight: bold;
@@ -24,7 +23,10 @@ thead td {
 label, .pointer {cursor: pointer}
 summary::-webkit-details-marker {display: none}
 summary:before {content: ''}
-code {font-size: 12px}
+code {
+  margin: 0;
+  font-size: 12px;
+}
 
 /* ========== id */
 #body, #toast {
@@ -56,6 +58,7 @@ code {font-size: 12px}
   display: flex!important;
   flex-wrap: wrap;
 }
+.w3-btn, .w3-button {outline: 0}
 .sidebar {
   width: 100%;
   max-width: 350px;
