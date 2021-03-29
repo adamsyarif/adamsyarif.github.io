@@ -22,4 +22,5 @@ mark {
   padding: 0.01em 16px;
   border-left: 6px solid #f0e68c;
   border-radius: 4px;
+  text-align: justify;
 }
