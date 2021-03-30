@@ -94,7 +94,7 @@ const RUN = {
       };
       r.lists = list => '<div class="w3-margin-left">'+ list +'</div>';
       r.docs = lists => '<details>'+ lists +'</details>';
-      r.folder = name => '<summary class="w3-ul w3-bar-item w3-hover-light-gray" onclick="$(this).find(\'i\').toggleClass(\'fa-folder fa-folder-open\')"><i class="fas fa-folder w3-text-yellow w3-margin-right"></i>'+ name +'</summary>';
+      r.folder = name => '<summary class="w3-ul w3-bar-item w3-hover-light-gray" onclick="RUN.toggleFolder(this)"><i class="fas fa-folder w3-text-yellow w3-margin-right"></i>'+ name +'</summary>';
       r.folders = function(folders){
         let f, d = '';
         folders.forEach(folder =>{
@@ -157,6 +157,10 @@ const RUN = {
     $('[data-validation]').on('input', function(){
       $(this).val($(this).val().replace(new RegExp('[^'+ $(this).attr('data-validation') +']', 'gim'), ''));
     });
+  },
+  toggleFolder: e =>{
+    $(e).find('i').toggleClass('fa-folder fa-folder-open');
+    $(e).parent().slideDown();
   },
   jumpTo: x =>{$('#body').animate({scrollTop:x}, 800)}
 };
