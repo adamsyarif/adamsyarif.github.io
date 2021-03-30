@@ -103,14 +103,14 @@ const RUN = {
         return f;
       };
       r.navigation = function(){
-        let m = '';
+        let n = '';
         Object.keys(this).forEach(key =>{
           if(this[key].title){
-            m += this.folder(this[key].title);
-            m += this.lists(this[key].folders ? this.folders(this[key].folders) : this.list(this[key].pages));
+            n += this.folder(this[key].title);
+            n += this.lists(this[key].folders ? this.folders(this[key].folders) : this.list(this[key].pages));
           }
         });
-        return m;
+        return n;
       };
       $('#menubar').find('nav').html(r.navigation());
     });
