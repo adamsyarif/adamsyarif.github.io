@@ -88,32 +88,29 @@ const RUN = {
         data.forEach((i, x, d)=>{
           c = '';
           if((i.id == +$('#page-id').val()) || (i.id == +$('#article-id').val())) c = 'w3-light-gray w3-rightbar';
-          l += '<a '+ ((i.link != '#')? ('href="'+ i.link +'"') : '') +' class="'+ c +' w3-bar-item w3-hover-light-gray"><i class="far fa-file-alt w3-margin-right"></i>'+ i.title + ((i.link != '#')? '' : ' <i class="w3-small w3-text-red">(draft)</i>') +'</a>';
+          l += '<a '+ ((i.link != '#')? ('href="'+ i.link +'"') : '') +' class="'+ c +' w3-button w3-bar-item w3-hover-light-gray"><i class="far fa-file-alt w3-margin-right"></i>'+ i.title + ((i.link != '#')? '' : ' <i class="w3-small w3-text-red">(draft)</i>') +'</a>';
         });
         return l;
       };
-      r.lists = list => '<div class="w3-margin-left">'+ list +'</div>';
-      r.docs = lists => '<details>'+ lists +'</details>';
-      r.folder = name => '<summary class="w3-ul w3-bar-item w3-hover-light-gray" onclick="RUN.toggleFolder(this)"><i class="fas fa-folder w3-text-yellow w3-margin-right"></i>'+ name +'</summary>';
+      r.lists = list => '<div class="w3-margin-left" style="display:none">'+ list +'</div>';
+      r.folder = name => '<button class="w3-button w3-bar-item w3-hover-light-gray" onclick="RUN.toggleFolder(this)"><i class="fas fa-folder w3-text-yellow w3-margin-right"></i>'+ name +'</button>';
       r.folders = function(folders){
-        let f, d = '';
+        let f = '';
         folders.forEach(folder =>{
           f = this.folder(folder.title);
           f += this.lists(this.list(folder.articles));
-          d += this.docs(f);
         });
-        return d;
+        return f;
       };
       r.navigation = function(){
-        let m, d = '';
+        let m = '';
         Object.keys(this).forEach(key =>{
           if(this[key].title){
             m = this.folder(this[key].title);
             m += this.lists(this[key].folders ? this.folders(this[key].folders) : this.list(this[key].pages));
-            d += this.docs(m);
           }
         });
-        return d;
+        return m;
       };
       $('#menubar').find('nav').html(r.navigation());
     });
@@ -160,7 +157,7 @@ const RUN = {
   },
   toggleFolder: e =>{
     $(e).find('i').toggleClass('fa-folder fa-folder-open');
-    $(e).parent().slideDown();
+    $(e).next().slideToggle();
   },
   jumpTo: x =>{$('#body').animate({scrollTop:x}, 800)}
 };
