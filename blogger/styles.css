@@ -20,8 +20,6 @@ thead td {
   background-color: #f1f1f1;
 }
 label, .pointer {cursor: pointer}
-summary::-webkit-details-marker {display: none}
-summary:before {content: ''}
 pre, code {
   margin: 0;
   font-size: 12px;
