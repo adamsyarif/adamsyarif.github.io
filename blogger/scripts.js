@@ -125,11 +125,10 @@ const RUN = {
     $('.what-time-is').text((h >= 3 && h <= 10)? 'pagi' : (h >= 11 && h <= 14)? 'siang' : (h >= 15 && h <= 17)? 'sore' : 'malam');
     $('.copyright-year').text(d.getFullYear());
     setTimeout(()=>{
-      $('#cover').remove();
-      setTimeout(()=>{
-        $('#body').fadeIn(500);
-      }, 250);
-    }, 250);
+      $('#body').fadeIn(500, ()=>{
+        $('#cover').remove();
+      });
+    }, 500);
   },
   bindEvent: ()=>{
     if(!ENV.devMode) $('body').on('contextmenu', APP.preventDefault);
