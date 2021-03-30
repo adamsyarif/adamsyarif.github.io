@@ -97,21 +97,20 @@ const RUN = {
       r.folders = function(folders){
         let f = '';
         folders.forEach(folder =>{
-          f = this.folder(folder.title);
+          f += this.folder(folder.title);
           f += this.lists(this.list(folder.articles));
         });
         return f;
       };
       r.navigation = function(){
-        let m, n = '';
+        let m = '';
         Object.keys(this).forEach(key =>{
           if(this[key].title){
-            m = this.folder(this[key].title);
+            m += this.folder(this[key].title);
             m += this.lists(this[key].folders ? this.folders(this[key].folders) : this.list(this[key].pages));
-            n += m;
           }
         });
-        return n;
+        return m;
       };
       $('#menubar').find('nav').html(r.navigation());
     });
