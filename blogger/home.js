@@ -32,7 +32,7 @@ $(document).ready(()=>{
               '<p><q><i>'+ d.msg +'</i></q></p>'+
             '</td>';
     });
-    $('#testi').find('table').html('<tr>'+ (t+t) +'</tr>').css('animation', 'testi 40s linear infinite');
+    $('#testi table').html('<tr>'+ (t+t) +'</tr>').css('animation', 'testi 40s linear infinite');
   });
   const c = $('.code');
   c.eq(0).find('code').text('\n function tambah(a, b){\n   return a + b;\n }\n function kurang(a, b){\n   return a - b;\n }\n\n console.log(tambah(1, 2));\n console.log(kurang(9, 4));\n ');
