@@ -76,9 +76,7 @@ const RUN = {
   workers: ()=>{
     const u = (ENV.devMode ? '/scripts/' : ENV.repoUrl) +'workers.js';
     APP.worker(u, w =>{
-      setTimeout(()=>{
-        w.onmessage = e => $('#title').find('b').text(e.data);
-      }, 2300);
+      w.onmessage = e => $('#title').find('b').text(e.data);
     });
   },
   displayMenu: ()=>{
@@ -124,6 +122,8 @@ const RUN = {
     setTimeout(()=>{
       $('#body').fadeIn(500, ()=>{
         $('#cover').remove();
+        RUN.workers();
+        $('#title span').css('animation', 'blink 1s linear infinite');
       });
     }, 500);
   },
@@ -209,7 +209,6 @@ const RESULT = {
 
 $(document).ready(()=>{
   RUN.asideFeed();
-  RUN.workers();
   RUN.displayMenu();
   RUN.domContent();
   RUN.bindEvent();
