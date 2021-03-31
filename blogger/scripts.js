@@ -61,105 +61,6 @@ const APP = {
   }
 };
 
-const RUN = {
-  asideFeed: ()=>{
-    switch(+$('#aside-type').val()){
-      case 1:
-        const l = $('#article-label').val().split(',').filter(v => v.trim() != '');
-        const r = Math.floor(Math.random() * l.length);
-        APP.req(FEED.u2 +'/-/'+ l[r] + FEED.u3(1000), RESULT.aside);
-        break;
-      case 2:
-        APP.req(FEED.u2 + FEED.u3(10), RESULT.aside);
-    }
-  },
-  workers: ()=>{
-    const u = (ENV.devMode ? '/scripts/' : ENV.repoUrl) +'workers.js';
-    APP.worker(u, w =>{
-      w.onmessage = e => $('#title').find('b').text(e.data);
-    });
-  },
-  displayMenu: ()=>{
-    APP.data('menu', r =>{
-      r.list = function(data){
-        let c, l = '';
-        data.forEach((i, x, d)=>{
-          c = '';
-          if((i.id == +$('#page-id').val()) || (i.id == +$('#article-id').val())) c = 'w3-light-gray w3-rightbar';
-          l += '<a '+ ((i.link != '#')? ('href="'+ i.link +'"') : '') +' class="'+ c +' w3-button w3-bar-item w3-hover-light-gray"><i class="far fa-file-alt w3-margin-right"></i>'+ i.title + ((i.link != '#')? '' : ' <i class="w3-small w3-text-red">(draft)</i>') +'</a>';
-        });
-        return l;
-      };
-      r.lists = list => '<div class="w3-margin-left" style="display:none">'+ list +'</div>';
-      r.folder = name => '<button class="w3-button w3-bar-item w3-hover-light-gray" onclick="RUN.toggleFolder(this)"><i class="fas fa-folder w3-text-yellow w3-margin-right"></i>'+ name +'</button>';
-      r.folders = function(folders){
-        let f = '';
-        folders.forEach(folder =>{
-          f += this.folder(folder.title);
-          f += this.lists(this.list(folder.articles));
-        });
-        return f;
-      };
-      r.navigation = function(){
-        let n = '';
-        Object.keys(this).forEach(key =>{
-          if(this[key].title){
-            n += this.folder(this[key].title);
-            n += this.lists(this[key].folders ? this.folders(this[key].folders) : this.list(this[key].pages));
-          }
-        });
-        return n;
-      };
-      $('#menubar').find('nav').html(r.navigation());
-    });
-  },
-  domContent: ()=>{
-    const d = new Date();
-    const h = d.getHours();
-    $('#body').addClass(((h >= 5 && h <= 6) || (h >= 16 && h <= 17))? 'bg-sunny' : (h >= 7 && h <= 15)? 'bg-day' : 'bg-night');
-    $('.what-time-is').text((h >= 3 && h <= 10)? 'pagi' : (h >= 11 && h <= 14)? 'siang' : (h >= 15 && h <= 17)? 'sore' : 'malam');
-    $('.copyright-year').text(d.getFullYear());
-    setTimeout(()=>{
-      $('#body').fadeIn(500, ()=>{
-        $('#cover').remove();
-      });
-    }, 300);
-  },
-  bindEvent: ()=>{
-    if(!ENV.devMode) $('body').on('contextmenu', APP.preventDefault);
-    $('#body').scroll(function(){
-      const h = $(this).height();
-      const s = $(this).scrollTop();
-      $('.a-sh').each(function(){
-        const t = $(this).offset().top;
-        if(((h+s)-(s+t)) > 50){
-          $(this).removeClass('a-sh');
-          $(this).find('.a-left').addClass('w3-animate-left');
-          $(this).find('.a-right').addClass('w3-animate-right');
-        }
-      });
-    });
-    $('form').submit(APP.preventDefault).trigger('reset');
-    $(':radio').change(function(){
-      $('[name='+ $(this).attr('name') +']').removeAttr('checked');
-      $(this).attr('checked', true);
-    });
-    $('#searchbar :radio').change(function(){
-      const s = $(this).parent().parent().find('.searchbar');
-      s.hide();
-      s.eq(+$(this).val()).show();
-    });
-    $('[data-validation]').on('input', function(){
-      $(this).val($(this).val().replace(new RegExp('[^'+ $(this).attr('data-validation') +']', 'gim'), ''));
-    });
-  },
-  toggleFolder: e =>{
-    $(e).find('i').toggleClass('fa-folder fa-folder-open');
-    $(e).next().slideToggle();
-  },
-  jumpTo: x =>{$('#body').animate({scrollTop:x}, 800)}
-};
-
 const FEED = {
   u1: ENV.blogUrl +'search',
   u2: ENV.blogUrl +'feeds/posts/default',
@@ -205,11 +106,107 @@ const RESULT = {
   }
 };
 
+const RUN = {
+  asideFeed: ()=>{
+    switch(+$('#aside-type').val()){
+      case 1:
+        const l = $('#article-label').val().split(',').filter(v => v.trim() != '');
+        const r = Math.floor(Math.random() * l.length);
+        APP.req(FEED.u2 +'/-/'+ l[r] + FEED.u3(1000), RESULT.aside);
+        break;
+      case 2:
+        APP.req(FEED.u2 + FEED.u3(10), RESULT.aside);
+    }
+  },
+  workers: ()=>{
+    const u = (ENV.devMode ? '/scripts/' : ENV.repoUrl) +'workers.js';
+    APP.worker(u, w =>{
+      w.onmessage = e => $('#title b').text(e.data);
+    });
+  },
+  displayMenu: ()=>{
+    APP.data('menu', d =>{
+      d.list = function(item){
+        let c, l = '';
+        const pid = +$('#page-id').val();
+        const aid = +$('#article-id').val();
+        item.forEach(i =>{
+          c = '';
+          if((i.id == pid) || (i.id == aid)) c = 'w3-light-gray w3-rightbar';
+          l += '<a '+ ((i.link != '#')? ('href="'+ i.link +'"') : '') +' class="'+ c +' w3-button w3-bar-item w3-hover-light-gray"><i class="far fa-file-alt w3-margin-right"></i>'+ i.title + ((i.link != '#')? '' : ' <i class="w3-small w3-text-red">(draft)</i>') +'</a>';
+        });
+        return l;
+      };
+      d.lists = list => '<div class="w3-margin-left" style="display:none">'+ list +'</div>';
+      d.folder = name => '<button class="w3-button w3-bar-item w3-hover-light-gray" onclick="RUN.toggleFolder(this)"><i class="fas fa-folder w3-text-yellow w3-margin-right"></i>'+ name +'</button>';
+      d.folders = function(folders){
+        let f = '';
+        folders.forEach(folder =>{
+          f += this.folder(folder.title);
+          f += this.lists(this.list(folder.articles));
+        });
+        return f;
+      };
+      d.navigation = function(){
+        let n = '';
+        Object.keys(this).forEach(key =>{
+          if(this[key].title){
+            n += this.folder(this[key].title);
+            n += this.lists(this[key].folders ? this.folders(this[key].folders) : this.list(this[key].pages));
+          }
+        });
+        return n;
+      };
+      $('#menubar nav').html(d.navigation());
+    });
+  },
+  domContent: ()=>{
+    const d = new Date();
+    const h = d.getHours();
+    $('#body').addClass(((h >= 5 && h <= 6) || (h >= 16 && h <= 17))? 'bg-sunny' : (h >= 7 && h <= 15)? 'bg-day' : 'bg-night');
+    $('.what-time-is').text((h >= 3 && h <= 10)? 'pagi' : (h >= 11 && h <= 14)? 'siang' : (h >= 15 && h <= 17)? 'sore' : 'malam');
+    $('.copyright-year').text(d.getFullYear());
+    setTimeout(()=>{
+      $('#body').fadeIn(500);
+    }, 300);
+  },
+  bindEvent: ()=>{
+    if(!ENV.devMode) $('body').on('contextmenu', APP.preventDefault);
+    $('#body').scroll(function(){
+      const h = $(this).height();
+      const s = $(this).scrollTop();
+      $('.a-sh').each(function(){
+        const t = $(this).offset().top;
+        if(((h+s)-(s+t)) > 50){
+          $(this).removeClass('a-sh');
+          $(this).find('.a-left').addClass('w3-animate-left');
+          $(this).find('.a-right').addClass('w3-animate-right');
+        }
+      });
+    });
+    $('form').submit(APP.preventDefault).trigger('reset');
+    $(':radio').change(function(){
+      $('[name='+ $(this).attr('name') +']').removeAttr('checked');
+      $(this).attr('checked', true);
+    });
+    $('#searchbar :radio').change(function(){
+      const s = $(this).parent().parent().find('.searchbar');
+      s.hide();
+      s.eq(+$(this).val()).show();
+    });
+    $('[data-validation]').on('input', function(){
+      $(this).val($(this).val().replace(new RegExp('[^'+ $(this).attr('data-validation') +']', 'gim'), ''));
+    });
+  },
+  toggleFolder: e =>{
+    $(e).find('i').toggleClass('fa-folder fa-folder-open');
+    $(e).next().slideToggle();
+  },
+  jumpTo: x =>{$('#body').animate({scrollTop:x}, 800)}
+};
+
 RUN.asideFeed();
 RUN.workers();
 RUN.displayMenu();
 RUN.domContent();
 RUN.bindEvent();
-$(document).ready(()=>{
-  //
-});
