@@ -123,7 +123,7 @@ const RUN = {
       $('#body').fadeIn(500, ()=>{
         $('#cover').remove();
       });
-    }, 2000);
+    }, 300);
   },
   bindEvent: ()=>{
     if(!ENV.devMode) $('body').on('contextmenu', APP.preventDefault);
