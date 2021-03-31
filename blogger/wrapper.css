@@ -12,8 +12,8 @@ mark {
   color: #f44336;
   padding: 1px 8px;
 }
-summary::-webkit-details-marker {display: none}
 summary::before {content: ''}
+::-webkit-details-marker {display: none}
 
 /* ========== class */
 .notes {
