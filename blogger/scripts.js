@@ -205,10 +205,11 @@ const RESULT = {
   }
 };
 
+RUN.asideFeed();
+RUN.workers();
+RUN.displayMenu();
+RUN.domContent();
+RUN.bindEvent();
 $(document).ready(()=>{
-  RUN.asideFeed();
-  RUN.workers();
-  RUN.displayMenu();
-  RUN.domContent();
-  RUN.bindEvent();
+  //
 });
