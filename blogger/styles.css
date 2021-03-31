@@ -46,7 +46,6 @@ pre, code {
   bottom: 150px;
   z-index: 6;
 }
-#title span {animation: blink 1s linear infinite}
 
 /* ========== class */
 .bg-sunny {background: linear-gradient(#fff,#ff9800)}
