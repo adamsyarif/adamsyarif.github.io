@@ -56,7 +56,7 @@ pre, code {
   display: flex!important;
   flex-wrap: wrap;
 }
-.w3-btn, .w3-button, input {outline: 0}
+.w3-btn, .w3-button, .w3-input, .w3-select, .pointer, label {outline: 0!important}
 .sidebar {
   width: 100%;
   max-width: 350px;
