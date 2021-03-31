@@ -1,6 +1,6 @@
 RESULT.search = d =>{
   RESULT.data = d.feed.entry ? d.feed.entry : [];
-  $('#search-details').find('span').eq(0).text(RESULT.data.length);
+  $('#search-details span').eq(0).text(RESULT.data.length);
   RESULT.load();
 };
 RESULT.data = [];
@@ -29,7 +29,7 @@ RESULT.load = ()=>{
     r.hide();
     r.eq(1).show();
   })();
-  const p = $('#search-pages').find('span');
+  const p = $('#search-pages span');
   p.eq(0).text(RESULT.page);
   p.eq(1).text(RESULT.pages());
   RUN.jumpTo(0);
@@ -37,7 +37,7 @@ RESULT.load = ()=>{
 
 $(document).ready(()=>{
   const t = +$('#search-type').val();
-  const d = $('#search-details').find('span').eq(1);
+  const d = $('#search-details span').eq(1);
   if(t == 1){
     const q = new URL(location.href).searchParams.get('q');
     d.text('kata kunci "'+ q +'"');
@@ -48,4 +48,4 @@ $(document).ready(()=>{
     d.text('kategori "'+ l +'"');
     APP.req(FEED.u2 +'/-/'+ l + FEED.u3(1000), RESULT.search);
   }
-}); 
+});
