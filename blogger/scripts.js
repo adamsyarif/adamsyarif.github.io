@@ -122,10 +122,8 @@ const RUN = {
     setTimeout(()=>{
       $('#body').fadeIn(500, ()=>{
         $('#cover').remove();
-        RUN.workers();
-        $('#title span').css('animation', 'blink 1s linear infinite');
       });
-    }, 500);
+    }, 2000);
   },
   bindEvent: ()=>{
     if(!ENV.devMode) $('body').on('contextmenu', APP.preventDefault);
@@ -209,6 +207,7 @@ const RESULT = {
 
 $(document).ready(()=>{
   RUN.asideFeed();
+  RUN.workers();
   RUN.displayMenu();
   RUN.domContent();
   RUN.bindEvent();
