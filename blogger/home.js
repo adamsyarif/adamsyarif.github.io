@@ -19,12 +19,12 @@ const SLIDE = {
   }
 };
 
-$(document).ready(()=>{
+(()=>{
   APP.data('testi', r =>{
     let t = '';
     r.data.sort(()=> Math.random()-0.5).slice(0,5).forEach(d =>{
       t += '<td class="w3-container">'+
-              '<p><img class="thumbnail w3-circle w3-card-2" src="'+ d.img +'"/></p>'+
+              '<p><img class="thumbnail w3-circle w3-card-2" src="'+ d.img +'" loading="lazy"/></p>'+
               '<p>'+
                 '<b class="w3-large w3-text-dark-gray">'+ d.name +'</b><br/>'+
                 '<span class="w3-small w3-text-gray">'+ d.city +'</span>'+
@@ -38,7 +38,7 @@ $(document).ready(()=>{
   c.eq(0).find('code').text('\n function tambah(a, b){\n   return a + b;\n }\n function kurang(a, b){\n   return a - b;\n }\n\n console.log(tambah(1, 2));\n console.log(kurang(9, 4));\n ');
   c.eq(1).find('code').text('\n body {\n   background-color: blue;\n }\n h1 {\n   text-align: center;\n }\n p {\n   font-size: 20px;\n }\n ');
   c.eq(2).find('code').text('\n <html>\n   <head>\n     <title>Nama web</title>\n   </head>\n   <body>\n     <h1>Judul artikel</h1>\n     <p>Paragraf</p>\n   </body>\n </html>\n ');
-  c.click(function(){
+  c.click(()=>{
     const r = e =>{
       if($(e).hasClass('code1')) $(e).removeClass('code1').addClass('code2');
       else if($(e).hasClass('code2')) $(e).removeClass('code2').addClass('code3');
@@ -51,4 +51,4 @@ $(document).ready(()=>{
   $('pre code').each(function(){
     hljs.highlightBlock(this);
   });
-});
+})();
