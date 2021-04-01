@@ -168,7 +168,7 @@ const RUN = {
     $('.copyright-year').text(d.getFullYear());
     setTimeout(()=>{
       $('#body').fadeIn(500);
-    }, 300);
+    }, 500);
   },
   bindEvent: ()=>{
     if(!ENV.devMode) $('body').on('contextmenu', APP.preventDefault);
