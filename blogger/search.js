@@ -35,10 +35,9 @@ RESULT.load = ()=>{
   RUN.jumpTo(0);
 };
 
-$(document).ready(()=>{
-  const t = +$('#search-type').val();
+(()=>{
   const d = $('#search-details span').eq(1);
-  if(t == 1){
+  if(+$('#search-type').val() == 1){
     const q = new URL(location.href).searchParams.get('q');
     d.text('kata kunci "'+ q +'"');
     APP.req(FEED.u2 + FEED.u3(1000) +'&q='+ q, RESULT.search);
@@ -48,4 +47,4 @@ $(document).ready(()=>{
     d.text('kategori "'+ l +'"');
     APP.req(FEED.u2 +'/-/'+ l + FEED.u3(1000), RESULT.search);
   }
-});
+})();
