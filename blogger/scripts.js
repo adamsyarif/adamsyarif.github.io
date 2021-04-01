@@ -87,7 +87,7 @@ const RESULT = {
               '<tr>'+
                 '<td rowspan="2" style="vertical-align:top">'+
                   '<div class="thumbnail w3-card-2 w3-margin-right">'+
-                    '<img src="'+ d.media$thumbnail.url +'"/>'+
+                    '<img src="'+ d.media$thumbnail.url +'" loading="lazy"/>'+
                   '</div>'+
                 '</td>'+
                 '<td>'+
@@ -127,13 +127,11 @@ const RUN = {
   displayMenu: ()=>{
     APP.data('menu', d =>{
       d.list = function(item){
-        let c, l = '';
+        let l = '';
         const pid = +$('#page-id').val();
         const aid = +$('#article-id').val();
         item.forEach(i =>{
-          c = '';
-          if((i.id == pid) || (i.id == aid)) c = 'w3-light-gray w3-rightbar';
-          l += '<a '+ ((i.link != '#')? ('href="'+ i.link +'"') : '') +' class="'+ c +' w3-button w3-bar-item w3-hover-light-gray"><i class="far fa-file-alt w3-margin-right"></i>'+ i.title + ((i.link != '#')? '' : ' <i class="w3-small w3-text-red">(draft)</i>') +'</a>';
+          l += '<a '+ ((i.link != '#')? ('href="'+ i.link +'"') : '') +' class="'+ (((i.id == pid) || (i.id == aid))? 'w3-rightbar' : '') +' w3-button w3-bar-item w3-hover-light-gray"><i class="far fa-file-alt w3-margin-right"></i>'+ i.title + ((i.link != '#')? '' : ' <i class="w3-small w3-text-red">(draft)</i>') +'</a>';
         });
         return l;
       };
