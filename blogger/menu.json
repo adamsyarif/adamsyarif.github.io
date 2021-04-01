@@ -6,58 +6,58 @@
         "title": "HTML",
         "articles": [
           {
-            "id": 1597950370420002790,
+            "id": 5655335008083112665,
             "title": "Apa itu HTML ?",
-            "link": "#"
+            "link": "/2021/03/apa-itu-html.html"
           },{
-            "id": 1597950370420002789,
+            "id": 4934219616241262653,
             "title": "HTML Attribute",
-            "link": "#"
+            "link": "/2021/04/html-attribute.html"
           },{
-            "id": 3690771088787136045,
+            "id": 2070251448974448615,
             "title": "HTML Head dan Body",
-            "link": "#"
+            "link": "/2021/04/html-head-dan-body.html"
           },{
-            "id": 3106329856000173413,
+            "id": 8276063706358165790,
             "title": "HTML Layout",
-            "link": "#"
+            "link": "/2021/04/html-layout.html"
           },{
-            "id": 6549503090008236913,
+            "id": 2944365704199918062,
             "title": "HTML Display",
-            "link": "#"
+            "link": "/2021/04/html-display.html"
           },{
-            "id": 8150178120548183983,
+            "id": 2554546830326863320,
             "title": "HTML Content",
-            "link": "#"
+            "link": "/2021/04/html-content.html"
           }
         ]
       },{
         "title": "CSS",
         "articles": [
           {
-            "id": 8036674375849984253,
+            "id": 3923866067326919361,
             "title": "Apa itu CSS ?",
-            "link": "#"
+            "link": "/2021/03/apa-itu-css.html"
           },{
-            "id": 3727947643361574085,
+            "id": 5796671097764692962,
             "title": "CSS Selector",
-            "link": "#"
+            "link": "/2021/04/css-selector.html"
           },{
-            "id": 8516299039556026245,
+            "id": 4510633724341312811,
             "title": "CSS Unit",
-            "link": "#"
+            "link": "/2021/04/css-unit.html"
           },{
-            "id": 6052784238775251994,
+            "id": 5857193985385004488,
             "title": "CSS Display",
-            "link": "#"
+            "link": "/2021/04/css-display.html"
           },{
-            "id": 7460474317346439971,
+            "id": 4916578354457171290,
             "title": "CSS Position",
-            "link": "#"
+            "link": "/2021/04/css-position.html"
           },{
-            "id": 6438771186465022259,
+            "id": 359521056739323704,
             "title": "CSS Box model",
-            "link": "#"
+            "link": "/2021/04/css-box-model.html"
           }
         ]
       },{
@@ -286,15 +286,23 @@
         "articles": [
           {
             "id": 8036674375849984253,
-            "title": "CSS Margin dan Padding",
+            "title": "CSS Margin",
             "link": "#"
           },{
             "id": 3727947643361574085,
             "title": "CSS Border",
             "link": "#"
           },{
+            "id": 8036674375849984253,
+            "title": "CSS Padding",
+            "link": "#"
+          },{
             "id": 8516299039556026245,
-            "title": "CSS Width dan Height",
+            "title": "CSS Width",
+            "link": "#"
+          },{
+            "id": 8036674375849984253,
+            "title": "CSS Height",
             "link": "#"
           },{
             "id": 6052784238775251994,
