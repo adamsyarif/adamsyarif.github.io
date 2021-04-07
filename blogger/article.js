@@ -1,4 +1,4 @@
-(()=>{
+window.onload = ()=>{
   $('#article-body').on('select copy cut', APP.preventDefault);
   const p = $('.preview');
   p.find('button.active').click(function(){
@@ -23,4 +23,4 @@
   $('pre code').each(function(){
     hljs.highlightBlock(this);
   });
-})();
+};
