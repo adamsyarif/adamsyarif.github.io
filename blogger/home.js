@@ -14,7 +14,7 @@ const SLIDE = {
   },
   show: ()=>{
     const s = $('.slide');
-    s.addClass('w3-hide-small w3-hide-medium');
+    s.addClass('w3-animate-zoom w3-hide-small w3-hide-medium');
     s.eq(SLIDE.index).removeClass('w3-hide-small w3-hide-medium');
   }
 };
@@ -24,12 +24,12 @@ const SLIDE = {
     let t = '';
     r.data.sort(()=> Math.random()-0.5).slice(0,5).forEach(d =>{
       t += '<td class="w3-container">'+
-              '<p><img class="thumbnail w3-circle w3-card-2" src="'+ d.img +'" loading="lazy"/></p>'+
+              '<p><picture class="thumbnail w3-circle w3-card"><img width="0" height="0" src="'+ d.img +'" loading="lazy"/></picture></p>'+
               '<p>'+
                 '<b class="w3-large w3-text-dark-gray">'+ d.name +'</b><br/>'+
                 '<span class="w3-small w3-text-gray">'+ d.city +'</span>'+
               '</p>'+
-              '<p><q><i>'+ d.msg +'</i></q></p>'+
+              '<p><q>'+ d.msg +'</q></p>'+
             '</td>';
     });
     $('#testi table').html('<tr>'+ (t+t) +'</tr>').css('animation', 'testi 40s linear infinite');
