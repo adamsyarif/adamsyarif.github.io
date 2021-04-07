@@ -35,7 +35,7 @@ RESULT.load = ()=>{
   RUN.jumpTo(0);
 };
 
-window.onload = ()=>{
+window.addEventListener('load', ()=>{
   const d = $('#search-detail span').eq(1);
   if(+$('#search-type').val() == 1){
     const q = new URL(location.href).searchParams.get('q');
@@ -47,4 +47,4 @@ window.onload = ()=>{
     d.text('kategori "'+ l +'"');
     APP.req(FEED.u2 +'/-/'+ l + FEED.u3(1000), RESULT.search);
   }
-};
+});
