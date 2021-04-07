@@ -24,7 +24,7 @@ window.onload = ()=>{
     let t = '';
     r.data.sort(()=> Math.random()-0.5).slice(0,5).forEach(d =>{
       t += '<td class="w3-container">'+
-              '<p><picture class="thumbnail w3-circle w3-card"><img width="0" height="0" src="'+ d.img +'" loading="lazy"/></picture></p>'+
+              '<p><picture class="thumbnail"><img width="0" height="0" class="w3-circle w3-card" src="'+ d.img +'" loading="lazy"/></picture></p>'+
               '<p>'+
                 '<b class="w3-large w3-text-dark-gray">'+ d.name +'</b><br/>'+
                 '<span class="w3-small w3-text-gray">'+ d.city +'</span>'+
