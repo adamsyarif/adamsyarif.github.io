@@ -19,7 +19,7 @@ const SLIDE = {
   }
 };
 
-(()=>{
+window.onload = ()=>{
   APP.data('testi', r =>{
     let t = '';
     r.data.sort(()=> Math.random()-0.5).slice(0,5).forEach(d =>{
@@ -51,4 +51,4 @@ const SLIDE = {
   $('pre code').each(function(){
     hljs.highlightBlock(this);
   });
-})();
+};
