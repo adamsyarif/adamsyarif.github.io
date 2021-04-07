@@ -86,9 +86,9 @@ const RESULT = {
       a += '<table style="width:100%">'+
               '<tr>'+
                 '<td rowspan="2" style="vertical-align:top">'+
-                  '<div class="thumbnail w3-card-2 w3-margin-right">'+
-                    '<img src="'+ d.media$thumbnail.url +'" loading="lazy"/>'+
-                  '</div>'+
+                  '<picture class="thumbnail w3-card-2 w3-margin-right">'+
+                    '<img width="0" height="0" src="'+ d.media$thumbnail.url +'" loading="lazy"/>'+
+                  '</picture>'+
                 '</td>'+
                 '<td>'+
                   '<b class="w3-large w3-text-dark-gray">'+ d.title.$t +'</b>'+
@@ -165,7 +165,7 @@ const RUN = {
     $('.what-time-is').text((h >= 3 && h <= 10)? 'pagi' : (h >= 11 && h <= 14)? 'siang' : (h >= 15 && h <= 17)? 'sore' : 'malam');
     $('.copyright-year').text(d.getFullYear());
     setTimeout(()=>{
-      $('#body').fadeIn(500);
+      $('#body').removeClass('invisible');
     }, 500);
   },
   bindEvent: ()=>{
@@ -173,10 +173,10 @@ const RUN = {
     $('#body').scroll(function(){
       const h = $(this).height();
       const s = $(this).scrollTop();
-      $('.a-sh').each(function(){
+      $('.a-slide').each(function(){
         const t = $(this).offset().top;
         if(((h+s)-(s+t)) > 50){
-          $(this).removeClass('a-sh');
+          $(this).removeClass('invisible');
           $(this).find('.a-left').addClass('w3-animate-left');
           $(this).find('.a-right').addClass('w3-animate-right');
         }
@@ -204,7 +204,7 @@ const RUN = {
 };
 
 RUN.asideFeed();
-RUN.workers();
+//RUN.workers();
 RUN.displayMenu();
 RUN.domContent();
 RUN.bindEvent();
