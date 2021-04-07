@@ -203,8 +203,10 @@ const RUN = {
   jumpTo: x =>{$('#body').animate({scrollTop:x}, 800)}
 };
 
-RUN.asideFeed();
-//RUN.workers();
-RUN.displayMenu();
-RUN.domContent();
-RUN.bindEvent();
+window.addEventListener('load', ()=>{
+  RUN.asideFeed();
+  //RUN.workers();
+  RUN.displayMenu();
+  RUN.domContent();
+  RUN.bindEvent();
+});
