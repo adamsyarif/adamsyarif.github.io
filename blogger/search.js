@@ -1,6 +1,6 @@
 RESULT.search = d =>{
   RESULT.data = d.feed.entry ? d.feed.entry : [];
-  $('#search-details span').eq(0).text(RESULT.data.length);
+  $('#search-detail span').eq(0).text(RESULT.data.length);
   RESULT.load();
 };
 RESULT.data = [];
@@ -36,7 +36,7 @@ RESULT.load = ()=>{
 };
 
 (()=>{
-  const d = $('#search-details span').eq(1);
+  const d = $('#search-detail span').eq(1);
   if(+$('#search-type').val() == 1){
     const q = new URL(location.href).searchParams.get('q');
     d.text('kata kunci "'+ q +'"');
