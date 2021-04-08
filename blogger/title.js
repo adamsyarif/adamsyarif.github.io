@@ -13,6 +13,6 @@ RUN.titleNav = s =>{
   else t.hide();
 };
 
-window.addEventListener('load', ()=>{
+(()=>{
   if($('h4 div').length == 0) $('#title-nav, .title-nav').remove();
-});
+})();
