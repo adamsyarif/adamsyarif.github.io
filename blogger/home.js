@@ -9,6 +9,8 @@ const SLIDE = {
   show: n =>{
     SLIDE.index = n;
     const s = $('.slide');
+    s.eq(0).addClass('w3-animate-zoom');
+    s.eq(1).addClass('w3-animate-opacity');
     s.addClass('w3-hide-small w3-hide-medium');
     s.eq(n).removeClass('w3-hide-small w3-hide-medium');
   }
@@ -29,9 +31,6 @@ const SLIDE = {
     });
     $('#testi table').html('<tr>'+ (t+t) +'</tr>').css('animation', 'testi 40s linear infinite');
   });
-  const s = $('.slide');
-  s.eq(0).addClass('w3-animate-left');
-  s.eq(1).addClass('w3-animate-right');
   const c = $('.code');
   c.eq(0).find('code').text('\n function tambah(a, b){\n   return a + b;\n }\n function kurang(a, b){\n   return a - b;\n }\n\n console.log(tambah(1, 2));\n console.log(kurang(9, 4));\n ');
   c.eq(1).find('code').text('\n body {\n   background-color: blue;\n }\n h1 {\n   text-align: center;\n }\n p {\n   font-size: 20px;\n }\n ');
