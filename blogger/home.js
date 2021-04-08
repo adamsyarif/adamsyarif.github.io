@@ -1,30 +1,25 @@
 const SLIDE = {
   index: 0,
   left: ()=>{
-    if(SLIDE.index > 0){
-      SLIDE.index -= 1;
-      SLIDE.show();
-    }
+    if(SLIDE.index == 1) SLIDE.show(0);
   },
   right: ()=>{
-    if(SLIDE.index == 0){
-      SLIDE.index += 1;
-      SLIDE.show();
-    }
+    if(SLIDE.index == 0) SLIDE.show(1);
   },
-  show: ()=>{
+  show: n =>{
+    SLIDE.index = n;
     const s = $('.slide');
-    s.addClass('w3-animate-zoom w3-hide-small w3-hide-medium');
-    s.eq(SLIDE.index).removeClass('w3-hide-small w3-hide-medium');
+    s.addClass('w3-hide-small w3-hide-medium');
+    s.eq(n).removeClass('w3-hide-small w3-hide-medium');
   }
 };
 
-window.addEventListener('load', ()=>{
+(()=>{
   APP.data('testi', r =>{
     let t = '';
     r.data.sort(()=> Math.random()-0.5).slice(0,5).forEach(d =>{
       t += '<td class="w3-container">'+
-              '<p><picture class="thumbnail"><img width="0" height="0" class="w3-circle w3-card" src="'+ d.img +'" loading="lazy"/></picture></p>'+
+              '<p><picture class="thumbnail"><img class="w3-circle w3-card" src="'+ d.img +'" loading="lazy"/></picture></p>'+
               '<p>'+
                 '<b class="w3-large w3-text-dark-gray">'+ d.name +'</b><br/>'+
                 '<span class="w3-small w3-text-gray">'+ d.city +'</span>'+
@@ -34,6 +29,9 @@ window.addEventListener('load', ()=>{
     });
     $('#testi table').html('<tr>'+ (t+t) +'</tr>').css('animation', 'testi 40s linear infinite');
   });
+  const s = $('.slide');
+  s.eq(0).addClass('w3-animate-left');
+  s.eq(1).addClass('w3-animate-right');
   const c = $('.code');
   c.eq(0).find('code').text('\n function tambah(a, b){\n   return a + b;\n }\n function kurang(a, b){\n   return a - b;\n }\n\n console.log(tambah(1, 2));\n console.log(kurang(9, 4));\n ');
   c.eq(1).find('code').text('\n body {\n   background-color: blue;\n }\n h1 {\n   text-align: center;\n }\n p {\n   font-size: 20px;\n }\n ');
@@ -51,4 +49,4 @@ window.addEventListener('load', ()=>{
   $('pre code').each(function(){
     hljs.highlightBlock(this);
   });
-});
+})();
