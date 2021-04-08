@@ -112,40 +112,6 @@ const RUN = {
         APP.req(FEED.u2 + FEED.u3(10), RESULT.aside);
     }
   },
-  displayMenu: ()=>{
-    APP.data('menu', d =>{
-      d.list = function(item){
-        let l = '';
-        const pid = +$('#page-id').val();
-        const aid = +$('#article-id').val();
-        item.forEach(i =>{
-          l += '<a '+ ((i.link != '#')? ('href="'+ i.link +'"') : '') +' class="'+ (((i.id == pid) || (i.id == aid))? 'w3-rightbar' : '') +' w3-button w3-bar-item w3-hover-light-gray"><i class="far fa-file-alt w3-margin-right"></i>'+ i.title + ((i.link != '#')? '' : ' <i class="w3-small w3-text-red">(draft)</i>') +'</a>';
-        });
-        return l;
-      };
-      d.lists = list => '<div class="w3-margin-left" style="display:none">'+ list +'</div>';
-      d.folder = name => '<button class="w3-button w3-bar-item w3-hover-light-gray" onclick="RUN.toggleFolder(this)"><i class="fas fa-folder w3-text-yellow w3-margin-right"></i>'+ name +'</button>';
-      d.folders = function(folders){
-        let f = '';
-        folders.forEach(folder =>{
-          f += this.folder(folder.title);
-          f += this.lists(this.list(folder.articles));
-        });
-        return f;
-      };
-      d.navigation = function(){
-        let n = '';
-        Object.keys(this).forEach(key =>{
-          if(this[key].title){
-            n += this.folder(this[key].title);
-            n += this.lists(this[key].folders ? this.folders(this[key].folders) : this.list(this[key].pages));
-          }
-        });
-        return n;
-      };
-      $('#menubar nav').html(d.navigation());
-    });
-  },
   domContent: ()=>{
     const d = new Date();
     const h = d.getHours();
@@ -184,6 +150,45 @@ const RUN = {
       $(this).val($(this).val().replace(new RegExp('[^'+ $(this).attr('data-validation') +']', 'gim'), ''));
     });
   },
+  menuData: false,
+  openMenu: ()=>{
+    if(RUN.menuData) $('#menubar').show();
+    else {
+      APP.data('menu', d =>{
+        RUN.menuData = true;
+        d.list = function(item){
+          let l = '';
+          const pid = +$('#page-id').val();
+          const aid = +$('#article-id').val();
+          item.forEach(i =>{
+            l += '<a '+ ((i.link != '#')? ('href="'+ i.link +'"') : '') +' class="'+ (((i.id == pid) || (i.id == aid))? 'w3-rightbar' : '') +' w3-button w3-bar-item w3-hover-light-gray"><i class="far fa-file-alt w3-margin-right"></i>'+ i.title + ((i.link != '#')? '' : ' <i class="w3-small w3-text-red">(draft)</i>') +'</a>';
+          });
+          return l;
+        };
+        d.lists = list => '<div class="w3-margin-left" style="display:none">'+ list +'</div>';
+        d.folder = name => '<button class="w3-button w3-bar-item w3-hover-light-gray" onclick="RUN.toggleFolder(this)"><i class="fas fa-folder w3-text-yellow w3-margin-right"></i>'+ name +'</button>';
+        d.folders = function(folders){
+          let f = '';
+          folders.forEach(folder =>{
+            f += this.folder(folder.title);
+            f += this.lists(this.list(folder.articles));
+          });
+          return f;
+        };
+        d.navigation = function(){
+          let n = '';
+          Object.keys(this).forEach(key =>{
+            if(this[key].title){
+              n += this.folder(this[key].title);
+              n += this.lists(this[key].folders ? this.folders(this[key].folders) : this.list(this[key].pages));
+            }
+          });
+          return n;
+        };
+        $('#menubar').show().find('nav').html(d.navigation());
+      });
+    }
+  },
   toggleFolder: e =>{
     $(e).find('i').toggleClass('fa-folder fa-folder-open');
     $(e).next().slideToggle();
@@ -192,6 +197,5 @@ const RUN = {
 };
 
 RUN.asideFeed();
-RUN.displayMenu();
 RUN.domContent();
 RUN.bindEvent();
