@@ -44,12 +44,6 @@ const APP = {
     const u = (ENV.devMode ? '/data/' : ENV.repoUrl)+ d +'.json';
     APP.req(u, r => c(r));
   },
-  worker: (u, c)=>{
-    APP.req(u, r =>{
-      const b = new Blob([r], {type:'application/javascript'});
-      c(new Worker(URL.createObjectURL(b)));
-    });
-  },
   copy: e =>{
     $(e).select();
     document.execCommand('copy');
@@ -87,7 +81,7 @@ const RESULT = {
               '<tr>'+
                 '<td rowspan="2" style="vertical-align:top">'+
                   '<picture class="thumbnail w3-card-2 w3-margin-right">'+
-                    '<img width="0" height="0" src="'+ d.media$thumbnail.url +'" loading="lazy"/>'+
+                    '<img src="'+ d.media$thumbnail.url +'" loading="lazy"/>'+
                   '</picture>'+
                 '</td>'+
                 '<td>'+
@@ -117,12 +111,6 @@ const RUN = {
       case 2:
         APP.req(FEED.u2 + FEED.u3(10), RESULT.aside);
     }
-  },
-  workers: ()=>{
-    const u = (ENV.devMode ? '/scripts/' : ENV.repoUrl) +'workers.js';
-    APP.worker(u, w =>{
-      w.onmessage = e => $('#title b').text(e.data);
-    });
   },
   displayMenu: ()=>{
     APP.data('menu', d =>{
@@ -166,7 +154,7 @@ const RUN = {
     $('.copyright-year').text(d.getFullYear());
     setTimeout(()=>{
       $('#body').removeClass('invisible');
-    }, 500);
+    }, 100);
   },
   bindEvent: ()=>{
     if(!ENV.devMode) $('body').on('contextmenu', APP.preventDefault);
@@ -176,7 +164,7 @@ const RUN = {
       $('.a-slide').each(function(){
         const t = $(this).offset().top;
         if(((h+s)-(s+t)) > 50){
-          $(this).removeClass('invisible');
+          $(this).removeClass('a-slide, invisible');
           $(this).find('.a-left').addClass('w3-animate-left');
           $(this).find('.a-right').addClass('w3-animate-right');
         }
@@ -203,10 +191,7 @@ const RUN = {
   jumpTo: x =>{$('#body').animate({scrollTop:x}, 800)}
 };
 
-window.addEventListener('load', ()=>{
-  RUN.asideFeed();
-  //RUN.workers();
-  RUN.displayMenu();
-  RUN.domContent();
-  RUN.bindEvent();
-});
+RUN.asideFeed();
+RUN.displayMenu();
+RUN.domContent();
+RUN.bindEvent();
