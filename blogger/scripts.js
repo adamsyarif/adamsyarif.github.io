@@ -196,9 +196,3 @@ const RUN = {
 RUN.asideFeed();
 RUN.domContent();
 RUN.bindEvent();
-
-window.addEventListener('load', ()=>{
-  setTimeout(()=>{
-    $('#body').show();
-  }, 100);
-});
