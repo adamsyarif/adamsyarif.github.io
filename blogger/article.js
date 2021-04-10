@@ -1,24 +1,25 @@
 (()=>{
   $('#article-body').on('select copy cut', APP.preventDefault);
-  const p = $('.preview');
-  p.find('button.active').click(function(){
+  $('.preview').find('button.active').click(function(){
     const a = $(this).parent().parent();
     const b = a.find('button');
-    const d = a.find('div');
+    const p = a.find('pre');
+    const c = a.find('code');
     const i = b.index(this);
-    b.removeClass('w3-border-blue');
-    b.eq(i).addClass('w3-border-blue');
-    d.hide();
-    d.eq(i).show();
-  });
-  const t = $('#i-template').html();
-  p.find('iframe').attr('srcdoc', function(){
-    const a = $(this).parent().parent();
-    if(a.find('button').eq(0).hasClass('active')){
-      const c = a.find('code');
-      return t.replace('{HTML}', c.eq(0).text()).replace('{CSS}', c.eq(1).text()).replace('{JS}', c.eq(2).text());
+    if(i < 3){
+      b.removeClass('w3-border-gray');
+      b.eq(i).addClass('w3-border-gray');
+      p.hide();
+      p.eq(i).show();
+    } else {
+      const w = window.open('/p/code-editor.html');
+      $(w).on('load', ()=>{
+        [0,1,2].forEach(i =>{
+          if(c.eq(i).text()) $(w.document).find('#x-editor textarea').eq(i).val(c.eq(i).text());
+        });
+        $(w.document).find('#x-frame').attr('srcdoc', ('<style>'+ c.eq(1).text() +'</style>'+ c.eq(0).text() +'<script>'+ c.eq(2).text() +'</script>'));
+      });
     }
-    else $(this).remove();
   });
   $('pre code').each(function(){
     hljs.highlightBlock(this);
