@@ -118,9 +118,6 @@ const RUN = {
     $('#body').addClass(((h >= 5 && h <= 6) || (h >= 16 && h <= 17))? 'bg-sunny' : (h >= 7 && h <= 15)? 'bg-day' : 'bg-night');
     $('.what-time-is').text((h >= 3 && h <= 10)? 'pagi' : (h >= 11 && h <= 14)? 'siang' : (h >= 15 && h <= 17)? 'sore' : 'malam');
     $('.copyright-year').text(d.getFullYear());
-    setTimeout(()=>{
-      $('#body').removeClass('invisible');
-    }, 100);
   },
   bindEvent: ()=>{
     if(!ENV.devMode) $('body').on('contextmenu', APP.preventDefault);
@@ -199,3 +196,9 @@ const RUN = {
 RUN.asideFeed();
 RUN.domContent();
 RUN.bindEvent();
+
+window.addEventListener('load', ()=>{
+  setTimeout(()=>{
+    $('#body').show();
+  }, 100);
+});
