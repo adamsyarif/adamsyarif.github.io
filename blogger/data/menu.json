@@ -1,0 +1,493 @@
+{
+  "a": {
+    "title": "Materi dasar",
+    "folders": [
+      {
+        "title": "HTML",
+        "articles": [
+          {
+            "id": 5655335008083112665,
+            "title": "Apa itu HTML ?",
+            "link": "/2021/03/apa-itu-html.html"
+          },{
+            "id": 4934219616241262653,
+            "title": "HTML Attribute",
+            "link": "/2021/04/html-attribute.html"
+          },{
+            "id": 2070251448974448615,
+            "title": "HTML Head dan Body",
+            "link": "/2021/04/html-head-dan-body.html"
+          },{
+            "id": 8276063706358165790,
+            "title": "HTML Layout",
+            "link": "/2021/04/html-layout.html"
+          },{
+            "id": 2944365704199918062,
+            "title": "HTML Display",
+            "link": "/2021/04/html-display.html"
+          },{
+            "id": 2554546830326863320,
+            "title": "HTML Content",
+            "link": "/2021/04/html-content.html"
+          }
+        ]
+      },{
+        "title": "CSS",
+        "articles": [
+          {
+            "id": 3923866067326919361,
+            "title": "Apa itu CSS ?",
+            "link": "/2021/03/apa-itu-css.html"
+          },{
+            "id": 5796671097764692962,
+            "title": "CSS Selector",
+            "link": "/2021/04/css-selector.html"
+          },{
+            "id": 4510633724341312811,
+            "title": "CSS Unit",
+            "link": "/2021/04/css-unit.html"
+          },{
+            "id": 5857193985385004488,
+            "title": "CSS Display",
+            "link": "/2021/04/css-display.html"
+          },{
+            "id": 4916578354457171290,
+            "title": "CSS Position",
+            "link": "/2021/04/css-position.html"
+          },{
+            "id": 359521056739323704,
+            "title": "CSS Box model",
+            "link": "/2021/04/css-box-model.html"
+          }
+        ]
+      },{
+        "title": "JavaScript",
+        "articles": [
+          {
+            "id": 5692676830589396381,
+            "title": "Apa itu JavaScript ?",
+            "link": "#"
+          },{
+            "id": 1501970772916942068,
+            "title": "JavaScript Variable",
+            "link": "#"
+          },{
+            "id": 4375439667220814557,
+            "title": "JavaScript Data type",
+            "link": "#"
+          },{
+            "id": 1191480030942323295,
+            "title": "JavaScript Operator",
+            "link": "#"
+          },{
+            "id": 3765732994823261306,
+            "title": "JavaScript Conditional statement",
+            "link": "#"
+          },{
+            "id": 3184372552608933243,
+            "title": "JavaScript Function",
+            "link": "#"
+          },{
+            "id": 3774519311112725111,
+            "title": "JavaScript DOM",
+            "link": "#"
+          },{
+            "id": 6646883228793108470,
+            "title": "JavaScript Event listener",
+            "link": "#"
+          },{
+            "id": 7394785913873760971,
+            "title": "JavaScript Loop",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Error handling",
+            "link": "#"
+          }
+        ]
+      }
+    ]
+  },
+  "b": {
+    "title": "Materi lanjutan",
+    "folders": [
+      {
+        "title": "HTML",
+        "articles": [
+          {
+            "id": 1597950370420002790,
+            "title": "HTML Meta tags",
+            "link": "#"
+          },{
+            "id": 6067687399795089400,
+            "title": "HTML Assets",
+            "link": "#"
+          },{
+            "id": 8150178120548183983,
+            "title": "HTML Entities",
+            "link": "#"
+          }
+        ]
+      },{
+        "title": "CSS",
+        "articles": [
+          {
+            "id": 8036674375849984253,
+            "title": "CSS Variable",
+            "link": "#"
+          },{
+            "id": 3727947643361574085,
+            "title": "CSS Font",
+            "link": "#"
+          },{
+            "id": 8516299039556026245,
+            "title": "CSS Icon",
+            "link": "#"
+          },{
+            "id": 6052784238775251994,
+            "title": "CSS Flex box",
+            "link": "#"
+          },{
+            "id": 7460474317346439971,
+            "title": "CSS Grid layout",
+            "link": "#"
+          },{
+            "id": 6438771186465022259,
+            "title": "CSS Media queries",
+            "link": "#"
+          },{
+            "id": 4338805438377385377,
+            "title": "CSS Effect",
+            "link": "#"
+          },{
+            "id": 5753026692942134198,
+            "title": "CSS Animation",
+            "link": "#"
+          }
+        ]
+      },{
+        "title": "JavaScript",
+        "articles": [
+          {
+            "id": 5692676830589396381,
+            "title": "JavaScript Strict mode",
+            "link": "#"
+          },{
+            "id": 4375439667220814557,
+            "title": "JavaScript JSON",
+            "link": "#"
+          },{
+            "id": 1191480030942323295,
+            "title": "JavaScript Object destructuring",
+            "link": "#"
+          },{
+            "id": 3765732994823261306,
+            "title": "JavaScript Array function",
+            "link": "#"
+          },{
+            "id": 3184372552608933243,
+            "title": "JavaScript Promise",
+            "link": "#"
+          },{
+            "id": 3774519311112725111,
+            "title": "JavaScript Async Await",
+            "link": "#"
+          },{
+            "id": 6646883228793108470,
+            "title": "JavaScript Class",
+            "link": "#"
+          },{
+            "id": 1501970772916942068,
+            "title": "JavaScript BOM",
+            "link": "#"
+          },{
+            "id": 7394785913873760971,
+            "title": "JavaScript AJAX",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Web API",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript RegExp",
+            "link": "#"
+          }
+        ]
+      }
+    ]
+  },
+  "c": {
+    "title": "Referensi",
+    "folders": [
+      {
+        "title": "HTML",
+        "articles": [
+          {
+            "id": 1597950370420002790,
+            "title": "HTML Heading",
+            "link": "#"
+          },{
+            "id": 6067687399795089400,
+            "title": "HTML Paragraph",
+            "link": "#"
+          },{
+            "id": 3690771088787136045,
+            "title": "HTML Text",
+            "link": "#"
+          },{
+            "id": 3106329856000173413,
+            "title": "HTML Image",
+            "link": "#"
+          },{
+            "id": 6549503090008236913,
+            "title": "HTML Link",
+            "link": "#"
+          },{
+            "id": 8150178120548183983,
+            "title": "HTML List",
+            "link": "#"
+          },{
+            "id": 6703499625453782676,
+            "title": "HTML Table",
+            "link": "#"
+          },{
+            "id": 1824354937244109916,
+            "title": "HTML Input",
+            "link": "#"
+          },{
+            "id": 1318087276413249419,
+            "title": "HTML Option",
+            "link": "#"
+          },{
+            "id": 9219623027993842342,
+            "title": "HTML Button",
+            "link": "#"
+          },{
+            "id": 9219623027993842342,
+            "title": "HTML Form",
+            "link": "#"
+          },{
+            "id": 9219623027993842342,
+            "title": "HTML Comment",
+            "link": "#"
+          },{
+            "id": 9219623027993842342,
+            "title": "HTML Tags",
+            "link": "#"
+          },{
+            "id": 9219623027993842342,
+            "title": "HTML Attributes",
+            "link": "#"
+          }
+        ]
+      },{
+        "title": "CSS",
+        "articles": [
+          {
+            "id": 8036674375849984253,
+            "title": "CSS Margin",
+            "link": "#"
+          },{
+            "id": 3727947643361574085,
+            "title": "CSS Border",
+            "link": "#"
+          },{
+            "id": 8036674375849984253,
+            "title": "CSS Padding",
+            "link": "#"
+          },{
+            "id": 8516299039556026245,
+            "title": "CSS Width",
+            "link": "#"
+          },{
+            "id": 8036674375849984253,
+            "title": "CSS Height",
+            "link": "#"
+          },{
+            "id": 6052784238775251994,
+            "title": "CSS Image",
+            "link": "#"
+          },{
+            "id": 6438771186465022259,
+            "title": "CSS Color",
+            "link": "#"
+          },{
+            "id": 7460474317346439971,
+            "title": "CSS Background",
+            "link": "#"
+          },{
+            "id": 4338805438377385377,
+            "title": "CSS Important",
+            "link": "#"
+          },{
+            "id": 5753026692942134198,
+            "title": "CSS Comment",
+            "link": "#"
+          },{
+            "id": 8254240317553649969,
+            "title": "CSS Properties",
+            "link": "#"
+          }
+        ]
+      },{
+        "title": "JavaScript",
+        "articles": [
+          {
+            "id": 5692676830589396381,
+            "title": "JavaScript var",
+            "link": "#"
+          },{
+            "id": 1501970772916942068,
+            "title": "JavaScript let",
+            "link": "#"
+          },{
+            "id": 4375439667220814557,
+            "title": "JavaScript const",
+            "link": "#"
+          },{
+            "id": 1191480030942323295,
+            "title": "JavaScript String",
+            "link": "#"
+          },{
+            "id": 3765732994823261306,
+            "title": "JavaScript Number",
+            "link": "#"
+          },{
+            "id": 3184372552608933243,
+            "title": "JavaScript Boolean",
+            "link": "#"
+          },{
+            "id": 3774519311112725111,
+            "title": "JavaScript Object",
+            "link": "#"
+          },{
+            "id": 6646883228793108470,
+            "title": "JavaScript Array",
+            "link": "#"
+          },{
+            "id": 7394785913873760971,
+            "title": "JavaScript Empty data",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript If Else",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Switch Case",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Ternary operator",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript this Keyword",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Callback function",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript DOM nodes",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript For",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript While",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Math",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Date",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Try Catch",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Window",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Screen",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Location",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript History",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Navigator",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Popups",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Timing",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Cookie",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript JSON parse",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript JSON stringify",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript XMLHttp",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Console",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Local storage",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Worker",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Fetch",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Geolocation",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Comment",
+            "link": "#"
+          },{
+            "id": 450220391097339238,
+            "title": "JavaScript Keywords",
+            "link": "#"
+          }
+        ]
+      }
+    ]
+  }
+}
