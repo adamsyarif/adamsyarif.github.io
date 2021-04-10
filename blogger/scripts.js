@@ -41,7 +41,7 @@ const APP = {
     }, 3000);
   },
   data: (d, c)=>{
-    const u = (ENV.devMode ? '/data/' : ENV.repoUrl)+ d +'.json';
+    const u = ENV.repoUrl +'data/'+ d +'.json';
     APP.req(u, r => c(r));
   },
   copy: e =>{
