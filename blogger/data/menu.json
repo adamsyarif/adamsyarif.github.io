@@ -64,45 +64,45 @@
         "title": "JavaScript",
         "articles": [
           {
-            "id": 5692676830589396381,
+            "id": 2520396016107562999,
             "title": "Apa itu JavaScript ?",
-            "link": "#"
+            "link": "/2021/03/apa-itu-javascript.html"
           },{
-            "id": 1501970772916942068,
+            "id": 346763481166625218,
             "title": "JavaScript Variable",
-            "link": "#"
+            "link": "/2021/04/javascript-variable.html"
           },{
-            "id": 4375439667220814557,
+            "id": 5514549753893030850,
             "title": "JavaScript Data type",
-            "link": "#"
+            "link": "/2021/04/javascript-data-type.html"
           },{
-            "id": 1191480030942323295,
+            "id": 1941645726355984710,
             "title": "JavaScript Operator",
-            "link": "#"
+            "link": "/2021/04/javascript-operator.html"
           },{
-            "id": 3765732994823261306,
+            "id": 865517015889537094,
             "title": "JavaScript Conditional statement",
-            "link": "#"
+            "link": "/2021/04/javascript-conditional-statement.html"
           },{
-            "id": 3184372552608933243,
+            "id": 1486573036434545929,
             "title": "JavaScript Function",
-            "link": "#"
+            "link": "/2021/04/javascript-function.html"
           },{
-            "id": 3774519311112725111,
+            "id": 6031191842947406102,
             "title": "JavaScript DOM",
-            "link": "#"
+            "link": "/2021/04/javascript-dom.html"
           },{
-            "id": 6646883228793108470,
+            "id": 5183701800700806758,
             "title": "JavaScript Event listener",
-            "link": "#"
+            "link": "/2021/04/javascript-event-listener.html"
           },{
-            "id": 7394785913873760971,
+            "id": 6875692033431319404,
             "title": "JavaScript Loop",
-            "link": "#"
+            "link": "/2021/04/javascript-loop.html"
           },{
-            "id": 450220391097339238,
+            "id": 8929505932724094296,
             "title": "JavaScript Error handling",
-            "link": "#"
+            "link": "/2021/04/javascript-error-handling.html"
           }
         ]
       }
