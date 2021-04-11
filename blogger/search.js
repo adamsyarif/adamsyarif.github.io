@@ -1,5 +1,5 @@
 RESULT.search = d =>{
-  RESULT.data = d.feed.entry ? d.feed.entry : [];
+  RESULT.data = d.feed.entry ? d.feed.entry.sort(()=> Math.random()-0.5) : [];
   $('#search-detail span').eq(0).text(RESULT.data.length);
   RESULT.load();
 };
