@@ -2,7 +2,7 @@ RUN.titleNav = s =>{
   const t = $('#title-nav');
   if(s){
     let x1, x2, x3, n = '';
-    $('h4 div').each(function(){
+    $('h1 div').each(function(){
       x1 = $('#body').scrollTop();
       x2 = $(this).offset().top;
       x3 = (window.innerWidth > 600)? 150 : 80;
@@ -14,5 +14,5 @@ RUN.titleNav = s =>{
 };
 
 (()=>{
-  if($('h4 div').length == 0) $('#title-nav, .title-nav').remove();
+  if($('h1 div').length == 0) $('#title-nav, .title-nav').remove();
 })();
