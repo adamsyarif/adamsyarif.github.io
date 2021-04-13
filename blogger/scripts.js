@@ -41,7 +41,7 @@ const APP = {
     }, 3000);
   },
   data: (d, c)=>{
-    const u = ENV.repoUrl +'data/'+ d +'.json';
+    const u = ENV.repoUrl +'/data/'+ d +'.json';
     APP.req(u, r => c(r));
   },
   copy: e =>{
@@ -56,8 +56,8 @@ const APP = {
 };
 
 const FEED = {
-  u1: ENV.blogUrl +'search',
-  u2: ENV.blogUrl +'feeds/posts/default',
+  u1: ENV.blogUrl +'/search',
+  u2: ENV.blogUrl +'/feeds/posts/default',
   u3: m => '?alt=json&max-results='+ m,
   search: ()=>{
     const s = $('#searchbar');
@@ -127,9 +127,9 @@ const RUN = {
       $('.a-slide').each(function(){
         const t = $(this).offset().top;
         if(((h+s)-(s+t)) > 50){
-          $(this).removeClass('a-slide, invisible');
           $(this).find('.a-left').addClass('w3-animate-left');
           $(this).find('.a-right').addClass('w3-animate-right');
+          $(this).removeClass('a-slide');
         }
       });
     });
